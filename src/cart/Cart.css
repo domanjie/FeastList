@@ -1,12 +1,10 @@
 #cart {
-  padding: 0px 15px;
-  width: 100vw;
+  width: 100%;
 }
 .cart-header {
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px var(--padding-from-screen-width);
   align-items: flex-end;
 }
 .cart-food-card {
@@ -84,6 +82,9 @@
   flex-basis: 100%;
   margin-left: 0px;
 }
+.cart-first-section {
+  padding: 0px var(--padding-from-screen-width);
+}
 .cart-first-section-div {
   display: flex;
   flex-direction: row;
@@ -101,11 +102,13 @@
 .cart-first-section-div .demarcation {
   border-color: black;
   width: 115%;
+  margin: 0px;
 }
 .cart-second-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
+  padding: 0px var(--padding-from-screen-width);
 }
 .cart-second-section .food-card {
   flex-direction: column;

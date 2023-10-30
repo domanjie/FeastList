@@ -1,10 +1,10 @@
-import pizza from "../../images/pizza.jpg"
-import beans from "../../images/beans.jpg"
-import chicken from "../../images/chicken.jpg"
-import rice from "../../images/rice.jpg"
-import meal1 from "../../images/meal1.jpg"
-import meal2 from "../../images/meal2.jpg"
-import meal3 from "../../images/meal3.jpg"
+import pizza from "../images/pizza.jpg"
+import beans from "../images/beans.jpg"
+import chicken from "../images/chicken.jpg"
+import rice from "../images/rice.jpg"
+import meal1 from "../images/meal1.jpg"
+import meal2 from "../images/meal2.jpg"
+import meal3 from "../images/meal3.jpg"
 
 export const FoodItemData = [
   {

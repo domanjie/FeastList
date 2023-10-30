@@ -1,3 +1,4 @@
+import "./BottomTabBar.css"
 import { HomeIcon, CartInActive, RestaurantsIcon, OrdersIcon } from "../icons"
 
 const BottomTabBar = () => {

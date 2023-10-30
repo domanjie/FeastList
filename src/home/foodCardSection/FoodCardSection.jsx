@@ -2,7 +2,7 @@ import FoodCard from "./FoodCard"
 
 const foodCardSection = ({ FoodCardData }) => {
   return (
-    <section>
+    <section className="food-card-section">
       {FoodCardData.map((item) => (
         <FoodCard {...item}></FoodCard>
       ))}

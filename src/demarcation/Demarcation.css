@@ -1,0 +1,5 @@
+.demarcation {
+  border-top: 1px solid var(--primary--200);
+  height: 1.6px;
+  margin: 5px var(--padding-from-screen-width);
+}

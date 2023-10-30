@@ -1,3 +1,4 @@
+import "./SideMenu.css"
 const SideMenu = ({ setIsOpen, isOpen }) => {
   return (
     <section id="side-menu" onClick={() => setIsOpen(!isOpen)}>

@@ -1,17 +1,24 @@
 import "./Home.css"
 import FoodButtonSection from "./FoodButtonSection/FoodButtonSection"
-import FoodCardSection from "./foodCardSection/foodCardSection"
+import FoodCardSection from "./foodCardSection/FoodCardSection"
 import { FoodItemData, FoodCardData } from "./data.js"
 import { useState } from "react"
-import SideMenu from "./SideMenu"
-import BottomTabBar from "../../bottomTabBar/BottomTabBar"
-import { FeastListLogo, MenuIcon } from "../../icons.jsx"
+import SideMenu from "../sideMenu/SideMenu"
+import BottomTabBar from "../bottomTabBar/BottomTabBar"
+import { FeastListLogo, MenuIcon, CreditCardIcon } from "../icons"
+import Demarcation from "../demarcation/Demarcation"
+import Modal from "../modal/Modal"
+
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <main id="home">
-      {isOpen && <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <Modal>
+          <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        </Modal>
+      )}
 
       <header className="home-header">
         <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
@@ -20,11 +27,11 @@ const Home = () => {
         <FeastListLogo />
       </header>
 
-      <div className="demarcation" />
+      <Demarcation />
 
       <FoodButtonSection FoodItemData={FoodItemData} />
 
-      <div className="demarcation" />
+      <Demarcation />
 
       <h3 className="food-card-title">Feast Your Treat!</h3>
 

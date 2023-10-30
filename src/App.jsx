@@ -1,13 +1,14 @@
 import "./App.css"
-import Home from "./pages/home/Home"
-import Cart from "./pages/cart/cart"
-import Restaurants from "./pages/restaurants/Restaurants"
+import { Cart, Home, OrderPage, SearchPage } from "./pages"
+
 function App() {
   return (
     <>
+      {/* <SearchPage /> */}
+      {/* <OrderPage /> */}
       {/* <Restaurants /> */}
-      <Cart />
-      {/* <Home></Home> */}
+      {/* <Cart /> */}
+      <Home></Home>
     </>
   )
 }

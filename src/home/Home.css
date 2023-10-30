@@ -1,11 +1,9 @@
 #home {
-  padding: 0px 10px;
   width: 100vw;
 }
 .food-button,
 .search-button,
 .more-button,
-.cart-button,
 .menu-button {
   border: none;
   align-items: center;
@@ -22,9 +20,8 @@
 
 .search-button,
 .more-button,
-.cart-button,
 .menu-button {
-  height: 46px;
+  height: 50px;
   width: 50px;
   padding: 3px;
   vertical-align: top;
@@ -34,7 +31,6 @@
 }
 .search-button svg,
 .more-button svg,
-.cart-button svg,
 .menu-button svg {
   width: 25px;
   height: 25px;
@@ -57,14 +53,6 @@
 .unselected-section {
   display: inline;
 }
-
-.demarcation {
-  border-top: 1px solid var(--primary--200);
-  height: 0px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 .selected-section {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -85,6 +73,9 @@
 .selected-section::-webkit-scrollbar-thumb:horizontal {
   background-color: var(--primary--600);
   border-radius: 5px;
+}
+.food-card-section {
+  padding: 0px var(--padding-from-screen-width);
 }
 .food-card {
   background-color: var(--primary--300);
@@ -131,15 +122,6 @@
   padding: 10px;
   width: 100%;
 }
-.food-card-right-section .cart-button {
-  width: 31px;
-  height: 31px;
-  position: absolute;
-  right: 13%;
-  bottom: 5%;
-  margin: 0px;
-  margin-top: 5px;
-}
 .home-header > svg {
   display: block;
   margin: 0px auto;
@@ -153,53 +135,17 @@
   padding-bottom: 15px;
   opacity: 0.9;
 }
-.bottom-tab-bar {
-  background-color: var(--primary--800);
-  display: flex;
-  justify-content: space-around;
-  height: 54px;
-  border-radius: 10px;
-  position: fixed;
-  bottom: 5px;
-  left: 2%;
-  right: 2%;
-}
-.bottom-tab-bar-button {
-  background-color: var(--primary--800);
-  border: none;
-  width: 50px;
-  border-radius: 50%;
-}
-.bottom-tab-bar-button svg {
-  width: 25px;
-  height: 25px;
-}
 .menu-button {
   position: absolute;
   padding: 0px;
   margin: 0px;
   background: none;
 }
-#side-menu {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  height: 100%;
-  position: fixed;
-  padding: 0px;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
-}
-.side-menu-left-div {
-  width: 60%;
-  height: 100%;
-  background-color: var(--primary--100);
-}
+
 .food-card-restaurant-name,
 .food-card-meal-name {
-  font-size: 1.06rem;
-  font-weight: 600;
+  font-size: 1rem;
+  /* font-weight: 600; */
   text-transform: capitalize;
 }
 .food-card-restaurant-name {
@@ -212,4 +158,31 @@
 }
 .food-card-meal-name {
   padding-bottom: 10px;
+}
+.creditCard-btn,
+.cart-button {
+  width: 25px;
+  align-items: center;
+  background: none;
+  border: none;
+  margin: 0px 4px;
+  vertical-align: middle;
+}
+.cart-button {
+  width: 30px;
+}
+.cart-button svg {
+  width: 30px;
+}
+.selected-section .cart-button,
+.selected-section .creditCard-btn {
+  margin-bottom: 15px;
+}
+.food-card-right-section-btns {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: space-between;
+  bottom: 10px;
+  right: 10px;
 }

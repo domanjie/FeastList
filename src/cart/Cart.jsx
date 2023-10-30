@@ -1,12 +1,14 @@
 import "./Cart.css"
-import BottomTabBar from "../../bottomTabBar/BottomTabBar"
-import img1 from "../../images/beans.jpg"
-import img2 from "../../images/meal1.jpg"
-import img3 from "../../images/meal3.jpg"
+import BottomTabBar from "../bottomTabBar/BottomTabBar"
+import img1 from "../images/beans.jpg"
+import img2 from "../images/meal1.jpg"
+import img3 from "../images/meal3.jpg"
 import CartFoodCard from "./CartFoodCard"
 import FoodCard from "../home/foodCardSection/FoodCard"
-import PaymentModal from "../../payment/PaymentModal"
-import AdjustMealModal from "../../AdjustMealModal/AdjustMealModal"
+import Modal from "../modal/Modal"
+import AdjustMealSubPage from "../adjustMeal/AdjustMealSubPage"
+import Demarcation from "../demarcation/Demarcation"
+import Payment from "../payment/Payment"
 const Cart = () => {
   const data = [
     {
@@ -77,12 +79,15 @@ const Cart = () => {
   ]
   return (
     <main id="cart">
-      <AdjustMealModal />
+      <Modal>
+        <AdjustMealSubPage />
+        {/* <Payment></Payment> */}
+      </Modal>
       <header className="cart-header">
         <h2>Cart</h2>
         <button className="clear-cart-btn">CLEAR CART</button>
       </header>
-      <div className="demarcation" />
+      <Demarcation />
       <section className="cart-first-section">
         {data.map((item) => (
           <CartFoodCard {...item}></CartFoodCard>
@@ -92,12 +97,12 @@ const Cart = () => {
           <button className="checkout-btn">Checkout</button>
           <div>
             <p>$5234</p>
-            <div className="demarcation" />
+            <Demarcation />
             <p>Total</p>
           </div>
         </div>
       </section>
-      <div className="demarcation"></div>
+      <Demarcation />
       <h3>More😂😁😁</h3>
       <section className="cart-second-section">
         {data2.map((item) => (

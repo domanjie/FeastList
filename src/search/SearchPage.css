@@ -1,0 +1,28 @@
+.search-page {
+  width: 100%;
+  height: 100%;
+}
+.search-page .demarcation {
+  margin: 3px 0px;
+  /* height: 10px; */
+}
+.search-page-header {
+  display: flex;
+  padding: 10px var(--padding-from-screen-width);
+  padding-bottom: 0px;
+  justify-content: space-around;
+}
+.arrowLongLeft-btn {
+  width: 25px;
+  background: none;
+  border: none;
+}
+#search-input {
+  flex-basis: 90%;
+  border: none;
+  outline: none;
+  line-height: 20px;
+  font-size: 1.1rem;
+  background: none;
+  /* height: 40px; */
+}

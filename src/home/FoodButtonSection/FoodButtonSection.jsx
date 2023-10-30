@@ -1,10 +1,10 @@
 import { useState } from "react"
 import FoodButton from "./FoodButton"
-import pizza from "../../../images/pizza.jpg"
-import beans from "../../../images/beans.jpg"
-import chicken from "../../../images/chicken.jpg"
-import rice from "../../../images/rice.jpg"
-import { PlusIcon, SearchIcon, CartInActive } from "../../../icons"
+import pizza from "../../images/pizza.jpg"
+import beans from "../../images/beans.jpg"
+import chicken from "../../images/chicken.jpg"
+import rice from "../../images/rice.jpg"
+import { PlusIcon, SearchIcon, CartInActive, CreditCardIcon } from "../../icons"
 const FoodButtonSection = ({ FoodItemData }) => {
   const [selectedFoodData, setSelectedFoodItems] = useState([
     {
@@ -43,6 +43,9 @@ const FoodButtonSection = ({ FoodItemData }) => {
           ))}
           <button className="cart-button">
             <CartInActive />
+          </button>
+          <button className="creditCard-btn">
+            <CreditCardIcon />
           </button>
         </div>
       )}

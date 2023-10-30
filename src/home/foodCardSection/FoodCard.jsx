@@ -1,9 +1,10 @@
 import {
   CartActive,
   CartInActive,
+  CreditCardIcon,
   OrdersIcon,
   RestaurantsIcon,
-} from "../../../icons"
+} from "../../icons"
 
 const FoodCard = ({ avatar, price, name, restaurant, isInCart }) => {
   return (
@@ -17,15 +18,20 @@ const FoodCard = ({ avatar, price, name, restaurant, isInCart }) => {
       <div className="food-card-right-section">
         <p className="food-card-meal-name">{name}</p>
         <p className="food-card-restaurant-name">{restaurant}</p>
-        {isInCart ? (
-          <button className="cart-button">
-            <CartActive />
+        <div className="food-card-right-section-btns ">
+          {isInCart ? (
+            <button className="cart-button">
+              <CartActive />
+            </button>
+          ) : (
+            <button className="cart-button">
+              <CartInActive />
+            </button>
+          )}
+          <button className="creditCard-btn">
+            <CreditCardIcon />
           </button>
-        ) : (
-          <button className="cart-button">
-            <CartInActive />
-          </button>
-        )}
+        </div>
       </div>
     </section>
   )

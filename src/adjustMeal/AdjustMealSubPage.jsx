@@ -1,25 +1,25 @@
-import "./AdjustMealModal.css"
+import "./AdjustMeal.css"
 import { ChevronUp, ChevronDown } from "../icons"
-const AdjustMealModal = () => {
+import SubPage from "../subpage/SubPage"
+const AdjustMealSubPage = () => {
   return (
-    <section className="payment-modal">
-      <div>
-        <h4>Closest Restaurants Serving Chosen Meal </h4>
-        <ul>
-          <li>Glystin Kitchens</li>
-          <li>mama-perpetual foods</li>
-          <li>victoria kitchens</li>
-        </ul>
-        <h4>Popular Restaurants Serving Chosen Meal</h4>
-        <ul>
-          <li>Gt foods</li>
-          <li>Mat-ice</li>
-          <li>Cream-2-Go</li>
-          <li>Kilimanjaro</li>
-        </ul>
-        <h4> </h4>
-      </div>
-      {/* <h2></h2> 
+    <SubPage>
+      {/* <h4>Closest Restaurants Serving Chosen Meal </h4>
+      <ul>
+        <li>Glystin Kitchens</li>
+        <li>mama-perpetual foods</li>
+        <li>victoria kitchens</li>
+      </ul>
+      <h4>Popular Restaurants Serving Chosen Meal</h4>
+      <ul>
+        <li>Gt foods</li>
+        <li>Mat-ice</li>
+        <li>Cream-2-Go</li>
+        <li>Kilimanjaro</li>
+      </ul>
+      <h4> </h4> */}
+
+      <h2></h2>
       <div>
         <ul>
           <li>
@@ -70,8 +70,8 @@ const AdjustMealModal = () => {
         </ul>
         <button className="login-btn">Order Now</button>
         <button className="login-btn">Add to Cart</button>
-      </div> */}
-    </section>
+      </div>
+    </SubPage>
   )
 }
-export default AdjustMealModal
+export default AdjustMealSubPage

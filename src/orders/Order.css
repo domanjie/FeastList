@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px var(--padding-from-screen-width);
+}
+.history-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 83px;
+  margin-left: var(--padding-from-screen-width);
+}
+.historyIcon-btn {
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  background: none;
+  border: none;
+}
+.order {
+  display: flex;
+  margin: 15px var(--padding-from-screen-width);
+  column-gap: 10px;
+  align-items: center;
+}
+
+.order li {
+  list-style: none;
+  padding: 5px 0px;
+}
+
+.ico-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order img {
+  width: 35%;
+  height: 120px;
+  border-radius: 10px;
+}
+.green-text {
+  color: green;
+}
+.ico-li .chevronRight-btn {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+}

@@ -1,9 +1,4 @@
-import {
-  ChevronDown,
-  ChevronUp,
-  AdjustMentIcon,
-  SaveMealIcon,
-} from "../../icons";
+import { ChevronDown, ChevronUp, AdjustMentIcon, SaveMealIcon } from "../icons"
 const CartFoodCard = ({ image, name, amount, userMade, price }) => {
   return (
     <section
@@ -40,6 +35,6 @@ const CartFoodCard = ({ image, name, amount, userMade, price }) => {
         </div>
       </div>
     </section>
-  );
-};
-export default CartFoodCard;
+  )
+}
+export default CartFoodCard
