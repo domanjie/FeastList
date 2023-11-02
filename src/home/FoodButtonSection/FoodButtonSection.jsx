@@ -5,6 +5,7 @@ import beans from "../../images/beans.jpg"
 import chicken from "../../images/chicken.jpg"
 import rice from "../../images/rice.jpg"
 import { PlusIcon, SearchIcon, CartInActive, CreditCardIcon } from "../../icons"
+import { Link } from "react-router-dom"
 const FoodButtonSection = ({ FoodItemData }) => {
   const [selectedFoodData, setSelectedFoodItems] = useState([
     {
@@ -55,10 +56,11 @@ const FoodButtonSection = ({ FoodItemData }) => {
           <FoodButton {...item} />
         ))}
       </div>
-
-      <button className="search-button">
-        <SearchIcon />
-      </button>
+      <Link to={"/search"}>
+        <button className="search-button">
+          <SearchIcon />
+        </button>
+      </Link>
 
       <button className="more-button">
         <PlusIcon />

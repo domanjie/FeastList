@@ -1,9 +1,9 @@
 import "./Restaurants.css"
-import BottomTabBar from "../../bottomTabBar/BottomTabBar"
-import img1 from "../../images/chicken.jpg"
-import img2 from "../../images/meal2.jpg"
-import img3 from "../../images/meal3.jpg"
-import img4 from "../../images/pizza.jpg"
+import BottomTabBar from "../bottomTabBar/BottomTabBar"
+import img1 from "../images/chicken.jpg"
+import img2 from "../images/meal2.jpg"
+import img3 from "../images/meal3.jpg"
+import img4 from "../images/pizza.jpg"
 import RestaurantCard from "./RestaurantCard"
 const Restaurants = () => {
   const data = [

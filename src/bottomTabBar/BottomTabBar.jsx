@@ -1,20 +1,29 @@
 import "./BottomTabBar.css"
 import { HomeIcon, CartInActive, RestaurantsIcon, OrdersIcon } from "../icons"
+import { Link } from "react-router-dom"
 
 const BottomTabBar = () => {
   return (
     <section className="bottom-tab-bar">
       <button className="bottom-tab-bar-button">
-        <HomeIcon />
+        <Link to={"/"}>
+          <HomeIcon />
+        </Link>
       </button>
       <button className="bottom-tab-bar-button">
-        <CartInActive />
+        <Link to={"/cart"}>
+          <CartInActive />
+        </Link>
       </button>
       <button className="bottom-tab-bar-button">
-        <RestaurantsIcon />
+        <Link to={"/restaurants"}>
+          <RestaurantsIcon />
+        </Link>
       </button>
       <button className="bottom-tab-bar-button">
-        <OrdersIcon />
+        <Link to={"/orders"}>
+          <OrdersIcon />
+        </Link>
       </button>
     </section>
   )

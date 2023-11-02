@@ -79,10 +79,10 @@ const Cart = () => {
   ]
   return (
     <main id="cart">
-      <Modal>
+      {/* <Modal>
         <AdjustMealSubPage />
-        {/* <Payment></Payment> */}
-      </Modal>
+        <Payment></Payment>
+      </Modal> */}
       <header className="cart-header">
         <h2>Cart</h2>
         <button className="clear-cart-btn">CLEAR CART</button>

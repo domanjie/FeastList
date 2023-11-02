@@ -1,14 +1,27 @@
 import "./App.css"
-import { Cart, Home, OrderPage, SearchPage } from "./pages"
+import {
+  Cart,
+  Home,
+  OrderPage,
+  Restaurants,
+  SearchPage,
+  SignUP,
+  Login,
+} from "./pages"
+import { Routes, Route } from "react-router-dom"
 
 function App() {
   return (
     <>
-      {/* <SearchPage /> */}
-      {/* <OrderPage /> */}
-      {/* <Restaurants /> */}
-      {/* <Cart /> */}
-      <Home></Home>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/orders" element={<OrderPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUP />} />
+      </Routes>
     </>
   )
 }

@@ -1,55 +1,110 @@
+import "./styles.css"
+import { Link } from "react-router-dom"
+import mailIcon from "./assets/mail.svg"
+import passwordIcon from "./assets/password.svg"
+import maleGender from "./assets/maleGender.svg"
+import femaleGender from "./assets/femaleGender.svg"
+import InputBlock from "./InputBlock"
+import { useState } from "react"
+import { useMutation } from "@tanstack/react-query"
+import { singUp } from "./loginApi"
+
 const SignUp = () => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    Gender: "",
+    matNo: "",
+  })
+  const handleChange = (e) => {
+    console.log(user)
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+  const inputs = [
+    {
+      id: "email",
+      name: "email",
+      pText: "Email",
+      type: "email",
+      value: user.email,
+      handleChange,
+      err: "Must be a valid email",
+      ico: mailIcon,
+    },
+    {
+      id: "mat-no",
+      name: "matNo",
+      pText: "Mat-Number",
+      type: "text",
+      value: user.matNo,
+      handleChange,
+    },
+    {
+      id: "password",
+      name: "password",
+      pText: "Password",
+      type: "password",
+      ico: passwordIcon,
+      err: "Minimum eight characters, at least one letter and one number:",
+      pattern: "(?=.*[A-Za-z])(?=.*\\d).{8,}",
+      value: user.password,
+      handleChange,
+    },
+    {
+      id: "password2",
+      name: "confirmPassword",
+      pText: "Confirm Password",
+      type: "password",
+      ico: passwordIcon,
+      err: "Passwords must match",
+      pattern: user.password,
+      value: user.confirmPassword,
+      handleChange,
+    },
+  ]
+  const genderInputs = [
+    {
+      className: "form-block gender-form-block",
+      id: "male",
+      pText: "Male",
+      type: "radio",
+      ico: maleGender,
+      name: "gender",
+      value: "MALE",
+      handleChange,
+    },
+    {
+      className: "form-block gender-form-block",
+      id: "female",
+      pText: "female",
+      type: "radio",
+      ico: femaleGender,
+      name: "gender",
+      value: "FEMALE",
+      handleChange,
+    },
+  ]
+  const postNewUser = useMutation({
+    mutationFn: singUp,
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    postNewUser.mutate(JSON.stringify(user))
+    postNewUser.i
+  }
   return (
     <section id="login-form">
       <h1>Sign Up</h1>
-      <form>
-        <div className="form-block">
-          <label htmlFor="email">
-            <p>Email </p>
-            <img src="src/assets/mail.svg"></img>
-          </label>
-          <input type="email" id="email" autoFocus />
-        </div>
-        <div className="form-block">
-          <label htmlFor="mat-no">
-            <p>Mat-Number</p>
-            <img src="" alt="" />
-          </label>
-          <input type="text" id="mat-no" />
-        </div>
-        <div className="form-block">
-          <label htmlFor="password">
-            <p>Password</p>
-            <img src="src\assets\password.svg" alt="" />
-          </label>
-          <input type="password" id="password" />
-        </div>
-        <div className="form-block">
-          <label htmlFor="password">
-            <p>Confirm Password</p>
-            <img src="src\assets\password.svg" alt="" />
-          </label>
-          <input type="password" id="password" />
-        </div>
-        <label htmlFor="gender">
-          Gender
-          <img src="src\assets\gender.svg" alt="" />
-        </label>
+      <form onSubmit={handleSubmit}>
+        {inputs.map((entry) => (
+          <InputBlock {...entry} />
+        ))}
+        <label htmlFor="gender">Gender</label>
         <section id="gender">
-          <div className="form-block gender-form-block">
-            <label htmlFor="male">
-              <p>Male</p>
-              <img src="src\assets\maleGender.svg" alt="" />
-            </label>
-            <input type="radio" name="gender" id="male" />
-          </div>
-          <div className="form-block gender-form-block">
-            <label htmlFor="female">
-              <p>Female</p>
-              <img src="src\assets\femaleGender.svg" alt="" />
-            </label>
-            <input type="radio" name="gender" id="female" />
-          </div>
+          {genderInputs.map((entry) => (
+            <InputBlock {...entry} />
+          ))}
         </section>
         <button type="submit" className="login-btn sign-up-btn">
           Create account
@@ -57,9 +112,9 @@ const SignUp = () => {
       </form>
       <p>
         Have an account ?
-        <a href="youtube.com" className="s-l-link">
+        <Link to={"/login"} className="s-l-link">
           login
-        </a>
+        </Link>
       </p>
     </section>
   )
