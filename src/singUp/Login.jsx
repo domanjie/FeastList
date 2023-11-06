@@ -1,19 +1,22 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import mailIcon from "./assets/mail.svg"
 import passwordIcon from "./assets/password.svg"
 import InputBlock from "./InputBlock"
 import GoogleIcon from "./assets/Google.svg"
-import { useState } from "react"
-
+import axios from "../api"
+import useAuthContext from "../customHooks/useAuthContext"
 const LOGIN_URL = "/login"
-
 const Login = () => {
+  const { auth, setAuth } = useAuthContext()
+  const location = useLocation()
+  const from = location.state?.from
+  const navigate = useNavigate()
   const inputs = [
     {
       id: "email",
       ico: mailIcon,
       name: "username",
-      type: "email",
+      type: "text",
       pText: "Email",
     },
     {
@@ -24,10 +27,24 @@ const Login = () => {
       ico: passwordIcon,
     },
   ]
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const user = Object.fromEntries(formData)
+    const response = await axios.post(
+      "/api/v1/authentication/login",
+      JSON.stringify(user),
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    const accessToken = response.data
+    setAuth(accessToken)
+    console.log(auth)
+    navigate(from, { replace: true })
   }
 
   return (

@@ -7,7 +7,7 @@ import femaleGender from "./assets/femaleGender.svg"
 import InputBlock from "./InputBlock"
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
-import { singUp } from "./loginApi"
+import { singUp, login } from "./fuctions.js"
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -88,10 +88,18 @@ const SignUp = () => {
   const postNewUser = useMutation({
     mutationFn: singUp,
   })
+  const loginNewUser = useMutation({})
   const handleSubmit = (e) => {
     e.preventDefault()
-    postNewUser.mutate(JSON.stringify(user))
-    postNewUser.i
+    postNewUser.mutate({
+      userId: user.email,
+      password: user.password,
+      passwordConfirm: user.confirmPassword,
+      gender: user.Gender,
+    })
+    // if (postNewUser.isSuccess) {
+    //   loginNewUser.mutate({ email: user.email, password: user.password })
+    // }
   }
   return (
     <section id="login-form">
