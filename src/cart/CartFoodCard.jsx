@@ -15,13 +15,15 @@ const CartFoodCard = ({ image, name, amount, userMade, price }) => {
         </div>
         <div className="cart-food-card-div-secondChild">
           {userMade && (
-            <button className="adjustment-button">
-              <AdjustMentIcon />
-            </button>
+            <>
+              <button className="adjustment-button">
+                <AdjustMentIcon />
+              </button>
+              <button className="saveMeal-button">
+                <SaveMealIcon />
+              </button>
+            </>
           )}
-          <button className="saveMeal-button">
-            <SaveMealIcon />
-          </button>
         </div>
 
         <div className="amount-editor-div">

@@ -4,5 +4,15 @@ import Login from "../singUp/Login"
 import OrderPage from "../orders/OrderPage"
 import Cart from "../cart/Cart"
 import SearchPage from "../search/SearchPage"
-import Restaurants from "../restaurants/Restaurants"
-export { SearchPage, Cart, OrderPage, Login, SignUP, Home, Restaurants }
+import VendorPage from "../vendor/VendorPage"
+import NotFoundPage from "../notFound/NotFoundPage"
+export {
+  SearchPage,
+  Cart,
+  OrderPage,
+  Login,
+  SignUP,
+  Home,
+  VendorPage,
+  NotFoundPage,
+}

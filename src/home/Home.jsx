@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <main id="home">
-      {false && (
+      {isOpen && (
         <Modal>
           <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </Modal>
@@ -26,14 +26,11 @@ const Home = () => {
         </button>
         <FeastListLogo />
       </header>
-      <Demarcation />
       <FoodButtonSection FoodItemData={FoodItemData} />
-      <Demarcation />
-      <h3 className="food-card-title">Feast Your Treat!</h3>
+      <h3 className="food-card-title">Feast Your Treat</h3>
       <FoodCardSection FoodCardData={FoodCardData} />
-      <BottomTabBar />
+      <BottomTabBar indicatorState={[true, false, false, false]} />
     </main>
   )
 }
 export default Home
-0

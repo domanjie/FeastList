@@ -1,40 +1,29 @@
 #home {
   width: 100vw;
 }
-.food-button,
-.search-button,
-.more-button,
-.menu-button {
+.food-button {
   border: 1px solid silver;
-  align-items: center;
   border-radius: 60px;
   background: none;
   height: 46px;
   display: inline;
-  margin-right: 7px;
-  margin-left: 7px;
-  margin-bottom: 12px;
-  margin-top: 12px;
+  margin: 12px 7px;
 }
-
+.cart-button {
+  width: 30px;
+}
+.cart-button svg {
+  width: 30px;
+}
 .search-button,
 .more-button,
 .menu-button {
-  height: 50px;
-  width: 50px;
-  padding: 3px;
-  vertical-align: top;
-  border-radius: 50%;
-  background: none;
-  box-shadow: none;
-  border: none;
-}
-.search-button svg,
-.more-button svg,
-.menu-button svg {
   width: 25px;
-  height: 25px;
+  background: none;
+  border: none;
+  margin: 0px 7px;
 }
+
 .food-button span {
   display: flex;
   align-items: center;
@@ -69,7 +58,6 @@
   background: none;
   display: flex;
   margin-bottom: 25px;
-  border-radius: 10px;
   overflow: hidden;
   width: 100%;
   height: 124px;
@@ -77,74 +65,47 @@
   position: relative;
 }
 .food-card-avatar {
-  width: 172px;
-  height: 100%;
-}
-.price-tag {
-  position: absolute;
-  color: white;
-  padding: 5px;
+  min-width: 172px;
   border-radius: 10px;
-  opacity: 0.7;
-  border-bottom-left-radius: 50px;
-  border-top-left-radius: 50px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  column-gap: 4px;
-  bottom: 20px;
-  right: -4px;
-  font-size: var(--small-text);
-}
-.price-tag div {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 300vh black;
-}
-.food-card-left-section {
-  position: relative;
 }
 .food-card-right-section {
   padding: 10px;
+  min-width: 130px;
   width: 100%;
+  margin: 2px 7px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.home-header > svg {
-  display: block;
-  margin: 0px auto;
-  width: 115px;
+.home-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
   padding: 5px;
-  padding-bottom: 0px;
-}
-.food-card-title {
-  width: fit-content;
-  margin: 0px auto;
-  padding-bottom: 15px;
-  opacity: 0.9;
 }
 .menu-button {
   position: absolute;
-  padding: 0px;
-  margin: 0px;
-  background: none;
+  top: 7px;
+  left: 0;
+}
+.food-card-title {
+  padding-bottom: 10px;
+  padding-top: 25px;
+  padding-left: 10px;
 }
 
 .food-card-restaurant-name,
 .food-card-meal-name {
-  font-size: 1rem;
-  /* font-weight: 600; */
+  font-weight: normal;
   text-transform: capitalize;
 }
 .food-card-restaurant-name {
   opacity: 0.6;
-  font-size: 1rem;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 85%;
-}
-.food-card-meal-name {
-  padding-bottom: 10px;
 }
 .creditCard-btn,
 .cart-button {
@@ -155,12 +116,7 @@
   margin: 0px 4px;
   vertical-align: middle;
 }
-.cart-button {
-  width: 30px;
-}
-.cart-button svg {
-  width: 30px;
-}
+
 .selected-section .cart-button,
 .selected-section .creditCard-btn {
   margin-bottom: 15px;
@@ -168,8 +124,10 @@
 .food-card-right-section-btns {
   display: flex;
   align-items: center;
-  position: absolute;
+  column-gap: 10px;
+}
+.display-flex {
+  display: flex;
   justify-content: space-between;
-  bottom: 10px;
-  right: 10px;
+  align-items: center;
 }

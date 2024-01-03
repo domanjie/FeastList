@@ -4,10 +4,11 @@ import {
   Cart,
   Home,
   OrderPage,
-  Restaurants,
+  VendorPage,
   SearchPage,
   SignUP,
   Login,
+  NotFoundPage,
 } from "./pages"
 import { Routes, Route } from "react-router-dom"
 
@@ -20,10 +21,11 @@ function App() {
         <Route element={<AuthRequired />}>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/restaurants" element={<Restaurants />} />
+          <Route path="/vendors" element={<VendorPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/orders" element={<OrderPage />} />
         </Route>
+        <Route path="/*" element={<NotFoundPage />}></Route>
       </Routes>
     </>
   )

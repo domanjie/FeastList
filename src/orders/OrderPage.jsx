@@ -20,7 +20,7 @@ const OrderPage = () => {
         <p>history</p>
       </div>
 
-      <BottomTabBar />
+      <BottomTabBar indicatorState={[false, false, false, true]} />
     </main>
   )
 }

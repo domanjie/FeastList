@@ -8,7 +8,7 @@ const AuthRequired = () => {
   console.log(auth)
   return (
     <>
-      {auth ? (
+      {true ? (
         <Outlet />
       ) : (
         <Navigate

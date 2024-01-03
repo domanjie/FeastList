@@ -19,3 +19,15 @@
   width: 25px;
   height: 25px;
 }
+.indicator {
+  background-color: var(--primary--600);
+  width: 15px;
+  height: 5px;
+  border-radius: 10px;
+}
+.bottom-tab-bar > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

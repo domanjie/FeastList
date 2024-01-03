@@ -44,7 +44,7 @@ const Login = () => {
     const accessToken = response.data
     setAuth(accessToken)
     console.log(auth)
-    navigate(from, { replace: true })
+    from ? navigate(from, { replace: true }) : navigate("/", { replace: true })
   }
 
   return (

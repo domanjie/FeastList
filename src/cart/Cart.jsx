@@ -84,7 +84,7 @@ const Cart = () => {
         <Payment></Payment>
       </Modal> */}
       <header className="cart-header">
-        <h2>Cart</h2>
+        <h2>Tray</h2>
         <button className="clear-cart-btn">CLEAR CART</button>
       </header>
       <Demarcation />
@@ -102,14 +102,13 @@ const Cart = () => {
           </div>
         </div>
       </section>
-      <Demarcation />
-      <h3>More😂😁😁</h3>
+      <h3>More</h3>
       <section className="cart-second-section">
         {data2.map((item) => (
           <FoodCard {...item} />
         ))}
       </section>
-      <BottomTabBar />
+      <BottomTabBar indicatorState={[false, true, false, false]} />
     </main>
   )
 }

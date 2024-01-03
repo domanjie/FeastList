@@ -37,20 +37,6 @@ const FoodButtonSection = ({ FoodItemData }) => {
   const [unSelectedFoodData, setUnselectedFoodItems] = useState(FoodItemData)
   return (
     <section>
-      {selectedFoodData && (
-        <div className="selected-section">
-          {selectedFoodData.map((item) => (
-            <FoodButton key={item.key} {...item} />
-          ))}
-          <button className="cart-button">
-            <CartInActive />
-          </button>
-          <button className="creditCard-btn">
-            <CreditCardIcon />
-          </button>
-        </div>
-      )}
-
       <div className="unselected-section">
         {unSelectedFoodData.map((item) => (
           <FoodButton {...item} />
@@ -65,6 +51,19 @@ const FoodButtonSection = ({ FoodItemData }) => {
       <button className="more-button">
         <PlusIcon />
       </button>
+      {selectedFoodData && (
+        <div className="selected-section">
+          {selectedFoodData.map((item) => (
+            <FoodButton key={item.key} {...item} />
+          ))}
+          <button className="cart-button">
+            <CartInActive />
+          </button>
+          <button className="creditCard-btn">
+            <CreditCardIcon />
+          </button>
+        </div>
+      )}
     </section>
   )
 }
