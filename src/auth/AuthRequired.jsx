@@ -1,23 +1,9 @@
-import { useContext } from "react"
-import { Navigate, Outlet, useLocation } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import useAuthContext from "../customHooks/useAuthContext"
-
+import RefreshToken from "./RefreshToken"
 const AuthRequired = () => {
-  const location = useLocation()
   const { auth } = useAuthContext()
   console.log(auth)
-  return (
-    <>
-      {true ? (
-        <Outlet />
-      ) : (
-        <Navigate
-          to={"/login"}
-          state={{ from: location.pathname }}
-          replace={true}
-        />
-      )}
-    </>
-  )
+  return <>{auth ? <Outlet /> : <RefreshToken />}</>
 }
 export default AuthRequired

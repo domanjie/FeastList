@@ -2,10 +2,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import mailIcon from "./assets/mail.svg"
 import passwordIcon from "./assets/password.svg"
 import InputBlock from "./InputBlock"
-import GoogleIcon from "./assets/Google.svg"
-import axios from "../api"
+import { GoogleIcon } from "../icons"
+import { axios2 } from "../api"
 import useAuthContext from "../customHooks/useAuthContext"
-const LOGIN_URL = "/login"
+const LOGIN_URL = "/api/v1/authentication/login"
 const Login = () => {
   const { auth, setAuth } = useAuthContext()
   const location = useLocation()
@@ -32,15 +32,7 @@ const Login = () => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const user = Object.fromEntries(formData)
-    const response = await axios.post(
-      "/api/v1/authentication/login",
-      JSON.stringify(user),
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    const response = await axios2.post(LOGIN_URL, JSON.stringify(user))
     const accessToken = response.data
     setAuth(accessToken)
     console.log(auth)
@@ -72,7 +64,7 @@ const Login = () => {
         <div className="h-line"></div>
       </section>
       <div className="sso-block">
-        <img src={GoogleIcon} alt="" />
+        <GoogleIcon></GoogleIcon>
         <p>Sign in with Google</p>
       </div>
       <p>Forgot password?</p>

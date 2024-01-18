@@ -2,12 +2,12 @@ import { axios2 } from "../api"
 import useAuthContext from "./useAuthContext"
 import { useRefreshToken } from "./useRefreshToken"
 import { useEffect } from "react"
-import { refreshTokens } from "./useRefreshToken"
+import useRefreshToken from "./useRefreshToken"
 const useTokenizedAxios = () => {
-  const {auth,setAuth}= useAuthContext()
-
+  const {auth}= useAuthContext()
+  const refreshTokens=useRefreshToken();
   useEffect(() => {
-    const requestInterceptor = axios2.interceptors.response.use((config) => {
+    const requestInterceptor = axios2.interceptors.request.use((config) => {
         if(!config.headers["Authorization"]){
             config?.headers["Authorization"]=`Bearer ${auth}`
         }
