@@ -1,6 +1,6 @@
 import axios from "axios"
 const BASE_URL = "http://localhost:8080"
-export const axios2 = axios.create({
+export const feastList_axios = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
   headers: {

@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { axios2 } from "../api"
+import { feastList_axios } from "../api"
 import useAuthContext from "./useAuthContext"
 
 export const useRefreshToken = () => {
@@ -8,9 +8,12 @@ export const useRefreshToken = () => {
   const navigate = useNavigate()
   const refreshTokens = async () => {
     try {
-      const response = await axios2.get("/api/v1/authentication/refresh", {
-        withCredentials: true,
-      })
+      const response = await feastList_axios.get(
+        "/api/v1/authentication/refresh",
+        {
+          withCredentials: true,
+        }
+      )
       await setAuth(response.data)
       return response.data
     } catch (error) {

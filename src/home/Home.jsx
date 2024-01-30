@@ -4,10 +4,12 @@ import FoodCardSection from "./foodCardSection/FoodCardSection"
 import { FoodItemData, FoodCardData } from "./data.js"
 import { useState } from "react"
 import SideMenu from "../sideMenu/SideMenu"
-import { FeastListLogo, MenuIcon } from "../icons"
+import { FeastListLogo, MenuIcon, SearchIcon } from "../icons"
 import Modal from "../modal/Modal"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
 import PageSpinner from "../spinner/PageSpinner"
+import { Link } from "react-router-dom"
+
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -24,6 +26,11 @@ const Home = () => {
           <MenuIcon />
         </button>
         <FeastListLogo />
+        <Link to={"/search"}>
+          <button className="search-button">
+            <SearchIcon />
+          </button>
+        </Link>
       </header>
       <FoodButtonSection FoodItemData={FoodItemData} />
       <h3 className="food-card-title">Feast Your Treat</h3>

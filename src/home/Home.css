@@ -78,20 +78,16 @@
 .home-header {
   position: relative;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   padding: 5px;
 }
-.menu-button {
-  position: absolute;
-  top: 7px;
-  left: 0;
-}
+
 .food-card-title {
   padding-bottom: 10px;
   padding-top: 25px;
   padding-left: 10px;
 }
-
 .food-card-restaurant-name,
 .food-card-meal-name {
   font-weight: normal;

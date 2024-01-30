@@ -1,6 +1,14 @@
-const FoodButton = ({ avatar, name }) => {
+import { useEffect } from "react"
+
+const FoodButton = ({ id, avatar, name, handleClick }) => {
   return (
-    <button className="food-button">
+    <button
+      key={id}
+      onClick={() => {
+        handleClick(id)
+      }}
+      className="food-button"
+    >
       <span>
         <img src={avatar} alt={name} />
         <p>{name}</p>

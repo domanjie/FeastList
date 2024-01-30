@@ -3,7 +3,7 @@ import mailIcon from "./assets/mail.svg"
 import passwordIcon from "./assets/password.svg"
 import InputBlock from "./InputBlock"
 import { GoogleIcon } from "../icons"
-import { axios2 } from "../api"
+import { feastList_axios } from "../api"
 import useAuthContext from "../customHooks/useAuthContext"
 const LOGIN_URL = "/api/v1/authentication/login"
 const Login = () => {
@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const user = Object.fromEntries(formData)
-    const response = await axios2.post(LOGIN_URL, JSON.stringify(user))
+    const response = await feastList_axios.post(LOGIN_URL, JSON.stringify(user))
     const accessToken = response.data
     setAuth(accessToken)
     console.log(auth)

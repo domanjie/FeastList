@@ -1,54 +1,73 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import FoodButton from "./FoodButton"
 import pizza from "../../images/pizza.jpg"
 import beans from "../../images/beans.jpg"
 import chicken from "../../images/chicken.jpg"
 import rice from "../../images/rice.jpg"
-import { PlusIcon, SearchIcon, CartInActive, CreditCardIcon } from "../../icons"
-import { Link } from "react-router-dom"
+import { PlusIcon, CartInActive, CreditCardIcon } from "../../icons"
 const FoodButtonSection = ({ FoodItemData }) => {
+  const SelectedFoodRef = useRef()
+  const [unSelectedFoodData, setUnselectedFoodItems] = useState(FoodItemData)
   const [selectedFoodData, setSelectedFoodItems] = useState([
     {
-      key: 1,
+      id: 1,
       name: "pizza",
       avatar: pizza,
     },
     {
-      key: 2,
+      id: 2,
       name: "Beans",
       avatar: beans,
     },
     {
-      key: 3,
+      id: 3,
       name: "Chicken",
       avatar: chicken,
     },
     {
-      key: 4,
+      id: 4,
       name: "Rice",
       avatar: rice,
     },
     {
-      key: 5,
+      id: 5,
       name: "Pounded yam ",
       avatar: chicken,
     },
   ])
-  const [unSelectedFoodData, setUnselectedFoodItems] = useState(FoodItemData)
+  useEffect(() => {
+    const selectedFoodWindow = SelectedFoodRef.current
+    selectedFoodWindow.scrollTo({
+      left: selectedFoodWindow.scrollWidth,
+      behavior: "smooth",
+    })
+  })
+  const addToSelected = (key) => {
+    const result = unSelectedFoodData.filter((datum) => datum.id === key)
+    setSelectedFoodItems([...selectedFoodData, ...result])
+    setUnselectedFoodItems(
+      unSelectedFoodData.filter((datum) => datum.id != key)
+    )
+  }
+  const removeFromSelected = (key) => {
+    const result = selectedFoodData.filter((datum) => datum.id === key)
+    setUnselectedFoodItems([...unSelectedFoodData, ...result])
+    setSelectedFoodItems(selectedFoodData.filter((datum) => datum.id != key))
+  }
   return (
     <section>
       <div className="unselected-section">
         {unSelectedFoodData.map((item) => (
-          <FoodButton {...item} />
+          <FoodButton {...item} handleClick={addToSelected} />
         ))}
       </div>
       <button className="more-button">
         <PlusIcon />
       </button>
       {selectedFoodData && (
-        <div className="selected-section">
+        <div ref={SelectedFoodRef} className="selected-section">
           {selectedFoodData.map((item) => (
-            <FoodButton key={item.key} {...item} />
+            <FoodButton {...item} handleClick={removeFromSelected} />
           ))}
           <button className="cart-button">
             <CartInActive />

@@ -7,7 +7,7 @@ import femaleGender from "./assets/femaleGender.svg"
 import InputBlock from "./InputBlock"
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
-import { singUp, login } from "./fuctions.js"
+import { singUp, login } from "./functions.js"
 
 const SignUp = () => {
   const [user, setUser] = useState({

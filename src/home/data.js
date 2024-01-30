@@ -8,42 +8,42 @@ import meal3 from "../images/meal3.jpg"
 
 export const FoodItemData = [
   {
-    key: 1,
+    id: 1,
     name: "pizza",
     avatar: pizza,
   },
   {
-    key: 2,
+    id: 2,
     name: "Beans",
     avatar: beans,
   },
   {
-    key: 3,
+    id: 3,
     name: "Chicken",
     avatar: chicken,
   },
   {
-    key: 4,
+    id: 4,
     name: "Rice",
     avatar: rice,
   },
   {
-    key: 5,
+    id: 5,
     name: "Pounded yam ",
     avatar: chicken,
   },
   {
-    key: 6,
+    id: 6,
     name: "Vegetable soup",
     avatar: chicken,
   },
   {
-    key: 7,
+    id: 7,
     name: "Fufu",
     avatar: beans,
   },
   {
-    key: 8,
+    id: 8,
     name: "Special rice",
     avatar: rice,
   },
