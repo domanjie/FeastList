@@ -25,7 +25,6 @@
 .form-block {
   display: flex;
   flex-direction: column;
-  padding-bottom: 30px;
 }
 .form-block label {
   padding-bottom: 3px;
@@ -49,7 +48,7 @@
   outline-color: var(--primary--600);
   border-radius: 10px;
 }
-.login-btn {
+.submit-btn {
   width: 97%;
   align-self: flex-end;
   height: 52px;
@@ -101,14 +100,13 @@
   text-decoration: none;
   padding-left: 5px;
 }
-#gender {
+#radio {
   display: flex;
   width: 97%;
   align-self: flex-end;
   column-gap: 2%;
-  padding-bottom: 30px;
 }
-.gender-form-block {
+.radio-form-block {
   flex-direction: row;
   border: 1px solid var(--primary--400);
   width: 49%;
@@ -119,10 +117,10 @@
   border-radius: 10px;
   padding-bottom: 0px;
 }
-.gender-form-block:focus-within {
+.radio-form-block:focus-within {
   border-color: var(--primary--700);
 }
-.gender-form-block input {
+.radio-form-block input {
   align-self: auto;
   width: auto;
   height: auto;

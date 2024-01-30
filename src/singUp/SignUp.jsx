@@ -65,7 +65,7 @@ const SignUp = () => {
   ]
   const genderInputs = [
     {
-      className: "form-block gender-form-block",
+      className: "form-block radio-form-block",
       id: "male",
       pText: "Male",
       type: "radio",
@@ -75,7 +75,7 @@ const SignUp = () => {
       handleChange,
     },
     {
-      className: "form-block gender-form-block",
+      className: "form-block radio-form-block",
       id: "female",
       pText: "female",
       type: "radio",
@@ -108,13 +108,13 @@ const SignUp = () => {
         {inputs.map((entry) => (
           <InputBlock {...entry} />
         ))}
-        <label htmlFor="gender">Gender</label>
-        <section id="gender">
+        <label htmlFor="radio">Gender</label>
+        <section id="radio">
           {genderInputs.map((entry) => (
             <InputBlock {...entry} />
           ))}
         </section>
-        <button type="submit" className="login-btn sign-up-btn">
+        <button type="submit" className="submit-btn sign-up-btn">
           Create account
         </button>
       </form>

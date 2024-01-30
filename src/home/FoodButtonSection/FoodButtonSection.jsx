@@ -42,12 +42,6 @@ const FoodButtonSection = ({ FoodItemData }) => {
           <FoodButton {...item} />
         ))}
       </div>
-      <Link to={"/search"}>
-        <button className="search-button">
-          <SearchIcon />
-        </button>
-      </Link>
-
       <button className="more-button">
         <PlusIcon />
       </button>

@@ -108,7 +108,7 @@ const Cart = () => {
           <FoodCard {...item} />
         ))}
       </section>
-      <BottomTabBar indicatorState={[false, true, false, false]} />
+      <BottomTabBar cartInd={true}></BottomTabBar>
     </main>
   )
 }

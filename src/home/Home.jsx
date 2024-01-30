@@ -4,10 +4,9 @@ import FoodCardSection from "./foodCardSection/FoodCardSection"
 import { FoodItemData, FoodCardData } from "./data.js"
 import { useState } from "react"
 import SideMenu from "../sideMenu/SideMenu"
-import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import { FeastListLogo, MenuIcon, CreditCardIcon } from "../icons"
-import Demarcation from "../demarcation/Demarcation"
+import { FeastListLogo, MenuIcon } from "../icons"
 import Modal from "../modal/Modal"
+import BottomTabBar from "../bottomTabBar/BottomTabBar"
 import PageSpinner from "../spinner/PageSpinner"
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,7 +28,7 @@ const Home = () => {
       <FoodButtonSection FoodItemData={FoodItemData} />
       <h3 className="food-card-title">Feast Your Treat</h3>
       <FoodCardSection FoodCardData={FoodCardData} />
-      <BottomTabBar indicatorState={[true, false, false, false]} />
+      <BottomTabBar homeInd={true}></BottomTabBar>
     </main>
   )
 }

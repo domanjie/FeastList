@@ -1,6 +1,6 @@
 import "./VendorPage.css"
-import BottomTabBar from "../bottomTabBar/BottomTabBar"
 import ProfileCardSection from "./ProfileCardSection"
+import BottomTabBar from "../bottomTabBar/BottomTabBar"
 const VendorPage = () => {
   const closestToYou = async () => {
     const response = await fetch("fsdflasjflkadsf")
@@ -28,7 +28,7 @@ const VendorPage = () => {
           </section>
         </body>
       </section>
-      <BottomTabBar indicatorState={[false, false, true, false]} />
+      <BottomTabBar vendorInd={true}></BottomTabBar>
     </main>
   )
 }

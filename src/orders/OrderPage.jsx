@@ -1,8 +1,8 @@
 import "./Order.css"
 import { HistoryIcon } from "../icons"
-import BottomTabBar from "../bottomTabBar/BottomTabBar"
 import Demarcation from "../demarcation/Demarcation"
 import Order from "./Order"
+import BottomTabBar from "../bottomTabBar/BottomTabBar"
 const OrderPage = () => {
   return (
     <main className="order-page">
@@ -19,8 +19,7 @@ const OrderPage = () => {
         </button>
         <p>history</p>
       </div>
-
-      <BottomTabBar indicatorState={[false, false, false, true]} />
+      <BottomTabBar orderInd={true}></BottomTabBar>
     </main>
   )
 }

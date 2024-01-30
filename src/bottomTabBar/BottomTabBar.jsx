@@ -1,9 +1,9 @@
 import "./BottomTabBar.css"
 import { HomeIcon, CartInActive, RestaurantsIcon, OrdersIcon } from "../icons"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
-const BottomTabBar = ({ indicatorState }) => {
-  const [homeInd, cartInd, restInd, orderInd] = indicatorState
+const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
   return (
     <section className="bottom-tab-bar">
       <div>
@@ -28,7 +28,7 @@ const BottomTabBar = ({ indicatorState }) => {
             <RestaurantsIcon />
           </Link>
         </button>
-        {restInd && <div className="indicator"></div>}
+        {vendorInd && <div className="indicator"></div>}
       </div>
       <div>
         <button className="bottom-tab-bar-button">

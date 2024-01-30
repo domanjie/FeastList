@@ -20,15 +20,13 @@
   border-radius: 10px;
 }
 .cart-food-card-div {
-  /* flex-basis: 80%; */
   height: 100px;
   margin-left: 10px;
   display: flex;
   flex-basis: 58%;
-  border-radius: 10px;
-  background-color: var(--primary--300);
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='19' ry='19' stroke='%23C0C0C0FF' stroke-width='1' stroke-dasharray='96' stroke-dashoffset='63' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 19px;
   padding: 10px;
-  /* align-items: center; */
   justify-content: space-between;
   position: relative;
 }
@@ -44,14 +42,11 @@
 .saveMeal-button {
   width: 25px;
   align-items: center;
-  background: none;
-  border: none;
 }
 .clear-cart-btn,
 .checkout-btn {
   width: 136px;
   height: 40px;
-  background: none;
   border-radius: 10px;
   color: var(--primary--700);
   border: 1px solid var(--primary--700);

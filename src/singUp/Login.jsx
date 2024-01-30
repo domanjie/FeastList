@@ -47,7 +47,7 @@ const Login = () => {
           <InputBlock {...entry} />
         ))}
         <span className="login-err-span">invalid username or password</span>
-        <button type="submit" className="login-btn">
+        <button type="submit" className="submit-btn">
           Login
         </button>
       </form>
