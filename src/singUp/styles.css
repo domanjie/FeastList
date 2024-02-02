@@ -129,6 +129,31 @@
   background-color: var(--primary--400);
   color: var(--primary--100);
 }
+/* ============================== */
+/* login/signUp section */
+/* ============================== */
+.email-verification {
+  width: fit-content;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30%;
+}
+.email-verification div {
+  display: flex;
+}
+.email-verification input {
+  width: 50px;
+  height: 70px;
+  border-radius: 20px;
+  border: 1px solid var(--primary--200);
+  margin: 20px 5px;
+}
+.email-verification p {
+  text-align: center;
+}
+
 /* =================================== */
 .err-span {
   color: red;

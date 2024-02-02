@@ -1,6 +1,7 @@
 import "./App.css"
 import AuthRequired from "./auth/AuthRequired"
 import BottomTabPage from "./bottomTabBar/BottomTabPage"
+import EmailVerification from "./singUp/EmailVerificationPage"
 import {
   Cart,
   Home,
@@ -26,10 +27,12 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/orders" element={<OrderPage />} />
         </Route>
-
         <Route path="/*" element={<NotFoundPage />}></Route>
       </Routes>
     </>
+    // <>
+    //   <EmailVerification></EmailVerification>
+    // </>
   )
 }
 

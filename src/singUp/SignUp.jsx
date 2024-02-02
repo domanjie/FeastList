@@ -1,5 +1,5 @@
 import "./styles.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import mailIcon from "./assets/mail.svg"
 import passwordIcon from "./assets/password.svg"
 import maleGender from "./assets/maleGender.svg"
@@ -7,14 +7,17 @@ import femaleGender from "./assets/femaleGender.svg"
 import InputBlock from "./InputBlock"
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
-import { singUp, login } from "./functions.js"
+import { login, singUp } from "./authRequests.js"
+import useAuthContext from "../customHooks/useAuthContext"
 
 const SignUp = () => {
+  const { setAuth } = useAuthContext()
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     email: "",
     password: "",
     confirmPassword: "",
-    Gender: "",
+    gender: "",
     matNo: "",
   })
   const handleChange = (e) => {
@@ -85,21 +88,27 @@ const SignUp = () => {
       handleChange,
     },
   ]
-  const postNewUser = useMutation({
-    mutationFn: singUp,
-  })
-  const loginNewUser = useMutation({})
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    postNewUser.mutate({
-      userId: user.email,
-      password: user.password,
-      passwordConfirm: user.confirmPassword,
-      gender: user.Gender,
-    })
-    // if (postNewUser.isSuccess) {
-    //   loginNewUser.mutate({ email: user.email, password: user.password })
-    // }
+
+    try {
+      const signUpResponse = await singUp({
+        userId: user.email,
+        password: user.password,
+        passwordConfirm: user.confirmPassword,
+        gender: user.gender,
+      })
+      if (signUpResponse.status === 201) {
+        console.log(signUpResponse.status)
+        const loginResponse = await login({
+          username: user.email,
+          password: user.password,
+        })
+        setAuth(loginResponse.data)
+        navigate("/", { replace: true })
+      }
+    } catch (error) {}
   }
   return (
     <section id="login-form">

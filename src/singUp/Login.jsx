@@ -3,11 +3,15 @@ import mailIcon from "./assets/mail.svg"
 import passwordIcon from "./assets/password.svg"
 import InputBlock from "./InputBlock"
 import { GoogleIcon } from "../icons"
-import { feastList_axios } from "../api"
 import useAuthContext from "../customHooks/useAuthContext"
+import { useState } from "react"
+import { login } from "./authRequests"
+
 const LOGIN_URL = "/api/v1/authentication/login"
+
 const Login = () => {
   const { auth, setAuth } = useAuthContext()
+  const [onForbidden, setForbidden] = useState(false)
   const location = useLocation()
   const from = location.state?.from
   const navigate = useNavigate()
@@ -32,11 +36,16 @@ const Login = () => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const user = Object.fromEntries(formData)
-    const response = await feastList_axios.post(LOGIN_URL, JSON.stringify(user))
-    const accessToken = response.data
-    setAuth(accessToken)
-    console.log(auth)
-    from ? navigate(from, { replace: true }) : navigate("/", { replace: true })
+    try {
+      const response = await login(user)
+      const accessToken = response.data
+      setAuth(accessToken)
+      from
+        ? navigate(from, { replace: true })
+        : navigate("/", { replace: true })
+    } catch (error) {
+      if (error.response.status == 403) setForbidden(true)
+    }
   }
 
   return (
@@ -44,9 +53,11 @@ const Login = () => {
       <h1>Welcome Back</h1>
       <form onSubmit={handleSubmit}>
         {inputs.map((entry) => (
-          <InputBlock {...entry} />
+          <InputBlock key={entry.id} {...entry} />
         ))}
-        <span className="login-err-span">invalid username or password</span>
+        {onForbidden && (
+          <span className="login-err-span">invalid username or password</span>
+        )}
         <button type="submit" className="submit-btn">
           Login
         </button>
@@ -58,17 +69,31 @@ const Login = () => {
         </Link>
         <a href="youtube.com"></a>
       </p>
-      <section id="or-block">
-        <div className="h-line"></div>
-        <p>OR</p>
-        <div className="h-line"></div>
-      </section>
-      <div className="sso-block">
-        <GoogleIcon></GoogleIcon>
-        <p>Sign in with Google</p>
-      </div>
+      <OrBlock />
+      <SsoBlock />
       <p>Forgot password?</p>
     </section>
   )
 }
 export default Login
+const OrBlock = () => {
+  return (
+    <>
+      <section id="or-block">
+        <div className="h-line"></div>
+        <p>OR</p>
+        <div className="h-line"></div>
+      </section>
+    </>
+  )
+}
+const SsoBlock = () => {
+  return (
+    <>
+      <div className="sso-block">
+        <GoogleIcon></GoogleIcon>
+        <p>Sign in with Google</p>
+      </div>
+    </>
+  )
+}
