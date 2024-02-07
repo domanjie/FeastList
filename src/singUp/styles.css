@@ -150,12 +150,11 @@
   border: 1px solid var(--primary--200);
   margin: 20px 5px;
   font-size: large;
-  padding: 17px;
+  padding: 16px;
   color: rgba(0, 0, 0, 0.55);
   outline: none;
   transition: border-color 0.15s ease, outline-color 0.15s ease,
     color 0.15s ease;
-  /* outline-style: solid; */
 }
 .email-verification input:active,
 .email-verification input:focus {
@@ -165,7 +164,7 @@
   text-align: center;
 }
 .email-verification-p1 {
-  font-size: 1.06rem;
+  font-size: 1.05rem;
 }
 .email-verification h2 {
   padding-bottom: 20px;

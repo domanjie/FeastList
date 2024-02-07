@@ -7,6 +7,7 @@ import femaleGender from "./assets/femaleGender.svg"
 import InputBlock from "./InputBlock"
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
+import EmailVerification from "./EmailVerificationPage"
 import { login, singUp } from "./authRequests.js"
 import useAuthContext from "../customHooks/useAuthContext"
 
