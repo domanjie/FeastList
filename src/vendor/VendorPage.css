@@ -29,9 +29,14 @@
 .vendorPage-header {
   padding: 5px 10px;
 }
-.vendorPage-body-h2 {
+.vendorPage-body-h3 {
   margin: 20px 10px;
   margin-bottom: 0px;
+}
+.vendorPage-body-h3 svg {
+  width: 30px;
+  height: 30px;
+  vertical-align: bottom;
 }
 .profile-card-div {
   position: relative;

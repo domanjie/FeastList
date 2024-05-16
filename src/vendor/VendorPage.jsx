@@ -1,6 +1,8 @@
 import "./VendorPage.css"
 import ProfileCardSection from "./ProfileCardSection"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
+import { SpeedingCourier } from "../icons"
+import { LikeIcon } from "../icons"
 const VendorPage = () => {
   const closestToYou = async () => {
     const response = await fetch("fsdflasjflkadsf")
@@ -16,14 +18,17 @@ const VendorPage = () => {
         <header className="vendorPage-header">
           <h2> Vendors </h2>
         </header>
-        <div className="demarcation"></div>
         <body className>
           <section>
-            <h3 className="vendorPage-body-h2">Closest to you</h3>
+            <h3 className="vendorPage-body-h3">
+              <SpeedingCourier></SpeedingCourier> Closest to you
+            </h3>
             <ProfileCardSection func={closestToYou} />
           </section>
           <section>
-            <h3 className="vendorPage-body-h2">Vendors you may like</h3>
+            <h3 className="vendorPage-body-h3">
+              <LikeIcon></LikeIcon>Vendors you may like
+            </h3>
             <ProfileCardSection func={vendorYouMayLIke} />
           </section>
         </body>

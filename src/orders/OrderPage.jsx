@@ -9,7 +9,6 @@ const OrderPage = () => {
       <header className="header">
         <h2>Orders</h2>
       </header>
-      <Demarcation />
       <Order></Order>
       <Order></Order>
       <Demarcation />

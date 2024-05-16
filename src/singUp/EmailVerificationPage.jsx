@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 import "./styles.css"
 import SeparatedInput from "./SeparatedInput"
-const EmailVerification = () => {
+const EmailVerificationPage = () => {
   const inputRefArr = Array(6)
     .fill()
     .map(() => useRef())
@@ -24,4 +24,4 @@ const EmailVerification = () => {
     </section>
   )
 }
-export default EmailVerification
+export default EmailVerificationPage

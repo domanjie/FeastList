@@ -1,36 +1,38 @@
-import { axios2 } from "../api"
+import { feastList_axios } from "../api"
 import useAuthContext from "./useAuthContext"
-import { useRefreshToken } from "./useRefreshToken"
 import { useEffect } from "react"
 import useRefreshToken from "./useRefreshToken"
 const useTokenizedAxios = () => {
-  const {auth}= useAuthContext()
-  const refreshTokens=useRefreshToken();
+  const { auth } = useAuthContext()
+  const refreshTokens = useRefreshToken()
   useEffect(() => {
-    const requestInterceptor = axios2.interceptors.request.use((config) => {
-        if(!config.headers["Authorization"]){
-            config?.headers["Authorization"]=`Bearer ${auth}`
+    const requestInterceptor = feastList_axios.interceptors.request.use(
+      (config) => {
+        if (!config.headers["Authorization"]) {
+          config.headers["Authorization"] = `Bearer ${auth}`
         }
         return config
-    },(error)=>{Promise.reject(error)})
-    const responseInterceptor = axios2.interceptors.response.use(
+      },
+      (error) => {
+        Promise.reject(error)
+      }
+    )
+    const responseInterceptor = feastList_axios.interceptors.response.use(
       (response) => response,
       async (error) => {
         const prevRequest = error?.config
         if (error?.response?.status === 403 && !prevRequest.sent) {
           prevRequest.sent = true
-          const accessToken =refreshTokens() 
-          prevRequest.headers["Authorization"] = `Bearer ${accessToken}`
-          return axios2(prevRequest)
+          const accessToken = await refreshTokens()
         }
         return Promise.reject(error)
       }
     )
-    return ()=>{
-        axios2.interceptors.request.eject(requestInterceptor)
-        axios2.interceptors.response.eject(responseInterceptor)
+    return () => {
+      feastList_axios.interceptors.request.eject(requestInterceptor)
+      feastList_axios.interceptors.response.eject(responseInterceptor)
     }
   }, [auth])
-  return axios2
+  return feastList_axios
 }
 export default useTokenizedAxios

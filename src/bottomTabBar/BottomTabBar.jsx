@@ -1,7 +1,6 @@
 import "./BottomTabBar.css"
-import { HomeIcon, CartInActive, RestaurantsIcon, OrdersIcon } from "../icons"
+import { HomeIcon, VendorIcon, OrdersIcon, TrayInActive } from "../icons"
 import { Link } from "react-router-dom"
-import { useState } from "react"
 
 const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
   return (
@@ -16,8 +15,8 @@ const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
       </div>
       <div>
         <button className="bottom-tab-bar-button">
-          <Link to={"/cart"}>
-            <CartInActive />
+          <Link to={"/tray"}>
+            <TrayInActive />
           </Link>
         </button>
         {cartInd && <div className="indicator"></div>}
@@ -25,7 +24,7 @@ const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
       <div>
         <button className="bottom-tab-bar-button">
           <Link to={"/vendors"}>
-            <RestaurantsIcon />
+            <VendorIcon />
           </Link>
         </button>
         {vendorInd && <div className="indicator"></div>}

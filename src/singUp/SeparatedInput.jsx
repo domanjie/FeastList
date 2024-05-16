@@ -22,7 +22,6 @@ const SeparatedInput = ({ inputRefArr }) => {
         }
       })
     }
-    return () => {}
   }, [])
 
   return (

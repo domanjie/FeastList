@@ -4,7 +4,7 @@ const foodCardSection = ({ FoodCardData }) => {
   return (
     <section className="food-card-section">
       {FoodCardData.map((item) => (
-        <FoodCard {...item}></FoodCard>
+        <FoodCard key={item.id} {...item}></FoodCard>
       ))}
     </section>
   )

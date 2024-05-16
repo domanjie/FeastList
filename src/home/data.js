@@ -1,6 +1,6 @@
 import pizza from "../images/pizza.jpg"
 import beans from "../images/beans.jpg"
-import chicken from "../images/chicken.jpg"
+import chicken from "/home/domanjie1/Feast-List/src/images/chicken.jpg"
 import rice from "../images/rice.jpg"
 import meal1 from "../images/meal1.jpg"
 import meal2 from "../images/meal2.jpg"
@@ -62,7 +62,7 @@ export const FoodCardData = [
     name: "Rice with Beans and other delicacies",
     price: 200,
     restaurant: "Gliistin kitchens",
-    avatar: meal2,
+    avatar: chicken,
   },
   {
     key: 3,

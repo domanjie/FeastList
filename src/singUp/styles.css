@@ -133,12 +133,17 @@
 /* login/signUp section */
 /* ============================== */
 .email-verification {
-  width: fit-content;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 100px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: white;
+  top: 0px;
+  z-index: 3;
 }
 .email-verification div {
   display: flex;

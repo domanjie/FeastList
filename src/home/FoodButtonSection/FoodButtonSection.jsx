@@ -1,46 +1,18 @@
 import { useEffect, useRef, useState } from "react"
 import FoodButton from "./FoodButton"
-import pizza from "../../images/pizza.jpg"
-import beans from "../../images/beans.jpg"
-import chicken from "../../images/chicken.jpg"
-import rice from "../../images/rice.jpg"
 import { PlusIcon, CartInActive, CreditCardIcon } from "../../icons"
 const FoodButtonSection = ({ FoodItemData }) => {
   const SelectedFoodRef = useRef()
   const [unSelectedFoodData, setUnselectedFoodItems] = useState(FoodItemData)
-  const [selectedFoodData, setSelectedFoodItems] = useState([
-    {
-      id: 1,
-      name: "pizza",
-      avatar: pizza,
-    },
-    {
-      id: 2,
-      name: "Beans",
-      avatar: beans,
-    },
-    {
-      id: 3,
-      name: "Chicken",
-      avatar: chicken,
-    },
-    {
-      id: 4,
-      name: "Rice",
-      avatar: rice,
-    },
-    {
-      id: 5,
-      name: "Pounded yam ",
-      avatar: chicken,
-    },
-  ])
+  const [selectedFoodData, setSelectedFoodItems] = useState([])
   useEffect(() => {
-    const selectedFoodWindow = SelectedFoodRef.current
-    selectedFoodWindow.scrollTo({
-      left: selectedFoodWindow.scrollWidth,
-      behavior: "smooth",
-    })
+    if (SelectedFoodRef.current) {
+      const selectedFoodWindow = SelectedFoodRef.current
+      selectedFoodWindow.scrollTo({
+        left: selectedFoodWindow.scrollWidth,
+        behavior: "smooth",
+      })
+    }
   })
   const addToSelected = (key) => {
     const result = unSelectedFoodData.filter((datum) => datum.id === key)
@@ -64,7 +36,7 @@ const FoodButtonSection = ({ FoodItemData }) => {
       <button className="more-button">
         <PlusIcon />
       </button>
-      {selectedFoodData && (
+      {selectedFoodData.length ? (
         <div ref={SelectedFoodRef} className="selected-section">
           {selectedFoodData.map((item) => (
             <FoodButton {...item} handleClick={removeFromSelected} />
@@ -76,6 +48,8 @@ const FoodButtonSection = ({ FoodItemData }) => {
             <CreditCardIcon />
           </button>
         </div>
+      ) : (
+        ""
       )}
     </section>
   )

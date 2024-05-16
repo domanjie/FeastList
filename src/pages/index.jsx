@@ -2,13 +2,13 @@ import Home from "../home/Home"
 import SignUP from "../singUp/SignUp"
 import Login from "../singUp/Login"
 import OrderPage from "../orders/OrderPage"
-import Cart from "../cart/Cart"
+import Tray from "../tray/Tray"
 import SearchPage from "../search/SearchPage"
 import VendorPage from "../vendor/VendorPage"
 import NotFoundPage from "../notFound/NotFoundPage"
 export {
   SearchPage,
-  Cart,
+  Tray,
   OrderPage,
   Login,
   SignUP,

@@ -7,12 +7,13 @@ import femaleGender from "./assets/femaleGender.svg"
 import InputBlock from "./InputBlock"
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
-import EmailVerification from "./EmailVerificationPage"
+import EmailVerificationPage from "./EmailVerificationPage"
 import { login, singUp } from "./authRequests.js"
 import useAuthContext from "../customHooks/useAuthContext"
 
 const SignUp = () => {
   const { setAuth } = useAuthContext()
+  // const [displayEVP, setDisplayEVP] = useState(false)
   const navigate = useNavigate()
   const [user, setUser] = useState({
     email: "",
@@ -102,6 +103,7 @@ const SignUp = () => {
       })
       if (signUpResponse.status === 201) {
         console.log(signUpResponse.status)
+        // setDisplayEVP(true)
         const loginResponse = await login({
           username: user.email,
           password: user.password,
@@ -112,29 +114,32 @@ const SignUp = () => {
     } catch (error) {}
   }
   return (
-    <section id="login-form">
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        {inputs.map((entry) => (
-          <InputBlock {...entry} />
-        ))}
-        <label htmlFor="radio">Gender</label>
-        <section id="radio">
-          {genderInputs.map((entry) => (
+    <>
+      <section id="login-form">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          {inputs.map((entry) => (
             <InputBlock {...entry} />
           ))}
-        </section>
-        <button type="submit" className="submit-btn sign-up-btn">
-          Create account
-        </button>
-      </form>
-      <p>
-        Have an account ?
-        <Link to={"/login"} className="s-l-link">
-          login
-        </Link>
-      </p>
-    </section>
+          <label htmlFor="radio">Gender</label>
+          <section id="radio">
+            {genderInputs.map((entry) => (
+              <InputBlock {...entry} />
+            ))}
+          </section>
+          <button type="submit" className="submit-btn sign-up-btn">
+            Create account
+          </button>
+        </form>
+        <p>
+          Have an account ?
+          <Link to={"/login"} className="s-l-link">
+            login
+          </Link>
+        </p>
+      </section>
+      {/* {displayEVP && <EmailVerificationPage></EmailVerificationPage>} */}
+    </>
   )
 }
 export default SignUp
