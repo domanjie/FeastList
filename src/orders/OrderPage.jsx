@@ -9,15 +9,12 @@ const OrderPage = () => {
       <header className="header">
         <h2>Orders</h2>
       </header>
-      <Order></Order>
-      <Order></Order>
-      <Demarcation />
-      <div className="history-div">
-        <button className="historyIcon-btn">
-          <HistoryIcon />
-        </button>
-        <p>history</p>
+      <div className="order-page-btns">
+        <button className="order-page-btn-active">pending</button>
+        <button>order history</button>
       </div>
+      <Order></Order>
+      <Order></Order>
       <BottomTabBar orderInd={true}></BottomTabBar>
     </main>
   )

@@ -1,7 +1,6 @@
 import "./Home.css"
-import FoodCardSection from "./foodCardSection/FoodCardSection"
-import { FoodCardData } from "./data.js"
-import { useEffect, useState } from "react"
+import FoodCard from "./FoodCard"
+import { useEffect, useRef, useState } from "react"
 import SideMenu from "../sideMenu/SideMenu"
 import { FeastListLogo, MenuIcon, SearchIcon } from "../icons"
 import Modal from "../modal/Modal"
@@ -18,17 +17,13 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [foodCardData, setFoodCardData] = useState([])
   const axios = useTokenizedAxios()
-
-  const addToTray = useMutation({
-    mutationFn: async () => {
-      axios.post()
-    },
-  })
-
   useEffect(() => {
     axios
       .get("/api/v1/meals")
       .then((response) => setFoodCardData(response.data))
+      .catch((error) => {
+        console.log(error)
+      })
   }, [])
   return (
     <main id="home">
@@ -49,10 +44,14 @@ const Home = () => {
           </button>
         </Link>
       </header>
-      <h3 className="food-card-title">
+      <h3 style={{ padding: "10px" }}>
         <FastFoodIcon></FastFoodIcon> Feast Your Treat!
       </h3>
-      <FoodCardSection FoodCardData={foodCardData} />
+      <section style={{ padding: "0px var(--padding-from-screen-width)" }}>
+        {foodCardData.map((item) => (
+          <FoodCard key={item.id} {...item}></FoodCard>
+        ))}
+      </section>
       <BottomTabBar homeInd={true}></BottomTabBar>
     </main>
   )

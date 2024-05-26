@@ -5,29 +5,17 @@ const Order = ({}) => {
   return (
     <div className="order">
       <img src={img1} alt="" />
-      <ul>
-        <li>beans and rice</li>
-        <li>
-          order-code: <span className="green-text">4124</span>
-        </li>
-        <li className="ico-li">
-          <p>
-            <span className="green-text">5 mins</span> to arrival
-          </p>
-
-          <button className="chevronRight-btn">
-            <ChevronRight />
-          </button>
-        </li>
-        <li className="ico-li">
-          <p>
-            runner: <span>domanjie ehinomen</span>
-          </p>
-          <button className="chevronRight-btn">
-            <ChevronRight />
-          </button>
-        </li>
-      </ul>
+      <div>
+        <ul>
+          <li className="order-name">beans and rice</li>
+          <li>
+            Status : <span>pending</span>
+          </li>
+          <li>$150000</li>
+          <li>12th feb . 4:30 pm</li>
+        </ul>
+        <h4>view details</h4>
+      </div>
     </div>
   )
 }

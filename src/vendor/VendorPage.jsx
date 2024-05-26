@@ -3,15 +3,24 @@ import ProfileCardSection from "./ProfileCardSection"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
 import { SpeedingCourier } from "../icons"
 import { LikeIcon } from "../icons"
+import { useQuery } from "@tanstack/react-query"
+import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 const VendorPage = () => {
-  const closestToYou = async () => {
-    const response = await fetch("fsdflasjflkadsf")
-    return response.json
-  }
-  const vendorYouMayLIke = async () => {
-    const response = await fetch("fsdflasjflkadsf")
-    return response.json
-  }
+  const axios = useTokenizedAxios()
+  const closestToYou = useQuery({
+    queryKey: ["CTY"],
+    queryFn: async () => {
+      const response = await axios.get("api/v1/rle/vendors?sort=CTY")
+      return response.data
+    },
+  })
+  const vendorYouMayLIke = useQuery({
+    queryKey: ["VML"],
+    queryFn: async () => {
+      const response = await axios.get("api/v1/rle/vendors?sort=VML")
+      return response.data
+    },
+  })
   return (
     <main>
       <section>
@@ -27,7 +36,8 @@ const VendorPage = () => {
           </section>
           <section>
             <h3 className="vendorPage-body-h3">
-              <LikeIcon></LikeIcon>Vendors you may like
+              <LikeIcon />
+              Vendors you may like
             </h3>
             <ProfileCardSection func={vendorYouMayLIke} />
           </section>

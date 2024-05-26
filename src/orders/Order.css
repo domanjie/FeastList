@@ -3,47 +3,60 @@
   justify-content: space-between;
   padding: 5px var(--padding-from-screen-width);
 }
-.history-div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 83px;
-  margin-left: var(--padding-from-screen-width);
-}
-.historyIcon-btn {
-  width: 25px;
-  height: 25px;
-  align-items: center;
-  background: none;
-  border: none;
-}
 .order {
   display: flex;
-  margin: 15px var(--padding-from-screen-width);
-  column-gap: 10px;
+  margin: 20px 10px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  column-gap: 3px;
   align-items: center;
+  font-size: 14px;
+  color: grey;
+}
+.order > div {
+  position: relative;
+  width: 60%;
+}
+.order > div > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .order li {
   list-style: none;
-  padding: 5px 0px;
 }
 
-.ico-li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.order h4 {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
 .order img {
-  width: 35%;
+  width: 40%;
   height: 120px;
   border-radius: 10px;
 }
 .green-text {
   color: green;
 }
-.ico-li .chevronRight-btn {
-  height: 20px;
-  width: 20px;
-  margin-left: 5px;
+.order-page-btns button {
+  height: 33px;
+  border: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 0px 10px;
+  margin: 0px 5px;
+}
+.order-page-btns .order-page-btn-active {
+  color: var(--primary--600);
+  border-color: var(--primary--600);
+}
+.order-name {
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 18px;
+  color: black;
+  font-size: 18px;
 }

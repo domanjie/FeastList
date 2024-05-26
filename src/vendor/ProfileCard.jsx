@@ -1,7 +1,7 @@
 import { RatingStars } from "../icons"
 import { PlusSmall } from "../icons"
 const ProfileCard = ({ vendor }) => {
-  const { avatar, isFollowing, name } = vendor
+  const { header_photo: avatar, isFollowing, vendor_name: name } = vendor
   return (
     <div className="profile-card">
       <div className="profile-card-div">
