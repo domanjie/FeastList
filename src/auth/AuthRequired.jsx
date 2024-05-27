@@ -1,11 +1,10 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom"
-import useAuthContext from "../customHooks/useAuthContext"
+import { Outlet } from "react-router-dom"
 import useRefreshToken from "../customHooks/useRefreshToken"
+import useAuthContext from "../customHooks/useAuthContext"
 const AuthRequired = () => {
   const { auth } = useAuthContext()
-  const location = useLocation()
-  const navigate = useNavigate()
   const refreshTokens = useRefreshToken()
+
   if (auth) {
     return (
       <>
@@ -13,14 +12,6 @@ const AuthRequired = () => {
       </>
     )
   }
-  refreshTokens().catch((error) => {
-    const status = error?.response?.status
-    if (status == 403 || 401 || 400) {
-      navigate("/login", {
-        replace: true,
-        state: { from: location.pathname },
-      })
-    }
-  })
+  refreshTokens()
 }
 export default AuthRequired
