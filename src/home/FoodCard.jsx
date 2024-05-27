@@ -11,7 +11,8 @@ const FoodCard = ({
   is_in_cart,
   id,
 }) => {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = is_in_cart ? useState(true) : useState(false)
+
   const axios = useTokenizedAxios()
   const addToTray = useMutation({
     mutationFn: async (data) => {
@@ -20,14 +21,9 @@ const FoodCard = ({
   })
   const removeFromTray = useMutation({
     mutationFn: async (id) => {
-      console.log(id)
       axios.delete(`api/v1/tray/${id}`)
     },
   })
-
-  const handleClick = () => {
-    setActive(!active)
-  }
   return (
     <section className="food-card">
       <img className="food-card-avatar" src={avatar_url} alt={meal_name} />
@@ -38,7 +34,7 @@ const FoodCard = ({
           <button className="creditCard-btn">
             <CreditCardIcon />
           </button>
-          {is_in_cart ? (
+          {active ? (
             <button
               onClick={() => {
                 setActive(!active)

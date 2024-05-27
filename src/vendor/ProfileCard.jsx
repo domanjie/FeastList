@@ -1,18 +1,15 @@
-import { RatingStars } from "../icons"
 import { PlusSmall } from "../icons"
 const ProfileCard = ({ vendor }) => {
-  const { header_photo: avatar, isFollowing, vendor_name: name } = vendor
+  let { header_photo: avatar, isFollowing, vendor_name: name } = vendor
+  isFollowing = true
   return (
     <div className="profile-card">
+      <img src={avatar} alt="" />
       <div className="profile-card-div">
-        <img src={avatar} alt="" />
-        <button
-          className={
-            isFollowing ? "follow-btn background-faff00" : "follow-btn "
-          }
-        >
+        <p>{name}</p>
+        <button className={isFollowing ? "following" : "follow"}>
           {isFollowing ? (
-            <>Following</>
+            <>following</>
           ) : (
             <>
               follow
@@ -22,15 +19,6 @@ const ProfileCard = ({ vendor }) => {
             </>
           )}
         </button>
-      </div>
-      <div>
-        <p>{name}</p>
-        <p>
-          Rating
-          <span>
-            <RatingStars />
-          </span>
-        </p>
       </div>
     </div>
   )

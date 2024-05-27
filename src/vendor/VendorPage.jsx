@@ -1,10 +1,10 @@
 import "./VendorPage.css"
 import ProfileCardSection from "./ProfileCardSection"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import { SpeedingCourier } from "../icons"
-import { LikeIcon } from "../icons"
+import { SpeedingCourier, LikeIcon, SearchIcon } from "../icons"
 import { useQuery } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
+import { Link } from "react-router-dom"
 const VendorPage = () => {
   const axios = useTokenizedAxios()
   const closestToYou = useQuery({
@@ -26,6 +26,11 @@ const VendorPage = () => {
       <section>
         <header className="vendorPage-header">
           <h2> Vendors </h2>
+          <Link to={"/search"}>
+            <button className="search-button">
+              <SearchIcon />
+            </button>
+          </Link>
         </header>
         <body className>
           <section>
