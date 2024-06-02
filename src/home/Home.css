@@ -1,12 +1,18 @@
 #home {
-  width: 100vw;
+  --avatar-height: 233px;
+}
+.home-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 .food-card {
   background: none;
   margin-bottom: 25px;
-  overflow: hidden;
   width: 100%;
+  max-width: 420px;
   max-height: auto;
+  position: relative;
 }
 .food-card-avatar {
   width: 100%;
@@ -21,7 +27,6 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  position: relative;
   font-size: 14px;
   color: grey;
 }
@@ -49,11 +54,14 @@ div:has(> .food-card-restaurant-name) img {
   height: 25px;
 }
 .home-header {
-  position: relative;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
 }
 
 #home h3 svg {
@@ -76,49 +84,58 @@ div:has(> .food-card-restaurant-name) img {
   overflow: hidden;
   width: 85%;
 }
-.display-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* .food-button {
-  border: 1px solid silver;
-  border-radius: 60px;
-  height: 46px;
-  display: inline;
-  margin: 12px 7px;
-} */
-.search-button,
 .more-button,
 .menu-button {
   width: 25px;
   margin: 0px 7px;
 }
-
-/* .food-button span {
-  display: flex;
-  align-items: center;
-  padding: 5px;
+.home-body {
+  padding-top: 40px;
 }
-.food-button img {
-  width: 31px;
-  height: 31px;
-  border-radius: 50%;
+@media (hover: hover) {
+  .food-card-btns {
+    position: absolute;
+    top: 190px;
+    left: 5px;
+    opacity: 0;
+    width: fit-content;
+    height: fit-content;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    /* transition-property: display; */
+  }
+  .food-card-btns button {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .food-card-btns button svg {
+    width: 21px;
+  }
+  .food-card-avatar:hover + .food-card-btns,
+  .food-card-btns:hover {
+    visibility: visible;
+    opacity: 1;
+  }
 }
-.food-button p {
-  padding-left: 7px;
-  padding-right: 7px;
-  text-transform: capitalize;
+@media (min-width: 576px) {
+  .home-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 }
-.unselected-section {
-  display: inline;
-}
-.selected-section {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-.selected-section .food-button {
-  border: 1px solid var(--primary--700);
-} */
+@media (min-width: 992px) {
+  .home-section {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-right: 10%;
+  }
+  .feast-list-logo,
+  .menu-button,
+  .home-body-header {
+    display: none;
+  }
+  .home-header {
+    height: 40px;
+  }
+} /* .food-button { border: 1px solid silver; border-radius: 60px; height: 46px; display: inline; margin: 12px 7px; } */ /* .food-button span { display: flex; align-items: center; padding: 5px; } .food-button img { width: 31px; height: 31px; border-radius: 50%; } .food-button p { padding-left: 7px; padding-right: 7px; text-transform: capitalize; } .unselected-section { display: inline; } .selected-section { overflow-x: scroll; overflow-y: hidden; white-space: nowrap; } .selected-section .food-button { border: 1px solid var(--primary--700) ; } */

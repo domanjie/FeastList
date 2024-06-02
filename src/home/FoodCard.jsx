@@ -27,35 +27,36 @@ const FoodCard = ({
   return (
     <section className="food-card">
       <img className="food-card-avatar" src={avatar_url} alt={meal_name} />
+
+      <div className="food-card-btns">
+        <button className="creditCard-btn">
+          <CreditCardIcon />
+        </button>
+        {active ? (
+          <button
+            onClick={() => {
+              setActive(!active)
+              removeFromTray.mutate(id)
+            }}
+            className="cart-button"
+          >
+            <TrayActive />
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setActive(!active)
+              addToTray.mutate({ mealId: id, amount: 1 })
+            }}
+            className="cart-button"
+          >
+            <TrayInActive />
+          </button>
+        )}
+      </div>
       <section className="food-card-section">
         <p className="food-card-meal-name">{meal_name}</p>
         <p className="price-tag">${price}</p>
-        <div className="food-card-btns">
-          <button className="creditCard-btn">
-            <CreditCardIcon />
-          </button>
-          {active ? (
-            <button
-              onClick={() => {
-                setActive(!active)
-                removeFromTray.mutate(id)
-              }}
-              className="cart-button"
-            >
-              <TrayActive />
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                setActive(!active)
-                addToTray.mutate({ mealId: id, amount: 1 })
-              }}
-              className="cart-button"
-            >
-              <TrayInActive />
-            </button>
-          )}
-        </div>
 
         <div>
           <img src="" alt="" />{" "}

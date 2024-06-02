@@ -10,7 +10,12 @@ const SearchPage = () => {
         <button onClick={() => navigate(-1)} className="arrowLongLeft-btn">
           <ArrowLongLeft />
         </button>
-        <input type="search" placeholder="Search" id="search-input" autoFocus />
+        <input
+          type="search"
+          placeholder="Search"
+          id="search-page-input"
+          autoFocus
+        />
       </header>
       <Demarcation />
     </div>

@@ -28,10 +28,15 @@
   overflow: hidden;
   object-fit: cover;
 }
+
 .vendorPage-header {
+  width: 100%;
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  background-color: white;
+  top: 0px;
 }
 .vendorPage-body-h3 {
   margin: 20px 10px;
@@ -50,4 +55,12 @@
 }
 .following {
   color: green;
+}
+@media (min-width: 992px) {
+  .vendorPage-header {
+    height: 40px;
+  }
+  .vendorPage-body {
+    padding-top: 30px;
+  }
 }

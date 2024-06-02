@@ -5,6 +5,8 @@ import { SpeedingCourier, LikeIcon, SearchIcon } from "../icons"
 import { useQuery } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 import { Link } from "react-router-dom"
+import { Page } from "../page/Page"
+import Search from "../search/Search"
 const VendorPage = () => {
   const axios = useTokenizedAxios()
   const closestToYou = useQuery({
@@ -22,17 +24,13 @@ const VendorPage = () => {
     },
   })
   return (
-    <main>
-      <section>
+    <Page>
+      <section id="vendor-page">
         <header className="vendorPage-header">
           <h2> Vendors </h2>
-          <Link to={"/search"}>
-            <button className="search-button">
-              <SearchIcon />
-            </button>
-          </Link>
+          <Search></Search>
         </header>
-        <body className>
+        <body className="vendorPage-body">
           <section>
             <h3 className="vendorPage-body-h3">
               <SpeedingCourier></SpeedingCourier> Closest to you
@@ -47,9 +45,9 @@ const VendorPage = () => {
             <ProfileCardSection func={vendorYouMayLIke} />
           </section>
         </body>
+        <BottomTabBar vendorInd={true}></BottomTabBar>
       </section>
-      <BottomTabBar vendorInd={true}></BottomTabBar>
-    </main>
+    </Page>
   )
 }
 export default VendorPage

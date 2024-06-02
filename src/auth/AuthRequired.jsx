@@ -4,7 +4,6 @@ import useAuthContext from "../customHooks/useAuthContext"
 const AuthRequired = () => {
   const { auth } = useAuthContext()
   const refreshTokens = useRefreshToken()
-
   if (auth) {
     return (
       <>

@@ -5,38 +5,44 @@ import { Link } from "react-router-dom"
 const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
   return (
     <section className="bottom-tab-bar">
-      <div>
-        <button className="bottom-tab-bar-button">
-          <Link to={"/"}>
-            <HomeIcon />
-          </Link>
-        </button>
-        {homeInd && <div className="indicator"></div>}
-      </div>
-      <div>
-        <button className="bottom-tab-bar-button">
-          <Link to={"/tray"}>
-            <TrayInActive />
-          </Link>
-        </button>
-        {cartInd && <div className="indicator"></div>}
-      </div>
-      <div>
-        <button className="bottom-tab-bar-button">
-          <Link to={"/vendors"}>
-            <VendorIcon />
-          </Link>
-        </button>
-        {vendorInd && <div className="indicator"></div>}
-      </div>
-      <div>
-        <button className="bottom-tab-bar-button">
-          <Link to={"/orders"}>
-            <OrdersIcon />
-          </Link>
-        </button>
-        {orderInd && <div className="indicator"></div>}
-      </div>
+      <Link to={"/"}>
+        <div className="bottom-tab-bar-div">
+          <button className="bottom-tab-bar-button">
+            <HomeIcon className={"filly"} />
+          </button>
+          <p className="bottom-tab-bar-button-name">Home</p>
+          {homeInd && <div className="indicator"></div>}
+        </div>
+      </Link>
+
+      <Link to={"/tray"}>
+        <div className="bottom-tab-bar-div">
+          <button className="bottom-tab-bar-button">
+            <TrayInActive className={"filly"} />
+          </button>
+          <p className="bottom-tab-bar-button-name">Tray</p>
+          {cartInd && <div className="indicator"></div>}
+        </div>
+      </Link>
+      <Link to={"/vendors"}>
+        <div className="bottom-tab-bar-div">
+          <button className="bottom-tab-bar-button">
+            <VendorIcon className={"filly"} />
+          </button>
+          <p className="bottom-tab-bar-button-name">Vendors</p>
+          {vendorInd && <div className="indicator"></div>}
+        </div>
+      </Link>
+
+      <Link to={"/orders"}>
+        <div className="bottom-tab-bar-div">
+          <button className="bottom-tab-bar-button">
+            <OrdersIcon className={"stroky"} />
+          </button>
+          <p className="bottom-tab-bar-button-name">Orders</p>
+          {orderInd && <div className="indicator"></div>}
+        </div>
+      </Link>
     </section>
   )
 }

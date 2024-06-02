@@ -2,6 +2,7 @@
   background-color: white;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   height: 54px;
   border-top: 1px solid var(--primary--200);
   position: fixed;
@@ -13,6 +14,9 @@
   width: 50px;
   border-radius: 50%;
 }
+.bottom-tab-bar-button-name {
+  display: none;
+}
 .bottom-tab-bar-button svg {
   width: 25px;
   height: 25px;
@@ -23,9 +27,57 @@
   height: 5px;
   border-radius: 10px;
 }
-.bottom-tab-bar > div {
+.bottom-tab-bar-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: black;
+}
+@media (min-width: 992px) {
+  .bottom-tab-bar {
+    background: none;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: end;
+    border: none;
+    height: fit-content;
+    width: 20%;
+    top: 70px;
+    left: 0%;
+  }
+  .bottom-tab-bar-button-name {
+    display: block;
+  }
+
+  .bottom-tab-bar-div {
+    flex-direction: row;
+    position: relative;
+    justify-content: start;
+    width: 150px;
+  }
+  .bottom-tab-bar-button svg {
+    width: 30px;
+    height: 30px;
+  }
+  .indicator {
+    position: absolute;
+    left: -5px;
+    height: 100%;
+    width: 6px;
+    border-radius: 0 10px 10px 0;
+  }
+  .bottom-tab-bar a {
+    text-decoration: none;
+  }
+  div:has(> .indicator) {
+    color: var(--primary--600);
+  }
+  div:has(> .indicator) .filly > path,
+  div:has(> .indicator) .filly > g {
+    fill: var(--primary--600);
+  }
+  div:has(> .indicator) .stroky {
+    stroke: var(--primary--600);
+  }
 }
