@@ -88,7 +88,9 @@ const Tray = () => {
             </section>
           )}
         </body>
-        <BottomTabBar cartInd={true}></BottomTabBar>
+        <footer>
+          <BottomTabBar cartInd={true}></BottomTabBar>
+        </footer>
       </main>
     </Page>
   )

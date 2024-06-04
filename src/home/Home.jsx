@@ -1,6 +1,6 @@
 import "./Home.css"
 import FoodCard from "./FoodCard"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import SideMenu from "../sideMenu/SideMenu"
 import { FeastListLogo, MenuIcon, SearchIcon, FastFoodIcon } from "../icons"
 import Modal from "../modal/Modal"
@@ -13,6 +13,7 @@ import { Page } from "../page/Page"
 import Search from "../search/Search"
 
 const Home = () => {
+  console.log(window.innerWidth)
   const [isOpen, setIsOpen] = useState(false)
   const [foodCardData, setFoodCardData] = useState([])
   const axios = useTokenizedAxios()
@@ -51,8 +52,10 @@ const Home = () => {
             ))}
           </section>
         </body>
+        <footer className="home-footer">
+          <BottomTabBar homeInd={true}></BottomTabBar>
+        </footer>
       </main>
-      <BottomTabBar homeInd={true}></BottomTabBar>
     </Page>
   )
 }

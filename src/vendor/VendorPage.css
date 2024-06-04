@@ -1,3 +1,6 @@
+#vendor-page {
+  width: 100%;
+}
 .plus-small svg {
   height: 16px;
   width: 16px;
@@ -5,6 +8,7 @@
 }
 .profile-card {
   width: 160px;
+  min-width: 160px;
 }
 .profile-card-div {
   padding-left: 5px;
@@ -41,6 +45,8 @@
 .vendorPage-body-h3 {
   margin: 20px 10px;
   margin-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
 }
 .vendorPage-body-h3 svg {
   width: 30px;
@@ -56,11 +62,41 @@
 .following {
   color: green;
 }
+.vendorPage-body {
+  padding-top: 25px;
+}
+@media (min-width: 576px) {
+  .profile-card {
+    width: 190px;
+  }
+  .profile-card-section {
+    gap: 30px;
+  }
+  .profile-card img {
+    height: 230px;
+  }
+}
 @media (min-width: 992px) {
   .vendorPage-header {
     height: 40px;
   }
+  .profile-card {
+    width: 230px;
+    min-width: 230px;
+  }
+  .profile-card img {
+    height: 300px;
+  }
+  .profile-card-section {
+    gap: 30px;
+  }
+}
+@media (min-width: 1300px) {
   .vendorPage-body {
-    padding-top: 30px;
+    margin-left: 40px;
+  }
+  .profile-card {
+    min-width: 270px;
+    width: 270px;
   }
 }

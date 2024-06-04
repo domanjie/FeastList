@@ -17,7 +17,9 @@ const OrderPage = () => {
         </div>
         <Order></Order>
         <Order></Order>
-        <BottomTabBar orderInd={true}></BottomTabBar>
+        <footer>
+          <BottomTabBar orderInd={true}></BottomTabBar>
+        </footer>
       </main>
     </Page>
   )

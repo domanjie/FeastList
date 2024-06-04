@@ -7,7 +7,11 @@ import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 import { Link } from "react-router-dom"
 import { Page } from "../page/Page"
 import Search from "../search/Search"
+
 const VendorPage = () => {
+  let x = window.matchMedia("(min-width: 700px)")
+  x.addEventListener("change", () => {})
+  console.log(x)
   const axios = useTokenizedAxios()
   const closestToYou = useQuery({
     queryKey: ["CTY"],
@@ -31,21 +35,20 @@ const VendorPage = () => {
           <Search></Search>
         </header>
         <body className="vendorPage-body">
-          <section>
-            <h3 className="vendorPage-body-h3">
-              <SpeedingCourier></SpeedingCourier> Closest to you
-            </h3>
-            <ProfileCardSection func={closestToYou} />
-          </section>
-          <section>
-            <h3 className="vendorPage-body-h3">
-              <LikeIcon />
-              Vendors you may like
-            </h3>
-            <ProfileCardSection func={vendorYouMayLIke} />
-          </section>
+          <ProfileCardSection
+            sectionIco={<SpeedingCourier></SpeedingCourier>}
+            sectionName={"Closest to you "}
+            func={closestToYou}
+          ></ProfileCardSection>
+          <ProfileCardSection
+            sectionIco={<LikeIcon />}
+            sectionName={"Vendors you may like"}
+            func={vendorYouMayLIke}
+          ></ProfileCardSection>
         </body>
-        <BottomTabBar vendorInd={true}></BottomTabBar>
+        <footer>
+          <BottomTabBar vendorInd={true}></BottomTabBar>
+        </footer>
       </section>
     </Page>
   )
