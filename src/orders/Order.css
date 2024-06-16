@@ -10,8 +10,6 @@
   margin-bottom: 20px;
   column-gap: 3px;
   align-items: center;
-  font-size: 14px;
-  color: grey;
 }
 .order > div {
   position: relative;
@@ -32,11 +30,11 @@
   right: 0px;
   bottom: 0px;
 }
-.order img {
+/* .order img {
   width: 40%;
   height: 120px;
   border-radius: 10px;
-}
+} */
 .green-text {
   color: green;
 }
@@ -52,11 +50,4 @@
 .order-page-btns .order-page-btn-active {
   color: var(--primary--600);
   border-color: var(--primary--600);
-}
-.order-name {
-  text-transform: capitalize;
-  font-weight: 500;
-  line-height: 18px;
-  color: black;
-  font-size: 18px;
 }

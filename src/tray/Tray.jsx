@@ -1,12 +1,13 @@
 import "./Tray.css"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import CartFoodCard from "./TrayFoodCard"
+import CartFoodCard from "./TrayCard"
 import Demarcation from "../demarcation/Demarcation"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import PageSpinner from "../spinner/PageSpinner"
 import emptyTrayIco from "./food-tray_5275832.png"
 import { Page } from "../page/Page"
+import TraySummary from "./TraySummary"
 const Tray = () => {
   const axios = useTokenizedAxios()
   const queryClient = useQueryClient()
@@ -41,45 +42,44 @@ const Tray = () => {
   }
   return (
     <Page>
-      <main id="cart">
+      <main id="tray">
         {/* <Modal>
         <AdjustMealSubPage />
         <Payment></Payment>
       </Modal> */}
-        <header className="cart-header">
+        <header className="tray-header">
           <h2>Tray</h2>
-
-          {trayQuery?.data?.length ? (
-            <button
-              onClick={() => {
-                clearTray.mutate()
-              }}
-              className="clear-cart-btn"
-            >
-              CLEAR CART
-            </button>
-          ) : (
-            <></>
-          )}
         </header>
-        <body className="cart-body">
+        <body className="tray-body">
           {trayQuery?.data?.length ? (
-            <section className="cart-first-section">
-              {trayQuery.data.map((item) => (
-                <CartFoodCard
-                  {...{ ...item.meal, amount: item.amount }}
-                ></CartFoodCard>
-              ))}
+            <>
+              <section className="tray-first-section">
+                <button
+                  onClick={() => {
+                    clearTray.mutate()
+                  }}
+                  className="clear-tray-btn"
+                >
+                  CLEAR CART
+                </button>
 
-              <div className="cart-first-section-div">
-                <button className="checkout-btn">Checkout</button>
-                <div>
-                  <p>${getTotalTrayPrice()}</p>
-                  <Demarcation />
-                  <p>Total</p>
+                {trayQuery.data.map((item) => (
+                  <CartFoodCard
+                    {...{ ...item.meal, amount: item.amount }}
+                  ></CartFoodCard>
+                ))}
+
+                <div className="tray-first-section-div">
+                  <button className="checkout-btn">Checkout</button>
+                  <div>
+                    <p>${getTotalTrayPrice()}</p>
+                    <Demarcation />
+                    <p>Total</p>
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+              <TraySummary></TraySummary>
+            </>
           ) : (
             <section>
               <img className="emptyTrayIco" src={emptyTrayIco} alt="" />
@@ -89,7 +89,7 @@ const Tray = () => {
           )}
         </body>
         <footer>
-          <BottomTabBar cartInd={true}></BottomTabBar>
+          <BottomTabBar trayInd={true}></BottomTabBar>
         </footer>
       </main>
     </Page>

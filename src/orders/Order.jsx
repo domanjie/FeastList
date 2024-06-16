@@ -1,13 +1,11 @@
 import img1 from "../images/beans.jpg"
-import { DetailIcon, GlobeIcon, LocationIcon, ChevronRight } from "../icons"
-
 const Order = ({}) => {
   return (
-    <div className="order">
-      <img src={img1} alt="" />
+    <div className="order small-grey-font">
+      <img className="tray-card-avatar" src={img1} alt="" />
       <div>
         <ul>
-          <li className="order-name">beans and rice</li>
+          <li className="bold-title">beans and rice</li>
           <li>
             Status : <span>pending</span>
           </li>

@@ -2,7 +2,7 @@ import "./BottomTabBar.css"
 import { HomeIcon, VendorIcon, OrdersIcon, TrayInActive } from "../icons"
 import { Link } from "react-router-dom"
 
-const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
+const BottomTabBar = ({ homeInd, trayInd, vendorInd, orderInd }) => {
   return (
     <section className="bottom-tab-bar">
       <Link to={"/"}>
@@ -21,7 +21,7 @@ const BottomTabBar = ({ homeInd, cartInd, vendorInd, orderInd }) => {
             <TrayInActive className={"filly"} />
           </button>
           <p className="bottom-tab-bar-button-name">Tray</p>
-          {cartInd && <div className="indicator"></div>}
+          {trayInd && <div className="indicator"></div>}
         </div>
       </Link>
       <Link to={"/vendors"}>

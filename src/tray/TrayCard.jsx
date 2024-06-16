@@ -2,7 +2,8 @@ import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { ChevronDown, ChevronUp, AdjustMentIcon, SaveMealIcon } from "../icons"
 import { useMutation } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
-const TrayFoodCard = ({
+import TraySummary from "./TraySummary"
+const TrayCard = ({
   avatarUrl,
   mealName,
   amount,
@@ -31,16 +32,20 @@ const TrayFoodCard = ({
   return (
     <section
       key={id}
-      className={
-        !userMade ? "cart-food-card" : "cart-food-card  editable-cart-food-card"
-      }
+      className={!userMade ? "tray-card" : "tray-card  editable-tray-card"}
     >
-      {avatarUrl && <img src={avatarUrl} alt="" />}
-      <div className="cart-food-card-div ">
+      {avatarUrl && <img className="tray-card-avatar" src={avatarUrl} alt="" />}
+      <div className="tray-card-div small-grey-font ">
         <div>
-          <p>{mealName}</p>
+          <p className="bold-title">{mealName}</p>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <img className="profile-ico-small" />
+            <span>Glystin foods</span>
+          </div>
+
           <p>{price}</p>
           <p
+            style={{ color: "var(--primary--700)", opacity: "0.7" }}
             onClick={() => {
               deleteMeal.mutate(id)
             }}
@@ -48,19 +53,6 @@ const TrayFoodCard = ({
             remove
           </p>
         </div>
-        <div className="cart-food-card-div-secondChild">
-          {userMade && (
-            <>
-              <button className="adjustment-button">
-                <AdjustMentIcon />
-              </button>
-              <button className="saveMeal-button">
-                <SaveMealIcon />
-              </button>
-            </>
-          )}
-        </div>
-
         <div className="amount-editor-div">
           <button
             onClick={() => {
@@ -88,4 +80,4 @@ const TrayFoodCard = ({
     </section>
   )
 }
-export default TrayFoodCard
+export default TrayCard

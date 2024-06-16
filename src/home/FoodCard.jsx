@@ -59,7 +59,7 @@ const FoodCard = ({
         <p className="price-tag">${price}</p>
 
         <div>
-          <img src="" alt="" />{" "}
+          <img className="profile-ico-small" src="" alt="" />{" "}
           <p className="food-card-restaurant-name">{vendor_name}</p>
         </div>
       </section>

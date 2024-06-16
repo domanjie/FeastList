@@ -34,11 +34,6 @@ div:has(> .food-card-restaurant-name) {
   align-items: center;
   gap: 6px;
 }
-div:has(> .food-card-restaurant-name) img {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-}
 .food-card-btns {
   position: absolute;
   right: 0px;
@@ -48,7 +43,6 @@ div:has(> .food-card-restaurant-name) img {
   margin-right: 10px;
 }
 .food-card-btns svg {
-  /* width: 25px; */
   height: 25px;
 }
 .home-header {

@@ -1,14 +1,11 @@
 import "./Home.css"
 import FoodCard from "./FoodCard"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import SideMenu from "../sideMenu/SideMenu"
-import { FeastListLogo, MenuIcon, SearchIcon, FastFoodIcon } from "../icons"
+import { FeastListLogo, MenuIcon, FastFoodIcon } from "../icons"
 import Modal from "../modal/Modal"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import PageSpinner from "../spinner/PageSpinner"
-import { Link } from "react-router-dom"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
-import { useMutation } from "@tanstack/react-query"
 import { Page } from "../page/Page"
 import Search from "../search/Search"
 
@@ -30,7 +27,6 @@ const Home = () => {
             <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
           </Modal>
         )}
-        {/* <PageSpinner></PageSpinner> */}
         <header className="home-header">
           <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
             <MenuIcon />
