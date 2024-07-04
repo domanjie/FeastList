@@ -8,6 +8,15 @@ import { useState } from "react"
 import { login } from "./authRequests"
 
 const LOGIN_URL = "/api/v1/authentication/login"
+const CLIENT_ID =
+  "348571079382-a0rf9alsfnhcbtoamc3m1ds31dj55ipp.apps.googleusercontent.com"
+
+google.accounts.id.initialize({
+  client_id: CLIENT_ID,
+  callback: (response) => {
+    console.log(response)
+  },
+})
 
 const Login = () => {
   const { auth, setAuth } = useAuthContext()
@@ -90,7 +99,12 @@ const OrBlock = () => {
 const SsoBlock = () => {
   return (
     <>
-      <div className="sso-block">
+      <div
+        onClick={() => {
+          google.accounts.id.prompt()
+        }}
+        className="sso-block"
+      >
         <GoogleIcon></GoogleIcon>
         <p>Sign in with Google</p>
       </div>

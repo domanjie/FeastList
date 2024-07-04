@@ -18,23 +18,19 @@
 .order > div > ul {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 21px;
 }
 
 .order li {
   list-style: none;
 }
 
-.order h4 {
+.order-h4 {
   position: absolute;
   right: 0px;
   bottom: 0px;
+  column-gap: 5px;
 }
-/* .order img {
-  width: 40%;
-  height: 120px;
-  border-radius: 10px;
-} */
 .green-text {
   color: green;
 }
@@ -50,4 +46,50 @@
 .order-page-btns .order-page-btn-active {
   color: var(--primary--600);
   border-color: var(--primary--600);
+}
+.order-h4 button {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .order-page-body {
+    width: 60%;
+  }
+  .order-h4 button {
+    display: inline;
+    position: absolute;
+    right: -12px;
+    top: -2px;
+  }
+}
+
+.image-slider-btns {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+  width: fit-content;
+  transform: translateY(5px);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 100ms ease-in-out;
+}
+.order:hover .image-slider-btns,
+.image-slider-btns:hover {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.image-slider-btns svg {
+  width: 10px;
+  height: 10px;
+}
+.image-slider {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 19/16;
+  max-width: 190px;
+  border-radius: 10px;
 }

@@ -705,3 +705,69 @@ export const TrayInActive = ({ className }) => {
     </svg>
   )
 }
+export const FilledChevron = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="9"
+      height="16"
+      fill="none"
+      viewBox="0 0 9 16"
+    >
+      <path
+        fill="#000"
+        d="M.037 7.588L8.252.078v15.019L.037 7.587z"
+        opacity="0.6"
+      ></path>
+    </svg>
+  )
+}
+export const Circle = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      fill="none"
+      viewBox="0 0 25 25"
+    >
+      <g clipPath="url(#clip0_398_3)">
+        <path
+          fill="#000"
+          stroke="#D9D9D9"
+          d="M24.75 12.5c0 6.765-5.485 12.25-12.25 12.25C5.734 24.75.25 19.265.25 12.5.25 5.734 5.734.25 12.5.25c6.765 0 12.25 5.484 12.25 12.25z"
+        ></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_398_3">
+          <path fill="#fff" d="M0 0H25V25H0z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
+export const CircleDot = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      fill="none"
+      viewBox="0 0 25 25"
+    >
+      <g clipPath="url(#clip0_398_5)">
+        <path
+          fill="#000"
+          stroke="#D9D9D9"
+          d="M24.75 12.5c0 6.765-5.485 12.25-12.25 12.25C5.734 24.75.25 19.265.25 12.5.25 5.734 5.734.25 12.5.25c6.765 0 12.25 5.484 12.25 12.25z"
+        ></path>
+        <circle cx="12.5" cy="12.5" r="5" fill="#D9D9D9"></circle>
+      </g>
+      <defs>
+        <clipPath id="clip0_398_5">
+          <path fill="#fff" d="M0 0H25V25H0z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}

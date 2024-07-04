@@ -10,7 +10,6 @@ import { Page } from "../page/Page"
 import Search from "../search/Search"
 
 const Home = () => {
-  console.log(window.innerWidth)
   const [isOpen, setIsOpen] = useState(false)
   const [foodCardData, setFoodCardData] = useState([])
   const axios = useTokenizedAxios()
@@ -35,7 +34,7 @@ const Home = () => {
 
           <Search></Search>
         </header>
-        <body className="home-body">
+        <section className="home-body">
           <h3 style={{ padding: "10px" }} className="home-body-header">
             <FastFoodIcon></FastFoodIcon> Feast Your Treat!
           </h3>
@@ -47,7 +46,7 @@ const Home = () => {
               <FoodCard key={item.id} {...item}></FoodCard>
             ))}
           </section>
-        </body>
+        </section>
         <footer className="home-footer">
           <BottomTabBar homeInd={true}></BottomTabBar>
         </footer>

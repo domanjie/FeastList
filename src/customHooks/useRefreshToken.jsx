@@ -12,7 +12,6 @@ export const useRefreshToken = () => {
     } catch (error) {
       const status = error?.response?.status
       if (status == 403 || 401 || 400) {
-        console.log(status)
         navigate("/login", {
           replace: true,
           state: { from: location.pathname },
