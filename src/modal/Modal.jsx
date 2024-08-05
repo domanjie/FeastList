@@ -1,5 +1,17 @@
+import { createContext, useState } from "react"
 import "./Modal.css"
-const Modal = ({ children }) => {
-  return <div className="modal">{children}</div>
+export const useModal = createContext()
+const Modal = ({ setIsOpen, children }) => {
+  return (
+    <div onClick={() => setIsOpen(false)} className="modal">
+      <div
+        onClick={(e) => {
+          e.stopPropagation()
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  )
 }
 export default Modal

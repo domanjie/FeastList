@@ -1,4 +1,4 @@
-import { CreditCardIcon } from "../icons"
+import "./TraySummary.css"
 
 const TraySummary = () => {
   return (
@@ -23,10 +23,7 @@ const TraySummary = () => {
           <p>Total :</p>
           <span>$1000</span>
         </div>
-        <button className="checkout-btn">
-          CHECK OUT
-          <CreditCardIcon />
-        </button>
+        <button className="checkout-btn">CHECK OUT</button>
       </footer>
     </section>
   )

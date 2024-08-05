@@ -15,7 +15,7 @@
   --primary--600: #ffcf0d;
   --primary--700: #ff4f0d;
   --primary--800: #e3e3e3;
-  --grey: #0f172a;
+  --sub-text: #5e5e5e;
   /* fonts */
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
@@ -35,4 +35,5 @@ body {
 button {
   border: none;
   background: none;
+  cursor: pointer;
 }

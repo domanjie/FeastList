@@ -22,26 +22,23 @@ const Home = () => {
     <Page>
       <main id="home">
         {isOpen && (
-          <Modal>
-            <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+          <Modal setIsOpen={setIsOpen}>
+            <SideMenu />
           </Modal>
         )}
+
         <header className="home-header">
-          <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
+          <button className="menu-button" onClick={() => setIsOpen(true)}>
             <MenuIcon />
           </button>
           <FeastListLogo className="feast-list-logo" />
-
           <Search></Search>
         </header>
         <section className="home-body">
           <h3 style={{ padding: "10px" }} className="home-body-header">
             <FastFoodIcon></FastFoodIcon> Feast Your Treat!
           </h3>
-          <section
-            className="home-section"
-            style={{ padding: "0px var(--padding-from-screen-width)" }}
-          >
+          <section className="home-section">
             {foodCardData.map((item) => (
               <FoodCard key={item.id} {...item}></FoodCard>
             ))}

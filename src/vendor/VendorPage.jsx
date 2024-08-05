@@ -1,17 +1,13 @@
 import "./VendorPage.css"
 import ProfileCardSection from "./ProfileCardSection"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import { SpeedingCourier, LikeIcon, SearchIcon } from "../icons"
+import { SpeedingCourier, LikeIcon } from "../icons"
 import { useQuery } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
-import { Link } from "react-router-dom"
 import { Page } from "../page/Page"
 import Search from "../search/Search"
 
 const VendorPage = () => {
-  let x = window.matchMedia("(min-width: 700px)")
-  x.addEventListener("change", () => {})
-  console.log(x)
   const axios = useTokenizedAxios()
   const closestToYou = useQuery({
     queryKey: ["CTY"],

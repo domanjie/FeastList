@@ -10,7 +10,7 @@ li {
 }
 .small-grey-font {
   font-size: 14px;
-  color: grey;
+  color: var(--sub-text);
 }
 .profile-ico-small {
   width: 20px;

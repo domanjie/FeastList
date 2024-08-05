@@ -1,16 +1,7 @@
 import "./SubPage.css"
-import { XIcon } from "../icons"
-
+import Modal from "../modal/Modal"
+import { useState } from "react"
 const SubPage = ({ children }) => {
-  return (
-    <section className="sub-page">
-      <div>
-        <button className="x-btn">
-          <XIcon />
-        </button>
-        {children}
-      </div>
-    </section>
-  )
+  return <section className="sub-page">{children}</section>
 }
 export default SubPage

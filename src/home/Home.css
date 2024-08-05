@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+  padding: 0px 20px;
 }
 
 .food-card {
@@ -20,19 +21,18 @@
   object-position: 50% 50%;
 }
 .food-card-section {
-  padding-top: 5px;
-  padding-left: 10px;
+  padding-top: 12px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  font-size: 14px;
-  color: grey;
+  gap: 12px;
+  font-size: 18px;
+  text-transform: capitalize;
 }
 
 div:has(> .food-card-restaurant-name) {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 .food-card-btns {
   position: absolute;
@@ -40,7 +40,6 @@ div:has(> .food-card-restaurant-name) {
   bottom: 0px;
   display: flex;
   gap: 20px;
-  margin-right: 10px;
 }
 .food-card-btns svg {
   height: 25px;
@@ -61,15 +60,7 @@ div:has(> .food-card-restaurant-name) {
   height: 25px;
   vertical-align: bottom;
 }
-.food-card-meal-name {
-  color: black;
-  font-size: 18px;
-  font-weight: 600;
-}
-.food-card-restaurant-name,
-.food-card-meal-name {
-  text-transform: capitalize;
-}
+
 .food-card-restaurant-name {
   text-overflow: ellipsis;
   white-space: nowrap;

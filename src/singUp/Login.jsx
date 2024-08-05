@@ -6,17 +6,10 @@ import { GoogleIcon } from "../icons"
 import useAuthContext from "../customHooks/useAuthContext"
 import { useState } from "react"
 import { login } from "./authRequests"
-
+import { axios_ } from "../api"
 const LOGIN_URL = "/api/v1/authentication/login"
 const CLIENT_ID =
   "348571079382-a0rf9alsfnhcbtoamc3m1ds31dj55ipp.apps.googleusercontent.com"
-
-google.accounts.id.initialize({
-  client_id: CLIENT_ID,
-  callback: (response) => {
-    console.log(response)
-  },
-})
 
 const Login = () => {
   const { auth, setAuth } = useAuthContext()
@@ -56,6 +49,24 @@ const Login = () => {
       if (error.response.status == 403) setForbidden(true)
     }
   }
+
+  //oauth
+  google.accounts.id.initialize({
+    client_id: CLIENT_ID,
+    callback: (response) => {
+      console.log(response)
+      axios_
+        .get(
+          `/api/v1/authentication/oauth-login?id_token=${response.credential}`
+        )
+        .then((response) => {
+          setAuth(response.data)
+          from
+            ? navigate(from, { replace: true })
+            : navigate("/", { replace: true })
+        })
+    },
+  })
 
   return (
     <section id="login-form">
