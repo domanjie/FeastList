@@ -1,9 +1,8 @@
 import TrayCard from "./TrayCard"
-import { CircleDot } from "../icons"
 const TrayVendorGroup = ({ data, deliveryFee }) => {
   const { vendorName, trayItems } = data
   return (
-    <section className="TrayVendorGroup small-grey-font">
+    <section className="TrayVendorGroup sub-font">
       <div
         style={{
           display: "flex",

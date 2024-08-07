@@ -5,7 +5,7 @@
 }
 .order {
   display: flex;
-  margin: 15px 10px;
+  margin: 24px 10px;
   margin-right: 5px;
   column-gap: 3px;
   align-items: center;
@@ -36,28 +36,33 @@
 .green-text {
   color: green;
 }
+.order-page-btns {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
 .order-page-btns button {
   height: 33px;
   border: 1px solid #d9d9d9;
   color: #d9d9d9;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 0px 10px;
   margin: 0px 5px;
 }
 .order-page-btns .order-page-btn-active {
   background-color: var(--primary--600);
-  color: white;
+  color: var(--primary--500);
   border: none;
 }
 .order-h4 button {
   display: none;
 }
+.order-page-body {
+  max-width: 540px;
+  padding: 0px var(--padding-from-screen-width);
+}
 
 @media (min-width: 992px) {
-  .order-page-body {
-    width: 60%;
-  }
   .order-h4 button {
     display: inline;
     position: absolute;

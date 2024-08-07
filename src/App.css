@@ -1,17 +1,6 @@
 li {
   list-style: none;
 }
-.bold-title {
-  transform: capitalize;
-  font-weight: 500;
-  line-height: 18px;
-  color: black;
-  font-size: 18px;
-}
-.small-grey-font {
-  font-size: 14px;
-  color: var(--sub-text);
-}
 .profile-ico-small {
   width: 20px;
   height: 20px;

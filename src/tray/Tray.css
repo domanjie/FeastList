@@ -33,7 +33,7 @@
 .minus-button {
   width: 30px;
   height: 30px;
-  border: 1px solid var(--primary--800);
+  border: 1px solid var(--primary--200);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@
 }
 .checkout-btn {
   border: 1.5px solid var(--primary--600);
-  color: white;
+  color: var(--primary--500);
   background-color: var(--primary--600);
   margin-left: var(--padding-from-screen-width);
 }
@@ -79,7 +79,7 @@
   gap: 16px;
 }
 .tray-body-section {
-  padding: 0px var(--padding-from-screen-width);
+  padding: 0 var(--padding-from-screen-width);
   position: relative;
 }
 .tray-body-section-div {
@@ -112,19 +112,35 @@ section:has(.emptyTrayIco) h2 {
   opacity: 0.7;
   rotate: -12deg;
 }
-
+@media (min-width: 576px) {
+  .amount-editor-div {
+    margin-top: 40px;
+  }
+}
 @media (min-width: 992px) {
+  .amount-editor-div {
+    margin-top: 48px;
+  }
   .tray-body {
     display: flex;
   }
   .tray-body-section {
     width: 60%;
+    padding-top: 30px;
+  }
+  .tray-body-summary {
+    width: 36%;
+    border-left: 1px solid var(--primary--200);
+    padding-left: 15px;
+    height: 100vh;
   }
   .clear-tray-btn {
-    top: -12px;
+    top: 4px;
+    right: 16px;
   }
   .tray-body-section-div > .checkout-btn,
-  .tray-body-section-div > div {
+  .tray-body-section-div > div,
+  .tray-header {
     display: none;
   }
 }

@@ -5,7 +5,7 @@
 #page > svg {
   display: none;
   position: fixed;
-  top: 20px;
+  top: 10px;
   right: 81%;
 }
 @media (min-width: 992px) {

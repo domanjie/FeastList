@@ -9,23 +9,37 @@
   /* colors */
   --primary--100: #fcfbf0;
   --primary--200: #d9d9d9;
-  --primary--300: #f5f5f5;
-  --primary--400: #c4c4c4;
-  --primary--500: #faff00;
+  --primary--300: #5e5e5e;
+  --primary--400: #000000;
+  --primary--500: #ffffff;
   --primary--600: #ffcf0d;
   --primary--700: #ff4f0d;
-  --primary--800: #e3e3e3;
-  --sub-text: #5e5e5e;
+
   /* fonts */
-  --small-text: 0.875rem;
+  --large-text: 18px;
+  --regular-text: 16px;
+  --small-text: 14px;
   --extra-small-text: 0.7em;
   --letterSpacing: 0.8px;
-  --fontLightWeight: 400px;
-  --fontHeavyWeight: 600px;
+  --fontWeightLight: 400;
+  --fontWeightSemiBold: 600;
+  --fontWeightBold: 700;
 
   --padding-from-screen-width: 10px;
-
   --fixed-width: 350px;
+}
+.main-font-light,
+.main-font-heavy {
+  font-size: var(--large-text);
+  color: var(--primary--400);
+  text-transform: capitalize;
+}
+.main-font-heavy {
+  font-weight: var(--fontWeightSemiBold);
+}
+.sub-font {
+  font-size: 14px;
+  color: var(--primary--300);
 }
 body {
   font-family: Inter, system-ui, -apple-system, sans-serif;

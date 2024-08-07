@@ -32,7 +32,7 @@ const Order = ({ id }) => {
         onMouseLeave={() => {
           clearInterval(intervalId)
         }}
-        className="order small-grey-font"
+        className="order sub-font"
       >
         <ImageSlider
           setCurrent={setCurrent}
@@ -41,16 +41,27 @@ const Order = ({ id }) => {
         ></ImageSlider>
         <div style={{ paddingLeft: "10px" }}>
           <ul>
-            <li className="bold-title">beans and rice</li>
+            <li
+              style={{
+                fontSize: "16px",
+                color: "black",
+                textTransform: "capitalize",
+              }}
+            >
+              beans and rice
+            </li>
+            <li style={{ fontSize: "18px", color: "black", fontWeight: "600" }}>
+              {" "}
+              $150000
+            </li>
             <li>12th feb . 4:30 pm</li>
-            <li>$150000</li>
             <li className="order-h4">
               <ChevronRight></ChevronRight> view details
             </li>
           </ul>
         </div>
       </section>
-      <OrderDetail></OrderDetail>
+      {/* <OrderDetail></OrderDetail> */}
     </>
   )
 }
@@ -65,7 +76,7 @@ const OrderDetail = () => {
           marginLeft: "20px",
           padding: "5px 0px",
           borderLeft: "1px solid var(--primary--200)",
-          color: "var(--sub-text)",
+          color: "var(--primary--300)",
         }}
       >
         <OrderDetailVendorGroup />
@@ -98,10 +109,11 @@ const OrderDetailItem = () => {
       <img
         style={{
           height: "137px",
-          width: "100%",
+          width: "95%",
           borderRadius: "10px",
           objectPosition: "50% 50%",
           objectFit: "cover",
+          maxWidth: "400px",
         }}
         src={img4}
         alt=""

@@ -41,7 +41,7 @@
   align-self: flex-end;
   height: 52px;
   background: none;
-  border: 1px solid var(--primary--400);
+  border: 1px solid var(--primary--200);
   padding: 15px;
   line-height: 25px;
   font-size: 1.05rem;
@@ -52,7 +52,7 @@
   width: 97%;
   align-self: flex-end;
   height: 52px;
-  background-color: var(--primary--500);
+  background-color: var(--primary--600);
   font-weight: 600;
   letter-spacing: var(--letterSpacing);
   font-size: 1.05rem;
@@ -60,6 +60,7 @@
   transition: background-color ease-in-out 0.1s;
   border-radius: 10px;
   margin-top: 20px;
+  color: var(--primary--500);
 }
 .login-btn:hover {
   background-color: var(--primary--600);
@@ -73,7 +74,7 @@
   padding-top: 15px;
 }
 .h-line {
-  border-top: 1px solid var(--primary--400);
+  border-top: 1px solid var(--primary--200);
   width: 40%;
   margin-top: 11px;
 }
@@ -82,7 +83,7 @@
   display: flex;
   width: 97%;
   height: 52px;
-  border: 1px solid var(--primary--400);
+  border: 1px solid var(--primary--200);
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -108,7 +109,7 @@
 }
 .radio-form-block {
   flex-direction: row;
-  border: 1px solid var(--primary--400);
+  border: 1px solid var(--primary--200);
   width: 49%;
   column-gap: 20px;
   height: 52px;
@@ -126,7 +127,7 @@
   height: auto;
 }
 .sign-up-btn {
-  background-color: var(--primary--400);
+  background-color: var(--primary--200);
   color: var(--primary--100);
 }
 /* ============================== */
@@ -141,7 +142,7 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-color: white;
+  background-color: var(--primary--500);
   top: 0px;
   z-index: 3;
 }
@@ -163,7 +164,7 @@
 }
 .email-verification input:active,
 .email-verification input:focus {
-  border-color: var(--primary--500);
+  border-color: var(--primary--600);
 }
 .email-verification p {
   text-align: center;

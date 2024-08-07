@@ -84,11 +84,13 @@ const Tray = () => {
                   </button>
                   <div>
                     <p>${getTotalTrayPrice()}</p>
-                    <p className="small-grey-font">Total</p>
+                    <p className="sub-font">Total</p>
                   </div>
                 </div>
               </section>
-              <TraySummary></TraySummary>
+              <div className="tray-body-summary">
+                <TraySummary></TraySummary>
+              </div>
             </>
           ) : (
             <section>

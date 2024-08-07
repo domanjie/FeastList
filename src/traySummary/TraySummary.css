@@ -39,13 +39,16 @@
   fill: var(--primary--600);
 }
 @media (min-width: 992px) {
+  .checkout-btn {
+    margin-left: 0px;
+  }
   .tray-summary {
     display: block;
     border: 1px solid var(--primary--200);
     height: fit-content;
-    width: 35%;
     max-width: 405px;
     border-radius: 30px;
+    margin-top: 30px;
   }
 
   .tray-summary-header {

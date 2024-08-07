@@ -37,9 +37,9 @@ const TrayCard = ({
       className={!userMade ? "tray-card" : "tray-card  editable-tray-card"}
     >
       {avatarUrl && <img className="tray-card-avatar" src={avatarUrl} alt="" />}
-      <div className="tray-card-div small-grey-font ">
+      <div className="tray-card-div sub-font ">
         <div>
-          <p className="bold-title">{mealName}</p>
+          <p className=".main-font-light">{mealName}</p>
           <p>${price}</p>
           <div className="amount-editor-div">
             <button

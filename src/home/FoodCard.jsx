@@ -55,14 +55,12 @@ const FoodCard = ({
         )}
       </div>
       <section className="food-card-section">
-        <p>{meal_name}</p>
-        <p style={{ fontWeight: "600" }}>${price}</p>
+        <p className="main-font-light">{meal_name}</p>
+        <p className="main-font-heavy">${price}</p>
 
         <div>
           <img className="profile-ico-small" src="" alt="" />{" "}
-          <p className="food-card-restaurant-name small-grey-font">
-            {vendor_name}
-          </p>
+          <p className="food-card-restaurant-name sub-font">{vendor_name}</p>
         </div>
       </section>
     </section>
