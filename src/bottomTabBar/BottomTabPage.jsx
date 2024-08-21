@@ -8,4 +8,4 @@ const BottomTabPage = () => {
     </>
   )
 }
-export default BottomTabPage
+// export default BottomTabPage

@@ -1,6 +1,11 @@
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
-import { CreditCardIcon, TrayActive, TrayInActive } from "../icons"
+import {
+  CreditCardIcon,
+  TrayActive,
+  TrayInActive,
+  CreditCardIcon2,
+} from "../icons"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 
 const FoodCard = ({
@@ -26,34 +31,36 @@ const FoodCard = ({
   })
   return (
     <section className="food-card">
-      <img className="food-card-avatar" src={avatar_url} alt={meal_name} />
-
-      <div className="food-card-btns">
-        <button className="creditCard-btn">
-          <CreditCardIcon />
-        </button>
-        {active ? (
-          <button
-            onClick={() => {
-              setActive(!active)
-              removeFromTray.mutate(id)
-            }}
-            className="cart-button"
-          >
-            <TrayActive />
+      <div className="food-card-div">
+        <img className="food-card-avatar" src={avatar_url} alt={meal_name} />
+        <div className="food-card-btns">
+          <button className="creditCard-btn">
+            <CreditCardIcon2 />
           </button>
-        ) : (
-          <button
-            onClick={() => {
-              setActive(!active)
-              addToTray.mutate({ mealId: id, amount: 1 })
-            }}
-            className="cart-button"
-          >
-            <TrayInActive />
-          </button>
-        )}
+          {active ? (
+            <button
+              onClick={() => {
+                setActive(!active)
+                removeFromTray.mutate(id)
+              }}
+              className="cart-button"
+            >
+              <TrayActive />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setActive(!active)
+                addToTray.mutate({ mealId: id, amount: 1 })
+              }}
+              className="cart-button"
+            >
+              <TrayInActive />
+            </button>
+          )}
+        </div>
       </div>
+
       <section className="food-card-section">
         <p className="main-font-light">{meal_name}</p>
         <p className="main-font-heavy">${price}</p>

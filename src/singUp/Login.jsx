@@ -1,8 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import mailIcon from "./assets/mail.svg"
-import passwordIcon from "./assets/password.svg"
 import InputBlock from "./InputBlock"
-import { GoogleIcon } from "../icons"
+import { GoogleIcon, LockIcon, EmailIcon } from "../icons"
 import useAuthContext from "../customHooks/useAuthContext"
 import { useState } from "react"
 import { login } from "./authRequests"
@@ -20,7 +18,7 @@ const Login = () => {
   const inputs = [
     {
       id: "email",
-      ico: mailIcon,
+      ico: <EmailIcon />,
       name: "username",
       type: "text",
       pText: "Email",
@@ -30,7 +28,7 @@ const Login = () => {
       id: "password",
       pText: "Password",
       type: "password",
-      ico: passwordIcon,
+      ico: <LockIcon />,
     },
   ]
 

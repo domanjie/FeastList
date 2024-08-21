@@ -16,7 +16,7 @@
   --primary--700: #ff4f0d;
 
   /* fonts */
-  --large-text: 18px;
+  --large-text: 17px;
   --regular-text: 16px;
   --small-text: 14px;
   --extra-small-text: 0.7em;
@@ -30,11 +30,11 @@
 }
 .main-font-light,
 .main-font-heavy {
-  font-size: var(--large-text);
   color: var(--primary--400);
   text-transform: capitalize;
 }
 .main-font-heavy {
+  font-size: var(--large-text);
   font-weight: var(--fontWeightSemiBold);
 }
 .sub-font {
@@ -42,7 +42,7 @@
   color: var(--primary--300);
 }
 body {
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   line-height: 1.01;
   letter-spacing: var(--letterSpacing);
 }

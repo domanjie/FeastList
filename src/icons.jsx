@@ -230,14 +230,16 @@ export const SaveMealIcon = () => {
     </svg>
   )
 }
-export const ChevronRight = () => {
+export const ChevronRight = ({ style, className }) => {
   return (
     <svg
+      className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       width="6"
-      height="11"
+      height="22"
       fill="none"
-      viewBox="0 0 6 11"
+      viewBox="0 0 6 22"
     >
       <path
         stroke="#000"
@@ -245,14 +247,15 @@ export const ChevronRight = () => {
         strokeLinejoin="round"
         strokeOpacity="0.6"
         strokeWidth="2"
-        d="M1 1l4 4.5L1 10"
+        d="M1 1l4 10-4 10"
       ></path>
     </svg>
   )
 }
-export const LocationIcon = () => {
+export const LocationIcon = ({ style }) => {
   return (
     <svg
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -291,22 +294,41 @@ export const XIcon = () => {
     </svg>
   )
 }
+
 export const CreditCardIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="18"
+      width="21"
+      height="17"
       fill="none"
-      viewBox="0 0 30 18"
+      viewBox="0 0 21 17"
+    >
+      <path
+        stroke="#000"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M1 4.75h19.5M1 5.5h19.5M4 10.75h6M4 13h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V3.25A2.25 2.25 0 0018.25 1h-15A2.25 2.25 0 001 3.25v10.5A2.25 2.25 0 003.25 16z"
+      ></path>
+    </svg>
+  )
+}
+export const CreditCardIcon2 = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="26"
+      height="25"
+      fill="none"
+      viewBox="0 0 26 25"
     >
       <path
         fill="#000"
-        d="M28.316 0H1.684C.756 0 0 .683 0 1.522v14.955C0 17.317.756 18 1.684 18h26.632c.928 0 1.684-.683 1.684-1.523V1.522C30 .682 29.244 0 28.316 0zM1.684.603h26.632c.561 0 1.017.412 1.017.92v1.974H.667V1.522c0-.507.456-.92 1.017-.92zm26.632 16.794H1.684c-.561 0-1.017-.412-1.017-.92V4.1h28.666v12.379c0 .507-.456.92-1.017.92z"
+        d="M24.386 4.29H1.585C.79 4.29.143 4.91.143 5.675v13.62c0 .765.647 1.387 1.442 1.387h22.801c.795 0 1.442-.622 1.442-1.387V5.676c0-.765-.647-1.387-1.442-1.387zm-22.801.548h22.801c.48 0 .871.376.871.838v1.798H.714V5.676c0-.462.39-.838.87-.838zm22.801 15.296H1.585c-.48 0-.871-.376-.871-.838V8.023h24.543v11.274c0 .461-.39.837-.871.837z"
       ></path>
       <path
         fill="#000"
-        d="M26.445 10.125H21.94c-.185 0-.334.135-.334.302v3.775c0 .166.15.301.334.301h4.506c.185 0 .334-.135.334-.301v-3.775c0-.167-.15-.302-.334-.302zm-.333 3.776h-3.84v-3.173h3.84v3.173z"
+        d="M22.785 13.511h-3.859a.28.28 0 00-.285.274v3.439a.28.28 0 00.285.274h3.859a.28.28 0 00.285-.274v-3.439a.28.28 0 00-.285-.274zm-.286 3.438h-3.287v-2.89h3.287v2.89z"
       ></path>
     </svg>
   )
@@ -400,6 +422,45 @@ export const LockIcon = () => {
         strokeLinejoin="round"
         d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
       />
+    </svg>
+  )
+}
+export const MaleGenderIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 18 18"
+    >
+      <g clipPath="url(#clip0_71_13)">
+        <path
+          fill="#000"
+          d="M12.225.099v1.193h3.62l-4.322 4.32a6.92 6.92 0 00-4.472-1.635A6.96 6.96 0 00.099 10.93a6.96 6.96 0 006.952 6.952 6.96 6.96 0 006.951-6.952 6.92 6.92 0 00-1.635-4.473l4.32-4.32v3.619h1.194V.099h-5.656zM7.051 16.688a5.765 5.765 0 01-5.76-5.759 5.765 5.765 0 015.76-5.759 5.765 5.765 0 015.758 5.76 5.765 5.765 0 01-5.758 5.758z"
+        ></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_71_13">
+          <path fill="#fff" d="M0 0H18V18H0z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
+export const FemaleGenderIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 18 18"
+    >
+      <path
+        fill="#000"
+        d="M13.118 10.063a5.845 5.845 0 000-8.257 5.845 5.845 0 00-8.257 0 5.845 5.845 0 000 8.257 5.81 5.81 0 003.536 1.677v2.389H5.924v1.186h2.473v2.566h1.186v-2.566h2.472v-1.186H9.583V11.74a5.81 5.81 0 003.535-1.677zM5.7 2.645a4.64 4.64 0 013.29-1.361c1.191 0 2.383.453 3.29 1.36a4.659 4.659 0 010 6.581 4.658 4.658 0 01-6.58 0 4.658 4.658 0 010-6.58z"
+      ></path>
     </svg>
   )
 }
@@ -765,6 +826,27 @@ export const CircleDot = () => {
       viewBox="0 0 4 4"
     >
       <circle cx="1.889" cy="2.098" r="1.3" fill="#FFCF0D"></circle>
+    </svg>
+  )
+}
+export const Target = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      viewBox="0 0 20 20"
+    >
+      <g fill="#000" clipPath="url(#clip0_705_35)">
+        <path d="M19.868 9.55h-1.654c-.221-4.194-3.593-7.565-7.786-7.787V.11H9.55v1.653c-4.194.222-7.565 3.593-7.787 7.787H.11v.878h1.653c.222 4.193 3.593 7.565 7.787 7.786v1.654h.878v-1.654c4.193-.221 7.565-3.593 7.786-7.786h1.654V9.55zm-9.44 7.784v-1.628H9.55v1.628a7.369 7.369 0 01-6.906-6.906H4.27V9.55H2.644A7.369 7.369 0 019.55 2.644V4.27h.878V2.644a7.369 7.369 0 016.906 6.906h-1.628v.878h1.628a7.368 7.368 0 01-6.906 6.906z"></path>
+        <path d="M9.989 13.085A3.1 3.1 0 016.892 9.99 3.1 3.1 0 019.99 6.892a3.1 3.1 0 013.096 3.097 3.1 3.1 0 01-3.096 3.096zm0-5.315A2.221 2.221 0 007.77 9.99c0 1.223.996 2.218 2.219 2.218a2.221 2.221 0 002.218-2.218A2.221 2.221 0 009.99 7.77z"></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_705_35">
+          <path fill="#fff" d="M0 0H20V20H0z"></path>
+        </clipPath>
+      </defs>
     </svg>
   )
 }

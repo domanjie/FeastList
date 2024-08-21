@@ -1,12 +1,8 @@
 import "./styles.css"
 import { Link, useNavigate } from "react-router-dom"
-import mailIcon from "./assets/mail.svg"
-import passwordIcon from "./assets/password.svg"
-import maleGender from "./assets/maleGender.svg"
-import femaleGender from "./assets/femaleGender.svg"
 import InputBlock from "./InputBlock"
+import { FemaleGenderIcon, MaleGenderIcon, EmailIcon, LockIcon } from "../icons"
 import { useState } from "react"
-import { useMutation } from "@tanstack/react-query"
 import EmailVerificationPage from "./EmailVerificationPage"
 import { login, singUp } from "./authRequests.js"
 import useAuthContext from "../customHooks/useAuthContext"
@@ -35,7 +31,7 @@ const SignUp = () => {
       value: user.email,
       handleChange,
       err: "Must be a valid email",
-      ico: mailIcon,
+      ico: <EmailIcon />,
     },
     {
       id: "mat-no",
@@ -50,7 +46,7 @@ const SignUp = () => {
       name: "password",
       pText: "Password",
       type: "password",
-      ico: passwordIcon,
+      ico: <LockIcon />,
       err: "Minimum eight characters, at least one letter and one number:",
       pattern: "(?=.*[A-Za-z])(?=.*\\d).{8,}",
       value: user.password,
@@ -61,7 +57,7 @@ const SignUp = () => {
       name: "confirmPassword",
       pText: "Confirm Password",
       type: "password",
-      ico: passwordIcon,
+      ico: <LockIcon />,
       err: "Passwords must match",
       pattern: user.password,
       value: user.confirmPassword,
@@ -70,21 +66,21 @@ const SignUp = () => {
   ]
   const genderInputs = [
     {
-      className: "form-block radio-form-block",
+      className: " radio-form-block",
       id: "male",
       pText: "Male",
       type: "radio",
-      ico: maleGender,
+      ico: <MaleGenderIcon />,
       name: "gender",
       value: "MALE",
       handleChange,
     },
     {
-      className: "form-block radio-form-block",
+      className: " radio-form-block",
       id: "female",
-      pText: "female",
+      pText: "Female",
       type: "radio",
-      ico: femaleGender,
+      ico: <FemaleGenderIcon />,
       name: "gender",
       value: "FEMALE",
       handleChange,
@@ -121,11 +117,16 @@ const SignUp = () => {
           {inputs.map((entry) => (
             <InputBlock {...entry} />
           ))}
-          <label htmlFor="radio">Gender</label>
-          <section id="radio">
-            {genderInputs.map((entry) => (
-              <InputBlock {...entry} />
-            ))}
+
+          <section>
+            <label htmlFor="radio" style={{ color: "var(--primary--300)" }}>
+              Gender
+            </label>
+            <section id="radio">
+              {genderInputs.map((entry) => (
+                <InputBlock {...entry} />
+              ))}
+            </section>
           </section>
           <button type="submit" className="submit-btn sign-up-btn">
             Create account

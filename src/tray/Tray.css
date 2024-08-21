@@ -3,17 +3,16 @@
 }
 .tray-card {
   display: flex;
-  padding-bottom: 10px;
-  padding-top: 7px;
+  padding-bottom: 8px;
+  padding-top: 4px;
   padding-left: var(--padding-from-screen-width);
   width: 100%;
   align-items: center;
 }
 .tray-card-avatar {
-  width: 42%;
-  max-width: 250px;
-  /* height: 120px; */
   aspect-ratio: 7/5;
+  max-width: 200px;
+  width: 42%;
   border-radius: 10px;
   object-fit: cover;
   object-position: 50% 50%;
@@ -42,13 +41,13 @@
 .clear-tray-btn,
 .checkout-btn {
   width: 136px;
-  height: 40px;
+  height: 48px;
   border-radius: 10px;
   transition: all ease-in-out 0.2s;
 }
 .clear-tray-btn:hover {
-  width: 140px;
-  height: 42px;
+  color: var(--primary--500);
+  background-color: var(--primary--700);
 }
 .clear-tray-btn {
   position: absolute;
@@ -56,6 +55,7 @@
   top: -40px;
   color: var(--primary--700);
   border: 1px solid var(--primary--700);
+  height: 45px;
 }
 .tray-card-div-secondChild {
   display: flex;
@@ -74,9 +74,8 @@
 .tray-card-div div:first-child {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   flex-grow: 1;
-  gap: 16px;
+  gap: 12px;
 }
 .tray-body-section {
   padding: 0 var(--padding-from-screen-width);
@@ -112,23 +111,27 @@ section:has(.emptyTrayIco) h2 {
   opacity: 0.7;
   rotate: -12deg;
 }
+.tray-body-summary {
+  display: none;
+}
+.amount-editor-div {
+  margin-top: 16px;
+}
 @media (min-width: 576px) {
   .amount-editor-div {
-    margin-top: 40px;
+    margin-top: 32px;
   }
 }
 @media (min-width: 992px) {
-  .amount-editor-div {
-    margin-top: 48px;
-  }
   .tray-body {
     display: flex;
   }
   .tray-body-section {
     width: 60%;
-    padding-top: 30px;
+    padding-top: 50px;
   }
   .tray-body-summary {
+    display: block;
     width: 36%;
     border-left: 1px solid var(--primary--200);
     padding-left: 15px;
@@ -136,7 +139,6 @@ section:has(.emptyTrayIco) h2 {
   }
   .clear-tray-btn {
     top: 4px;
-    right: 16px;
   }
   .tray-body-section-div > .checkout-btn,
   .tray-body-section-div > div,

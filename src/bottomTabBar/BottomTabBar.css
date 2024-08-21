@@ -10,14 +10,14 @@
   left: 0%;
   right: 0%;
 }
-.bottom-tab-bar-button {
+.BTBTab-button {
   width: 50px;
   border-radius: 50%;
 }
-.bottom-tab-bar-button-name {
+.BTBTab-p {
   display: none;
 }
-.bottom-tab-bar-button svg {
+.BTBTab-button svg {
   width: 25px;
   height: 25px;
 }
@@ -27,7 +27,7 @@
   height: 5px;
   border-radius: 10px;
 }
-.bottom-tab-bar-div {
+.BTBTab {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,23 +46,31 @@
     top: 70px;
     left: 0%;
   }
-  .bottom-tab-bar-button-name {
+  .BTBTab-p {
     display: block;
   }
 
-  .bottom-tab-bar-div {
+  .BTBTab {
     flex-direction: row;
     position: relative;
     justify-content: start;
-    width: 150px;
+    width: 130px;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 3px 0;
+    transition: all 0.3 ease-in-out;
   }
-  .bottom-tab-bar-button svg {
+  .BTBTab:hover,
+  .BTBTab:has(.indicator) {
+    background-color: #f6f6f6;
+  }
+  .BTBTab-button svg {
     width: 30px;
     height: 30px;
   }
   .indicator {
     position: absolute;
-    left: -5px;
+    left: -12px;
     height: 100%;
     width: 6px;
     border-radius: 0 10px 10px 0;

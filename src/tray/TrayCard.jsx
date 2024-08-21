@@ -3,12 +3,12 @@ import { PlusIcon, MinusIcon } from "../icons"
 import { useMutation } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 const TrayCard = ({
-  avatarUrl,
+  mealAvatar: avatarUrl,
   mealName,
   amount,
   userMade = false,
   price,
-  id,
+  itemId: id,
 }) => {
   const axios = useTokenizedAxios()
   const queryClient = useQueryClient()
@@ -39,8 +39,8 @@ const TrayCard = ({
       {avatarUrl && <img className="tray-card-avatar" src={avatarUrl} alt="" />}
       <div className="tray-card-div sub-font ">
         <div>
-          <p className=".main-font-light">{mealName}</p>
-          <p>${price}</p>
+          <p className="main-font-light">{mealName}</p>
+          <p className="main-font-heavy">${price}</p>
           <div className="amount-editor-div">
             <button
               onClick={() => {

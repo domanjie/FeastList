@@ -16,10 +16,6 @@ const InputBlock = ({
 
   return (
     <div className={className || "form-block"}>
-      <label htmlFor={id}>
-        <p>{pText}</p>
-        <img src={ico}></img>
-      </label>
       <input
         type={type}
         id={id}
@@ -30,8 +26,13 @@ const InputBlock = ({
         onInput={() => setShowErr(false)}
         pattern={pattern}
         value={value}
+        placeholder=""
         onChange={handleChange}
       />
+      <label htmlFor={id}>
+        <p>{pText}</p>
+        {ico}
+      </label>
       <span className="err-span">{err}</span>
     </div>
   )

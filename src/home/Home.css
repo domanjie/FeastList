@@ -13,11 +13,16 @@
   max-height: auto;
   position: relative;
 }
+.food-card-div {
+  width: 100%;
+  border-radius: 10px;
+}
 .food-card-avatar {
   width: 100%;
-  height: 233px;
+  aspect-ratio: 19/11;
   border-radius: 10px;
   object-fit: cover;
+  transition: all 0.4s ease-in-out;
   object-position: 50% 50%;
 }
 .food-card-section {
@@ -74,9 +79,13 @@ div:has(> .food-card-restaurant-name) {
   padding-top: 40px;
 }
 @media (hover: hover) {
+  .food-card-div {
+    position: relative;
+    overflow: hidden;
+  }
+
   .food-card-btns {
-    position: absolute;
-    top: 190px;
+    bottom: 5px;
     left: 5px;
     opacity: 0;
     width: fit-content;
@@ -86,12 +95,21 @@ div:has(> .food-card-restaurant-name) {
   }
   .food-card-btns button {
     background-color: var(--primary--500);
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    display: grid;
+    transition: all 0.2s ease-in-out;
+    place-content: center;
+  }
+  .food-card-btns button:hover {
+    transform: scale(0.9);
   }
   .food-card-btns button svg {
     width: 21px;
+  }
+  .food-card-div:hover > .food-card-avatar {
+    transform: scale(1.05);
   }
   .food-card-avatar:hover + .food-card-btns,
   .food-card-btns:hover {

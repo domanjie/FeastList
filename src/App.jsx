@@ -1,6 +1,5 @@
 import "./App.css"
 import AuthRequired from "./auth/AuthRequired"
-import BottomTabPage from "./bottomTabBar/BottomTabPage"
 import EmailVerification from "./singUp/EmailVerificationPage"
 import {
   Tray,
@@ -17,6 +16,7 @@ import { Routes, Route } from "react-router-dom"
 function App() {
   return (
     <>
+      {/* <EmailVerification></EmailVerification> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUP />} />

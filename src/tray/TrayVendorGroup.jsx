@@ -1,6 +1,6 @@
 import TrayCard from "./TrayCard"
 const TrayVendorGroup = ({ data, deliveryFee }) => {
-  const { vendorName, trayItems } = data
+  const { vendorName, vendorAvatar, trayItems } = data
   return (
     <section className="TrayVendorGroup sub-font">
       <div
@@ -11,13 +11,17 @@ const TrayVendorGroup = ({ data, deliveryFee }) => {
           fontSize: "14px",
         }}
       >
-        <img className="profile-ico-small" style={{ marginRight: "10px" }} />
+        <img
+          src={vendorAvatar}
+          className="profile-ico-small"
+          style={{ marginRight: "10px" }}
+        />
         <p style={{ textTransform: "capitalize" }}> {vendorName}</p>.
         <span>delivery fee: --{deliveryFee}</span>
       </div>
 
       {trayItems.map((item) => {
-        return <TrayCard {...item.meal} amount={item.amount}></TrayCard>
+        return <TrayCard {...item}></TrayCard>
       })}
     </section>
   )

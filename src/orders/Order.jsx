@@ -2,7 +2,7 @@ import img1 from "../images/beans.jpg"
 import img2 from "../images/chicken.jpg"
 import img3 from "../images/meal2.jpg"
 import img4 from "../images/meal1.jpg"
-import { FilledChevron, ChevronRight } from "../icons"
+import { ChevronRight } from "../icons"
 import ImageSlider from "./ImageSlider"
 import { useRef, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
@@ -11,6 +11,7 @@ const Order = ({ id }) => {
   useQuery()
   const [current, setCurrent] = useState(0)
   const [intervalId, setIntervalId] = useState(0)
+  const [showDetails, setShowDetails] = useState(false)
   const ref = useRef()
   const next = () => {
     setCurrent((current) => {
@@ -18,20 +19,25 @@ const Order = ({ id }) => {
       return current + 1
     })
   }
+  const handleMouseEnter = () => {
+    clearInterval(intervalId)
+    setIntervalId(setInterval(next, 2000))
+    ref.current.querySelector(".image-slider-btns").style.visibility = "visible"
+  }
+  const handleMouseLeave = () => {
+    clearInterval(intervalId)
+  }
+  const handleClick = () => {
+    setShowDetails(!showDetails)
+  }
+
   return (
     <>
       <section
         key={id}
         ref={ref}
-        onMouseEnter={() => {
-          clearInterval(intervalId)
-          setIntervalId(setInterval(next, 2000))
-          ref.current.querySelector(".image-slider-btns").style.visibility =
-            "visible"
-        }}
-        onMouseLeave={() => {
-          clearInterval(intervalId)
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className="order sub-font"
       >
         <ImageSlider
@@ -39,29 +45,19 @@ const Order = ({ id }) => {
           images={images}
           current={current}
         ></ImageSlider>
-        <div style={{ paddingLeft: "10px" }}>
+        <div className="order-div">
           <ul>
-            <li
-              style={{
-                fontSize: "16px",
-                color: "black",
-                textTransform: "capitalize",
-              }}
-            >
-              beans and rice
-            </li>
-            <li style={{ fontSize: "18px", color: "black", fontWeight: "600" }}>
-              {" "}
-              $150000
-            </li>
+            <li className="main-font-light">beans and rice</li>
+            <li className="main-font-heavy">$150000</li>
             <li>12th feb . 4:30 pm</li>
-            <li className="order-h4">
-              <ChevronRight></ChevronRight> view details
+            <li className="order-h4" onClick={handleClick}>
+              <ChevronRight className={showDetails && "rot-45"}></ChevronRight>
+              {showDetails ? "close details" : "view details"}
             </li>
           </ul>
         </div>
       </section>
-      {/* <OrderDetail></OrderDetail> */}
+      {showDetails && <OrderDetail></OrderDetail>}
     </>
   )
 }
@@ -69,19 +65,9 @@ export default Order
 
 const OrderDetail = () => {
   return (
-    <>
-      <div
-        style={{
-          fontSize: "var(--small-text)",
-          marginLeft: "20px",
-          padding: "5px 0px",
-          borderLeft: "1px solid var(--primary--200)",
-          color: "var(--primary--300)",
-        }}
-      >
-        <OrderDetailVendorGroup />
-      </div>
-    </>
+    <div className="order-detail">
+      <OrderDetailVendorGroup />
+    </div>
   )
 }
 const OrderDetailVendorGroup = () => {
@@ -105,26 +91,11 @@ const OrderDetailVendorGroup = () => {
 }
 const OrderDetailItem = () => {
   return (
-    <div style={{ padding: "6px 0px" }}>
-      <img
-        style={{
-          height: "137px",
-          width: "95%",
-          borderRadius: "10px",
-          objectPosition: "50% 50%",
-          objectFit: "cover",
-          maxWidth: "400px",
-        }}
-        src={img4}
-        alt=""
-      />
+    <div className="order-detail-item">
+      <img src={img4} alt="" />
       <div style={{ paddingLeft: "3px" }}>
         <div style={{ display: "flex", padding: "8px 0px" }}>
-          <p
-            style={{ paddingRight: "10px", fontWeight: "500", color: "black" }}
-          >
-            Spaghetti
-          </p>
+          <p className="order-detail-item-name">Spaghetti</p>
           <span>x1</span>
         </div>
         <p>$1500</p>

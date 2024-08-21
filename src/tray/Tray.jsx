@@ -1,6 +1,5 @@
 import "./Tray.css"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import Demarcation from "../demarcation/Demarcation"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import PageSpinner from "../spinner/PageSpinner"
@@ -34,7 +33,7 @@ const Tray = () => {
     return trayQuery?.data
       .map((vendorGroup) =>
         vendorGroup.trayItems
-          ?.map((trayItem) => trayItem.meal.price * trayItem.amount)
+          ?.map((trayItem) => trayItem.price * trayItem.amount)
           ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)
       )
       ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)

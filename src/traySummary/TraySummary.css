@@ -1,65 +1,94 @@
-.tray-summary {
-  display: none;
-}
 .tray-summary-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
 }
 .tray-summary-row P {
-  color: grey;
+  color: var(--primary--300);
 }
-.tray-summary-row span,
-.tray-summary-row P {
-  font-size: 1.1rem;
-}
-.tray-summary p {
-  padding: 5px 0px;
-}
-.tray-summary-footer {
-  padding: 15px 0px;
-}
-.tray-summary-body {
-  padding: 20px 0px;
-  margin-bottom: 50px;
-}
-.tray-summary-footer > .checkout-btn {
+.tray-summary .checkout-btn {
   width: 100%;
-  margin-top: 20px;
+  margin-left: 0px;
+}
+.tray-summary-detail {
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 8px;
+}
+.tsd-div {
+  padding-left: 16px;
   display: flex;
-  justify-content: center;
+  width: 100%;
+  column-gap: 8px;
+}
+.tsd-div > svg {
+  height: 16px;
+  padding-top: 3px;
+}
+.tsd-div-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+.tsd-div-section-div1 svg {
+  width: 20px;
+}
+.tsd-div-section-div1 {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  cursor: pointer;
+}
+.tsd-div-section-div1:hover {
+  text-decoration: underline;
+}
+.tsd-div-section-div2 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
   align-items: center;
 }
-
-.checkout-btn > svg {
-  height: 21px;
+.tray-summary .form-block input {
+  height: 48px;
 }
-.checkout-btn > svg path {
-  fill: var(--primary--600);
+.tsd-div-section-div2-button {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  column-gap: 4px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.tsd-div-section-div2-button:hover {
+  background-color: #f6f6f6;
+}
+.tray-summary-header {
+  padding: 8px 0px;
+}
+.tray-summary-body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 12px 0px;
+}
+.tray-summary-footer {
+  padding: 16px 0px;
+  border-top: 1px solid var(--primary--200);
 }
 @media (min-width: 992px) {
-  .checkout-btn {
-    margin-left: 0px;
-  }
   .tray-summary {
-    display: block;
-    border: 1px solid var(--primary--200);
     height: fit-content;
     max-width: 405px;
-    border-radius: 30px;
-    margin-top: 30px;
+    margin-top: 44px;
   }
-
   .tray-summary-header {
     border-bottom: 1px solid var(--primary--200);
-    padding: 15px;
+    padding: 4px 16px;
   }
-  .tray-summary-body {
-    padding: 20px;
-  }
+  .tray-summary-body,
   .tray-summary-footer {
-    padding: 15px;
-    border-top: 1px solid var(--primary--200);
+    padding: 8px 16px;
   }
 }
