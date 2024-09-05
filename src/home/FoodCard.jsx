@@ -5,7 +5,7 @@ import {
   TrayActive,
   TrayInActive,
   CreditCardIcon2,
-} from "../icons"
+} from "../infra/icons"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 
 const FoodCard = ({
@@ -15,6 +15,7 @@ const FoodCard = ({
   vendor_name,
   is_in_cart,
   id,
+  vendor_avatar_url,
 }) => {
   const [active, setActive] = is_in_cart ? useState(true) : useState(false)
 
@@ -66,7 +67,7 @@ const FoodCard = ({
         <p className="main-font-heavy">${price}</p>
 
         <div>
-          <img className="profile-ico-small" src="" alt="" />{" "}
+          <img className="profile-ico-small" src={vendor_avatar_url} alt="" />{" "}
           <p className="food-card-restaurant-name sub-font">{vendor_name}</p>
         </div>
       </section>

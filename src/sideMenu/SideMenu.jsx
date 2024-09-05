@@ -1,5 +1,5 @@
 import "./SideMenu.css"
-import { InfoIcon } from "../icons"
+import { InfoIcon } from "../infra/icons"
 const SideMenu = () => {
   return (
     <section id="side-menu">

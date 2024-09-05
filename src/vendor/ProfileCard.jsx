@@ -1,4 +1,4 @@
-import { PlusSmall } from "../icons"
+import { PlusSmall } from "../infra/icons"
 const ProfileCard = ({ vendor }) => {
   let { header_photo: avatar, isFollowing, vendor_name: name } = vendor
   isFollowing = true

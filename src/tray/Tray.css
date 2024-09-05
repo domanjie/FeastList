@@ -70,6 +70,23 @@
   color: var(--primary--500);
   background-color: var(--primary--600);
   margin-left: var(--padding-from-screen-width);
+  font-weight: 500;
+}
+.checkout-btn:hover {
+  background-color: #ff910d;
+}
+.tray-card-remove-btn {
+  color: var(--primary--700);
+  opacity: 0.7;
+  align-self: flex-end;
+  font-size: 15px;
+  letter-spacing: 0.9px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.tray-card-remove-btn:hover {
+  background-color: #f6f6f6;
 }
 .tray-card-div div:first-child {
   display: flex;
@@ -132,10 +149,17 @@ section:has(.emptyTrayIco) h2 {
   }
   .tray-body-summary {
     display: block;
-    width: 36%;
+    width: 40%;
     border-left: 1px solid var(--primary--200);
-    padding-left: 15px;
+    padding: 0px 15px;
+    overflow-y: scroll;
     height: 100vh;
+  }
+  .tray-body-summary::-webkit-scrollbar {
+    width: 8px;
+  }
+  .tray-body-summary:hover::-webkit-scrollbar-thumb {
+    background: var(--primary--200);
   }
   .clear-tray-btn {
     top: 4px;

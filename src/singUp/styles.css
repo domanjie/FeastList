@@ -33,12 +33,13 @@
   position: absolute;
   display: flex;
   left: 15px;
-  top: 25px;
+  top: 20px;
   align-items: center;
   column-gap: 2px;
 }
 
 .form-block label p {
+  text-transform: lowercase;
   letter-spacing: var(--letterSpacing);
 }
 .form-block input {
@@ -61,7 +62,7 @@
 }
 .form-block input:focus ~ label,
 .form-block input:not(:placeholder-shown) ~ label {
-  transform: translateY(-17px);
+  transform: translateY(-12px);
   font-size: 12px;
   height: 12px;
 }
@@ -210,13 +211,18 @@
   padding-top: 3px;
   font-size: 0.8rem;
   display: none;
+  vertical-align: bottom;
+}
+.err-span p {
+  padding-top: 1.5px;
+}
+.err-span svg {
+  height: 14px;
 }
 input:invalid[showerr="true"] ~ .err-span {
-  display: block;
+  display: flex;
+  column-gap: 3px;
 }
 .login-err-span {
-  display: block;
-  align-self: self-end;
   color: red;
-  width: 97%;
 }

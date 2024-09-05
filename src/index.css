@@ -9,7 +9,7 @@
   /* colors */
   --primary--100: #fcfbf0;
   --primary--200: #d9d9d9;
-  --primary--300: #5e5e5e;
+  --primary--300: #808080;
   --primary--400: #000000;
   --primary--500: #ffffff;
   --primary--600: #ffcf0d;
@@ -20,7 +20,7 @@
   --regular-text: 16px;
   --small-text: 14px;
   --extra-small-text: 0.7em;
-  --letterSpacing: 0.8px;
+  --letterSpacing: 0px;
   --fontWeightLight: 400;
   --fontWeightSemiBold: 600;
   --fontWeightBold: 700;

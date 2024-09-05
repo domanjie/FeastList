@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { ExclamationIco } from "../infra/icons"
 const InputBlock = ({
   ico,
   className,
@@ -10,7 +10,10 @@ const InputBlock = ({
   err,
   pattern,
   value,
+  validityChecker,
+  handleKeydown,
   handleChange,
+  maxLength,
 }) => {
   const [showErr, setShowErr] = useState(false)
 
@@ -26,14 +29,27 @@ const InputBlock = ({
         onInput={() => setShowErr(false)}
         pattern={pattern}
         value={value}
+        onKeyDown={handleKeydown}
         placeholder=""
-        onChange={handleChange}
+        onChange={(e) => {
+          handleChange && handleChange(e)
+          validityChecker &&
+            (validityChecker(e.target.value)
+              ? e.target.setCustomValidity("")
+              : e.target.setCustomValidity("Invalid field."))
+        }}
+        maxLength={maxLength}
       />
       <label htmlFor={id}>
         <p>{pText}</p>
         {ico}
       </label>
-      <span className="err-span">{err}</span>
+      {err && (
+        <span className="err-span">
+          <ExclamationIco></ExclamationIco>
+          <p>{err}</p>
+        </span>
+      )}
     </div>
   )
 }

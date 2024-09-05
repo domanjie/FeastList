@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import InputBlock from "./InputBlock"
-import { GoogleIcon, LockIcon, EmailIcon } from "../icons"
+import { GoogleIcon, LockIcon, EmailIcon } from "../infra/icons"
 import useAuthContext from "../customHooks/useAuthContext"
 import { useState } from "react"
 import { login } from "./authRequests"

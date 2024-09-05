@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { PlusIcon, MinusIcon } from "../icons"
+import { PlusIcon, MinusIcon } from "../infra/icons"
 import { useMutation } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 const TrayCard = ({
@@ -37,7 +37,7 @@ const TrayCard = ({
       className={!userMade ? "tray-card" : "tray-card  editable-tray-card"}
     >
       {avatarUrl && <img className="tray-card-avatar" src={avatarUrl} alt="" />}
-      <div className="tray-card-div sub-font ">
+      <div className="tray-card-div  ">
         <div>
           <p className="main-font-light">{mealName}</p>
           <p className="main-font-heavy">${price}</p>
@@ -50,7 +50,7 @@ const TrayCard = ({
             >
               <MinusIcon></MinusIcon>
             </button>
-            <p>{amount}</p>
+            <p style={{ color: "var(--primary--300)" }}>{amount}</p>
 
             <button
               onClick={() => {
@@ -62,18 +62,14 @@ const TrayCard = ({
             </button>
           </div>
         </div>
-        <p
-          style={{
-            color: "var(--primary--700)",
-            opacity: "0.7",
-            alignSelf: "flex-end",
-          }}
+        <button
+          className="tray-card-remove-btn"
           onClick={() => {
             deleteMeal.mutate(id)
           }}
         >
-          remove
-        </p>
+          <p>remove</p>
+        </button>
       </div>
     </section>
   )

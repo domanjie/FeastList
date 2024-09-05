@@ -1,5 +1,5 @@
 import "./Page.css"
-import { FeastList } from "../icons"
+import { FeastList } from "../infra/icons"
 import { useEffect, useRef } from "react"
 export const Page = ({ children }) => {
   const pageRef = useRef()

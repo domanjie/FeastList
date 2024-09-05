@@ -1,5 +1,5 @@
 import "./SearchPage.css"
-import { ArrowLongLeft } from "../icons"
+import { ArrowLongLeft } from "../infra/icons"
 import Demarcation from "../demarcation/Demarcation"
 import { useNavigate } from "react-router-dom"
 const SearchPage = () => {

@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
 }
-.tray-summary-row P {
+.tray-summary-row-p {
   color: var(--primary--300);
 }
 .tray-summary .checkout-btn {
@@ -31,19 +31,21 @@
   flex-direction: column;
   row-gap: 8px;
 }
-.tsd-div-section-div1 svg {
+.tsd-div-section-div svg {
   width: 20px;
+  height: inherit;
 }
-.tsd-div-section-div1 {
+.tsd-div-section-div {
   display: flex;
   align-items: center;
   column-gap: 4px;
+  font-size: 14px;
   cursor: pointer;
 }
-.tsd-div-section-div1:hover {
+.tsd-div-section-div:hover {
   text-decoration: underline;
 }
-.tsd-div-section-div2 {
+.tsd-div-section-form {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -52,16 +54,23 @@
 .tray-summary .form-block input {
   height: 48px;
 }
-.tsd-div-section-div2-button {
+.tray-summary .form-block input:focus ~ label,
+.tray-summary .form-block input:not(:placeholder-shown) ~ label {
+  transform: translateY(-14px);
+}
+.tray-summary .err-span {
+  font-size: 0.725rem;
+}
+.tsd-div-section-form-button {
   display: flex;
   align-items: center;
   font-size: 16px;
   column-gap: 4px;
-  padding: 4px 8px;
   border-radius: 10px;
+  padding: 4px 8px;
   transition: all 0.3s ease-in-out;
 }
-.tsd-div-section-div2-button:hover {
+.tsd-div-section-form-button:hover {
   background-color: #f6f6f6;
 }
 .tray-summary-header {
@@ -82,6 +91,7 @@
     height: fit-content;
     max-width: 405px;
     margin-top: 44px;
+    margin-bottom: 52px;
   }
   .tray-summary-header {
     border-bottom: 1px solid var(--primary--200);

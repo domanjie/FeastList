@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Circle, CircleDot } from "../icons"
+import { Circle, CircleDot } from "../infra/icons"
 const AvatarSlider = ({ setCurrent, images, current }) => {
   return (
     <div className="image-slider">

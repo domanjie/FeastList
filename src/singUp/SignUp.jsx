@@ -1,7 +1,12 @@
 import "./styles.css"
 import { Link, useNavigate } from "react-router-dom"
 import InputBlock from "./InputBlock"
-import { FemaleGenderIcon, MaleGenderIcon, EmailIcon, LockIcon } from "../icons"
+import {
+  FemaleGenderIcon,
+  MaleGenderIcon,
+  EmailIcon,
+  LockIcon,
+} from "../infra/icons"
 import { useState } from "react"
 import EmailVerificationPage from "./EmailVerificationPage"
 import { login, singUp } from "./authRequests.js"

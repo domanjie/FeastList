@@ -1,7 +1,7 @@
 import "./VendorPage.css"
 import ProfileCardSection from "./ProfileCardSection"
 import BottomTabBar from "../bottomTabBar/BottomTabBar"
-import { SpeedingCourier, LikeIcon } from "../icons"
+import { SpeedingCourier, LikeIcon } from "../infra/icons"
 import { useQuery } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 import { Page } from "../page/Page"

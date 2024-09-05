@@ -1,5 +1,5 @@
 import "./SearchPage.css"
-import { SearchIcon } from "../icons"
+import { SearchIcon } from "../infra/icons"
 const Search = () => {
   return (
     <div id="search">

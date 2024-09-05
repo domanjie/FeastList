@@ -1,5 +1,5 @@
 import "./BottomTabBar.css"
-import { HomeIcon, VendorIcon, OrdersIcon, TrayInActive } from "../icons"
+import { HomeIcon, VendorIcon, OrdersIcon, TrayInActive } from "../infra/icons"
 import { Link } from "react-router-dom"
 
 const BottomTabBar = ({ homeInd, trayInd, vendorInd, orderInd }) => {

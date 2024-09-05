@@ -28,16 +28,19 @@ const Tray = () => {
       })
     },
   })
-
-  const getTotalTrayPrice = () => {
+  const getTotalItemCost = () => {
     return trayQuery?.data
-      .map((vendorGroup) =>
+      ?.map((vendorGroup) =>
         vendorGroup.trayItems
           ?.map((trayItem) => trayItem.price * trayItem.amount)
           ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)
       )
       ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)
   }
+  const getTotalDeliveryCost = () => {
+    return 0
+  }
+  const totalItemCost = getTotalItemCost()
 
   while (trayQuery.isLoading) {
     return (
@@ -67,7 +70,7 @@ const Tray = () => {
                   }}
                   className="clear-tray-btn"
                 >
-                  CLEAR CART
+                  CLEAR TRAY
                 </button>
 
                 {trayQuery.data.map((data) => {
@@ -82,13 +85,13 @@ const Tray = () => {
                     Checkout
                   </button>
                   <div>
-                    <p>${getTotalTrayPrice()}</p>
+                    <p>${totalItemCost}</p>
                     <p className="sub-font">Total</p>
                   </div>
                 </div>
               </section>
               <div className="tray-body-summary">
-                <TraySummary></TraySummary>
+                <TraySummary totalItemCost={totalItemCost}></TraySummary>
               </div>
             </>
           ) : (
