@@ -12,7 +12,7 @@ import {
   NotFoundPage,
 } from "./pages"
 import { Routes, Route } from "react-router-dom"
-
+import Spinner from "./spinner/Spinner"
 function App() {
   return (
     <>

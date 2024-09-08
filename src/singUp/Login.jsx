@@ -49,22 +49,22 @@ const Login = () => {
   }
 
   //oauth
-  google.accounts.id.initialize({
-    client_id: CLIENT_ID,
-    callback: (response) => {
-      console.log(response)
-      axios_
-        .get(
-          `/api/v1/authentication/oauth-login?id_token=${response.credential}`
-        )
-        .then((response) => {
-          setAuth(response.data)
-          from
-            ? navigate(from, { replace: true })
-            : navigate("/", { replace: true })
-        })
-    },
-  })
+  // google.accounts.id.initialize({
+  //   client_id: CLIENT_ID,
+  //   callback: (response) => {
+  //     console.log(response)
+  //     axios_
+  //       .get(
+  //         `/api/v1/authentication/oauth-login?id_token=${response.credential}`
+  //       )
+  //       .then((response) => {
+  //         setAuth(response.data)
+  //         from
+  //           ? navigate(from, { replace: true })
+  //           : navigate("/", { replace: true })
+  //       })
+  //   },
+  // })
 
   return (
     <section id="login-form">
@@ -110,7 +110,7 @@ const SsoBlock = () => {
     <>
       <div
         onClick={() => {
-          google.accounts.id.prompt()
+          // google.accounts.id.prompt()
         }}
         className="sso-block"
       >

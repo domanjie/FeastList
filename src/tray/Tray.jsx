@@ -14,6 +14,7 @@ const Tray = () => {
   const axios = useTokenizedAxios()
   const queryClient = useQueryClient()
   const [isOpen, setIsOpen] = useState(false)
+
   const trayQuery = useQuery({
     queryKey: ["tray"],
     queryFn: async () => {
@@ -36,9 +37,6 @@ const Tray = () => {
           ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)
       )
       ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)
-  }
-  const getTotalDeliveryCost = () => {
-    return 0
   }
   const totalItemCost = getTotalItemCost()
 
@@ -91,7 +89,7 @@ const Tray = () => {
                 </div>
               </section>
               <div className="tray-body-summary">
-                <TraySummary totalItemCost={totalItemCost}></TraySummary>
+                <TraySummary totalItemCost={getTotalItemCost()}></TraySummary>
               </div>
             </>
           ) : (

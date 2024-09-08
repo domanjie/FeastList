@@ -4,10 +4,14 @@ import InputBlock from "../singUp/InputBlock"
 import { Children, useState } from "react"
 import { Target } from "../infra/icons"
 import { luhnCheck } from "../infra/LuhnCheck"
+import { useAddressStore, useDeliveryCostStore } from "../customHooks/store"
 
 const TraySummary = ({ totalItemCost }) => {
-  const [address, setAddress] = useState("")
+  const { getTotalDeliveryCost } = useDeliveryCostStore()
+  const totalDeliveryCost = getTotalDeliveryCost()
+
   const [ccDetails, setCCDetails] = useState("")
+
   return (
     <section className="tray-summary">
       <header className="tray-summary-header">
@@ -16,7 +20,7 @@ const TraySummary = ({ totalItemCost }) => {
       <body className="tray-summary-body">
         <div className="tray-summary-row tray-summary-detail">
           <p className="tray-summary-row-p">Delivery Address</p>
-          <AddressDetail address={address}></AddressDetail>
+          <AddressDetail />
         </div>
         <div className="tray-summary-row tray-summary-detail">
           <p className="tray-summary-row-p"> Payment Details </p>
@@ -28,14 +32,20 @@ const TraySummary = ({ totalItemCost }) => {
         </div>
         <div className="tray-summary-row">
           <p className="tray-summary-row-p">Delivery Fee :</p>
-          <span>$500</span>
+          <span>{totalDeliveryCost ? `$${totalDeliveryCost}` : "--"}</span>
         </div>
       </body>
 
       <footer className="tray-summary-footer">
         <div className="tray-summary-row">
           <p className="tray-summary-row-p">Total :</p>
-          <span>$1000</span>
+          <span>
+            {totalDeliveryCost && totalItemCost ? (
+              <>${totalItemCost + totalDeliveryCost}</>
+            ) : (
+              "--"
+            )}
+          </span>
         </div>
         <button style={{ marginTop: "12px" }} className="checkout-btn">
           CHECK OUT
@@ -46,14 +56,24 @@ const TraySummary = ({ totalItemCost }) => {
 }
 export default TraySummary
 
-const AddressDetail = ({ setAddress, address }) => {
+const AddressDetail = () => {
+  const { address, setAddress } = useAddressStore()
   const [showForm, setShowForm] = useState(false)
+  const input = {
+    name: "address",
+    type: "text",
+    pText: "address",
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const address = Object.fromEntries(formData)["address"]
+    setAddress(address)
+    setShowForm(false)
+  }
   return (
     <div className="tsd-div">
-      <ChevronRight
-        style={{ transition: "all 0.3s ease-in-out" }}
-        className={showForm && "rot-45"}
-      />
+      <RotChevronRight showForm={showForm} />
       <section className="tsd-div-section">
         <div
           onClick={() => {
@@ -65,8 +85,8 @@ const AddressDetail = ({ setAddress, address }) => {
           {address || "add address"}
         </div>
         {showForm && (
-          <form className="tsd-div-section-form">
-            <InputBlock pText={"Address"}></InputBlock>
+          <form onSubmit={handleSubmit} className="tsd-div-section-form">
+            <InputBlock {...input}></InputBlock>
             <button type="button" className="tsd-div-section-form-button">
               <Target />
               use current location
@@ -90,12 +110,12 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
       handleKeydown: ignoreNonDigits,
       handleChange: (e) => {
         let cursorStart = e.target.selectionStart
-        console.log(cursorStart)
-        e.target.value = formatCardNumber(e.target.value.replace(/\D/g, ""))
-        if (e.target.value.charAt(e.target.value.length - 2) === " ") {
-          e.target.setSelectionRange(cursorStart + 1, cursorStart + 1)
-        } else {
+        let value = e.target.value.replace(/\D/g, "")
+        e.target.value = formatCardNumber(value)
+        if (value.length % 4 !== 1) {
           e.target.setSelectionRange(cursorStart, cursorStart)
+        } else {
+          e.target.setSelectionRange(cursorStart + 1, cursorStart + 1)
         }
       },
       maxLength: 19,
@@ -143,13 +163,15 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     setCCDetails(Object.fromEntries(formData))
+    setShowForm(false)
   }
+  let ccNo = ccDetails?.cardNumber?.substring(
+    ccDetails.cardNumber.length - 4,
+    ccDetails.cardNumber.length
+  )
   return (
     <div className="tsd-div">
-      <ChevronRight
-        style={{ transition: "all 0.3s ease-in-out" }}
-        className={showForm && "rot-45"}
-      />
+      <RotChevronRight showForm={showForm}></RotChevronRight>
       <section className="tsd-div-section">
         <div
           onClick={() => {
@@ -158,13 +180,9 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
           className="tsd-div-section-div"
         >
           <CreditCardIcon />{" "}
-          {ccDetails ? (
+          {ccNo ? (
             <div>
-              <span>****</span>{" "}
-              {ccDetails?.cardNumber?.substring(
-                ccDetails.cardNumber.length - 4,
-                ccDetails.cardNumber.length
-              )}
+              <span>****</span> {ccNo}
             </div>
           ) : (
             "add payment details"
@@ -224,3 +242,11 @@ const specialKeys = new Set([
   "ArrowDown",
   "ArrowRight",
 ])
+function RotChevronRight({ showForm }) {
+  return (
+    <ChevronRight
+      style={{ transition: "all 0.3s ease-in-out" }}
+      className={showForm && "rot-45"}
+    />
+  )
+}

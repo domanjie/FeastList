@@ -134,6 +134,19 @@ section:has(.emptyTrayIco) h2 {
 .amount-editor-div {
   margin-top: 16px;
 }
+.TVGFrame {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  justify-items: center;
+}
+.TVGFrame-span {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  column-gap: 4px;
+}
+
 @media (min-width: 576px) {
   .amount-editor-div {
     margin-top: 32px;
