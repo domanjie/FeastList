@@ -9,6 +9,7 @@ import TraySummary from "../traySummary/TraySummary"
 import Modal from "../modal/Modal"
 import Payment from "../traySummary/TraySummaryM"
 import { useState } from "react"
+import OrderSuccessIndicator from "./OrderSuccessIndicator"
 import VendorGroup from "./TrayVendorGroup"
 const Tray = () => {
   const axios = useTokenizedAxios()
@@ -22,7 +23,9 @@ const Tray = () => {
       return response.data
     },
   })
+
   const clearTray = useMutation({
+    mutationKey: ["clearTray"],
     mutationFn: async () => {
       axios.delete("/api/v1/tray").then(() => {
         queryClient.invalidateQueries("tray")
@@ -89,7 +92,10 @@ const Tray = () => {
                 </div>
               </section>
               <div className="tray-body-summary">
-                <TraySummary totalItemCost={getTotalItemCost()}></TraySummary>
+                <TraySummary
+                  trayData={trayQuery.data}
+                  totalItemCost={getTotalItemCost()}
+                ></TraySummary>
               </div>
             </>
           ) : (
@@ -100,7 +106,7 @@ const Tray = () => {
             </section>
           )}
         </body>
-
+        <OrderSuccessIndicator></OrderSuccessIndicator>
         <footer>
           <BottomTabBar trayInd={true}></BottomTabBar>
         </footer>
@@ -109,3 +115,7 @@ const Tray = () => {
   )
 }
 export default Tray
+
+// export const clearTray = async () => {
+//   return
+// }

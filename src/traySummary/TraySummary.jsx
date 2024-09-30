@@ -5,13 +5,42 @@ import { Children, useState } from "react"
 import { Target } from "../infra/icons"
 import { luhnCheck } from "../infra/LuhnCheck"
 import { useAddressStore, useDeliveryCostStore } from "../customHooks/store"
-
-const TraySummary = ({ totalItemCost }) => {
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import useTokenizedAxios from "../customHooks/useTokenizedAxios"
+import { OrderSuccessIndicatorStore } from "../tray/OrderSuccessIndicator"
+const TraySummary = ({ totalItemCost, trayData }) => {
+  const queryClient = useQueryClient()
   const { getTotalDeliveryCost } = useDeliveryCostStore()
   const totalDeliveryCost = getTotalDeliveryCost()
-
-  const [ccDetails, setCCDetails] = useState("")
-
+  const [ccDetails, setCCDetails] = useState(null)
+  const { address } = useAddressStore()
+  const { showIndicator } = OrderSuccessIndicatorStore()
+  const axios = useTokenizedAxios()
+  const orderGroups = (function (trayData) {
+    return trayData.map((data) => ({
+      vendorId: data.vendorName,
+      orderItems: data.trayItems.reduce(
+        (obj, curr) => ({ ...obj, [curr.itemId]: curr.amount }),
+        {}
+      ),
+    }))
+  })(trayData)
+  const placeOrder = useMutation({
+    mutationFn: async () => {
+      axios.post("api/v1/orders", {
+        deliveryLocation: address,
+        orderGroupDtos: orderGroups,
+        creditCardPaymentDetails: ccDetails,
+      })
+    },
+    onSuccess: async () => {
+      axios.delete("/api/v1/tray").then(() => {
+        queryClient.invalidateQueries("tray")
+      })
+      showIndicator(true)
+    },
+    retry: 0,
+  })
   return (
     <section className="tray-summary">
       <header className="tray-summary-header">
@@ -47,8 +76,15 @@ const TraySummary = ({ totalItemCost }) => {
             )}
           </span>
         </div>
-        <button style={{ marginTop: "12px" }} className="checkout-btn">
-          CHECK OUT
+        <button
+          disabled={address && ccDetails ? false : true}
+          style={{ marginTop: "12px" }}
+          className="checkout-btn"
+          onClick={() => {
+            placeOrder.mutate()
+          }}
+        >
+          Pay Now
         </button>
       </footer>
     </section>
@@ -104,7 +140,7 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
   const [showForm, setShowForm] = useState(false)
   const inputs = [
     {
-      name: "cardNumber",
+      name: "ccNumber",
       type: "text",
       pText: "card-number",
       handleKeydown: ignoreNonDigits,
@@ -123,7 +159,7 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
       err: "Invalid credit card number",
     },
     {
-      name: "mm/yy",
+      name: "ccExpiration",
       type: "text",
       pText: "mm/yy",
       handleKeydown: (e) => {
@@ -149,7 +185,7 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
       maxLength: 7,
     },
     {
-      name: "cvv",
+      name: "ccCVV",
       type: "text",
       pText: "cvv",
       handleKeydown: ignoreNonDigits,
@@ -165,9 +201,9 @@ const PaymentDetail = ({ setCCDetails, ccDetails }) => {
     setCCDetails(Object.fromEntries(formData))
     setShowForm(false)
   }
-  let ccNo = ccDetails?.cardNumber?.substring(
-    ccDetails.cardNumber.length - 4,
-    ccDetails.cardNumber.length
+  let ccNo = ccDetails?.ccNumber?.substring(
+    ccDetails.ccNumber.length - 4,
+    ccDetails.ccNumber.length
   )
   return (
     <div className="tsd-div">

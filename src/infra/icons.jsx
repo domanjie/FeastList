@@ -872,3 +872,23 @@ export const ExclamationIco = () => {
     </svg>
   )
 }
+export const Cancel = (props) => {
+  return (
+    <svg
+      height="8"
+      width="8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M.57 7.948a.525.525 0 01-.372-.9L7.048.2a.527.527 0 11.745.745l-6.85 6.85a.525.525 0 01-.372.154z"
+        fill="#fff"
+      />
+      <path
+        d="M7.42 7.947a.525.525 0 01-.372-.154L.198.943A.527.527 0 01.945.198l6.85 6.85a.527.527 0 01-.373.9z"
+        fill="#fff"
+      />
+    </svg>
+  )
+}

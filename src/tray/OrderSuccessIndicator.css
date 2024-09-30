@@ -1,0 +1,59 @@
+.order-success-indicator {
+  height: 56px;
+  border-radius: 10px;
+  position: fixed;
+  font-weight: 500;
+  color: white;
+  background-color: #5cb85c;
+  bottom: 56px;
+  width: 95%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: transform ease-in-out 250ms, opacity ease-in-out 250ms;
+}
+.order-success-indicator.display {
+  opacity: 1;
+  transform: translateY(0);
+}
+.order-success-indicator-span {
+  display: none;
+}
+.order-success-indicator-div {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.dotIco {
+  display: none;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  margin-top: 8px;
+}
+@media (min-width: 992px) {
+  .order-success-indicator {
+    max-width: 470px;
+    margin: auto;
+    right: auto;
+    left: auto;
+    bottom: 12px;
+    margin-left: 12px;
+  }
+  .order-success-indicator-span {
+    display: block;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  .order-success-indicator-span:hover {
+    text-decoration: underline;
+  }
+}

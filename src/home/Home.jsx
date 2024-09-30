@@ -14,9 +14,10 @@ const Home = () => {
   const [foodCardData, setFoodCardData] = useState([])
   const axios = useTokenizedAxios()
   useEffect(() => {
-    axios
-      .get("/api/v1/meals")
-      .then((response) => setFoodCardData(response.data))
+    axios.get("/api/v1/meals").then((response) => {
+      console.log(response.data)
+      setFoodCardData(response.data)
+    })
   }, [])
   return (
     <Page>

@@ -62,7 +62,7 @@
   color: green;
 }
 .vendorPage-body {
-  padding-top: 25px;
+  padding: 25px var(--padding-from-screen-width);
 }
 @media (min-width: 576px) {
   .profile-card {
@@ -91,9 +91,6 @@
   }
 }
 @media (min-width: 1300px) {
-  .vendorPage-body {
-    margin-left: 40px;
-  }
   .profile-card {
     min-width: 270px;
     width: 270px;
