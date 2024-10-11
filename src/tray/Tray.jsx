@@ -92,10 +92,7 @@ const Tray = () => {
                 </div>
               </section>
               <div className="tray-body-summary">
-                <TraySummary
-                  trayData={trayQuery.data}
-                  totalItemCost={getTotalItemCost()}
-                ></TraySummary>
+                <TraySummary totalItemCost={getTotalItemCost()}></TraySummary>
               </div>
             </>
           ) : (

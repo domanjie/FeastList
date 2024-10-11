@@ -8,7 +8,7 @@ import { useAddressStore, useDeliveryCostStore } from "../customHooks/store"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
 import { OrderSuccessIndicatorStore } from "../tray/OrderSuccessIndicator"
-const TraySummary = ({ totalItemCost, trayData }) => {
+const TraySummary = ({ totalItemCost }) => {
   const queryClient = useQueryClient()
   const { getTotalDeliveryCost } = useDeliveryCostStore()
   const totalDeliveryCost = getTotalDeliveryCost()
@@ -16,15 +16,16 @@ const TraySummary = ({ totalItemCost, trayData }) => {
   const { address } = useAddressStore()
   const { showIndicator } = OrderSuccessIndicatorStore()
   const axios = useTokenizedAxios()
-  const orderGroups = (function (trayData) {
-    return trayData.map((data) => ({
-      vendorId: data.vendorName,
-      orderItems: data.trayItems.reduce(
-        (obj, curr) => ({ ...obj, [curr.itemId]: curr.amount }),
-        {}
-      ),
-    }))
-  })(trayData)
+  const trayData = queryClient.getQueryData("tray")
+
+  const orderGroups = trayData?.map((data) => ({
+    vendorId: data.vendorName,
+    orderItems: data.trayItems.reduce(
+      (obj, curr) => ({ ...obj, [curr.itemId]: curr.amount }),
+      {}
+    ),
+  }))
+
   const placeOrder = useMutation({
     mutationFn: async () => {
       axios.post("api/v1/orders", {

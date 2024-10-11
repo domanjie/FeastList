@@ -59,6 +59,7 @@
 .order-page-body {
   max-width: 540px;
   padding: 0px var(--padding-from-screen-width);
+  padding-bottom: 60px;
 }
 .image-slider-btns {
   display: flex;
@@ -112,4 +113,9 @@
   padding-right: 10px;
   font-weight: 500;
   color: black;
+}
+@media (min-width: 576px) {
+  .order-detail-item img {
+    max-width: 300px;
+  }
 }
