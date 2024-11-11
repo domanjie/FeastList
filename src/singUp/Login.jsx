@@ -1,13 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import InputBlock from "./InputBlock"
-import { GoogleIcon, LockIcon, EmailIcon } from "../infra/icons"
+import { LockIcon, EmailIcon } from "../infra/icons"
 import useAuthContext from "../customHooks/useAuthContext"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { login } from "./authRequests"
-import { axios_ } from "../api"
+import useGoogleSSO from "../customHooks/useGoogleSSO"
 const LOGIN_URL = "/api/v1/authentication/login"
-const CLIENT_ID =
-  "348571079382-a0rf9alsfnhcbtoamc3m1ds31dj55ipp.apps.googleusercontent.com"
 
 const Login = () => {
   const { auth, setAuth } = useAuthContext()
@@ -47,24 +45,6 @@ const Login = () => {
       if (error.response.status == 403) setForbidden(true)
     }
   }
-
-  //oauth
-  // google.accounts.id.initialize({
-  //   client_id: CLIENT_ID,
-  //   callback: (response) => {
-  //     console.log(response)
-  //     axios_
-  //       .get(
-  //         `/api/v1/authentication/oauth-login?id_token=${response.credential}`
-  //       )
-  //       .then((response) => {
-  //         setAuth(response.data)
-  //         from
-  //           ? navigate(from, { replace: true })
-  //           : navigate("/", { replace: true })
-  //       })
-  //   },
-  // })
 
   return (
     <section id="login-form">
@@ -106,17 +86,17 @@ const OrBlock = () => {
   )
 }
 const SsoBlock = () => {
+  useGoogleSSO()
+  const ref = useRef()
+  useEffect(() => {
+    google.accounts.id.renderButton(
+      ref.current,
+      { theme: "outline", size: "large", width: "350" } // customization attributes
+    )
+  }, [])
   return (
     <>
-      <div
-        onClick={() => {
-          // google.accounts.id.prompt()
-        }}
-        className="sso-block"
-      >
-        <GoogleIcon></GoogleIcon>
-        <p>Sign in with Google</p>
-      </div>
+      <div ref={ref} className="sso-block "></div>
     </>
   )
 }

@@ -16,8 +16,8 @@ const TraySummary = ({ totalItemCost }) => {
   const { address } = useAddressStore()
   const { showIndicator } = OrderSuccessIndicatorStore()
   const axios = useTokenizedAxios()
-  const trayData = queryClient.getQueryData("tray")
 
+  const trayData = queryClient.getQueryData(["tray"])
   const orderGroups = trayData?.map((data) => ({
     vendorId: data.vendorName,
     orderItems: data.trayItems.reduce(
@@ -28,17 +28,18 @@ const TraySummary = ({ totalItemCost }) => {
 
   const placeOrder = useMutation({
     mutationFn: async () => {
-      axios.post("api/v1/orders", {
-        deliveryLocation: address,
-        orderGroupDtos: orderGroups,
-        creditCardPaymentDetails: ccDetails,
-      })
-    },
-    onSuccess: async () => {
-      axios.delete("/api/v1/tray").then(() => {
-        queryClient.invalidateQueries("tray")
-      })
-      showIndicator(true)
+      axios
+        .post("api/v1/orders", {
+          deliveryLocation: address,
+          orderGroupDtos: orderGroups,
+          creditCardPaymentDetails: ccDetails,
+        })
+        .then(() => {
+          axios.delete("/api/v1/tray").then(() => {
+            queryClient.invalidateQueries("tray")
+          })
+          showIndicator(true)
+        })
     },
     retry: 0,
   })

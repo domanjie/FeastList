@@ -11,6 +11,7 @@ import Payment from "../traySummary/TraySummaryM"
 import { useState } from "react"
 import OrderSuccessIndicator from "./OrderSuccessIndicator"
 import VendorGroup from "./TrayVendorGroup"
+import Spinner from "../spinner/Spinner"
 const Tray = () => {
   const axios = useTokenizedAxios()
   const queryClient = useQueryClient()
@@ -42,14 +43,6 @@ const Tray = () => {
       ?.reduce((total, currentItemPrice) => total + currentItemPrice, 0)
   }
   const totalItemCost = getTotalItemCost()
-
-  while (trayQuery.isLoading) {
-    return (
-      <>
-        <PageSpinner></PageSpinner>
-      </>
-    )
-  }
   return (
     <Page>
       <main id="tray">
@@ -62,7 +55,9 @@ const Tray = () => {
           <h2>Tray</h2>
         </header>
         <body className="tray-body">
-          {trayQuery?.data?.length ? (
+          {trayQuery.isLoading ? (
+            <PageSpinner></PageSpinner>
+          ) : trayQuery?.data.length ? (
             <>
               <section className="tray-body-section">
                 <button
@@ -112,7 +107,3 @@ const Tray = () => {
   )
 }
 export default Tray
-
-// export const clearTray = async () => {
-//   return
-// }
