@@ -11,10 +11,9 @@ const SideMenu = () => {
         <p>domanjie@gmail.com</p>
       </header>
       <ul>
-        <li>Order history</li>
-        <li>help and feedback?</li>
-        <li>about</li>
         <li>update account info</li>
+        <li>about</li>
+        <li>help and feedback?</li>
         <li>logout</li>
       </ul>
       <button className="info-button">

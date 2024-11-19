@@ -10,26 +10,25 @@ import { Page } from "../page/Page"
 import Search from "../search/Search"
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [foodCardData, setFoodCardData] = useState([])
   const axios = useTokenizedAxios()
   useEffect(() => {
     axios.get("/api/v1/meals").then((response) => {
-      console.log(response.data)
       setFoodCardData(response.data)
     })
   }, [])
   return (
     <Page>
       <main id="home">
-        {isOpen && (
-          <Modal setIsOpen={setIsOpen}>
+        {isMenuOpen && (
+          <Modal setIsOpen={setIsMenuOpen}>
             <SideMenu />
           </Modal>
         )}
 
         <header className="home-header">
-          <button className="menu-button" onClick={() => setIsOpen(true)}>
+          <button className="menu-button" onClick={() => setIsMenuOpen(true)}>
             <MenuIcon />
           </button>
           <FeastListLogo className="feast-list-logo" />

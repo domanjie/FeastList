@@ -13,3 +13,9 @@ export const useDeliveryCostStore = create((set, get) => ({
   getTotalDeliveryCost: () =>
     Object.values(get().totalDeliveryCost).reduce((acc, curr) => acc + curr, 0),
 }))
+export const usePaymentDetailStore = create((set) => ({
+  ccDetails: null,
+  setCCDetails: (ccDetails) => {
+    set((state) => ({ ccDetails: ccDetails }))
+  },
+}))

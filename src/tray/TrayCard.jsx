@@ -31,6 +31,12 @@ const TrayCard = ({
       })
     },
   })
+  const handleDecrease = () => {
+    changeItemAmount.mutate({ mealId: id, amount: --amount })
+  }
+  const handleIncrease = () => {
+    changeItemAmount.mutate({ mealId: id, amount: ++amount })
+  }
   return (
     <section
       key={id}
@@ -41,26 +47,13 @@ const TrayCard = ({
         <div>
           <p className="main-font-light">{mealName}</p>
           <p className="main-font-heavy">${price}</p>
-          <div className="amount-editor-div">
-            <button
-              onClick={() => {
-                changeItemAmount.mutate({ mealId: id, amount: --amount })
-              }}
-              className="minus-button"
-            >
-              <MinusIcon></MinusIcon>
-            </button>
-            <p style={{ color: "var(--primary--300)" }}>{amount}</p>
-
-            <button
-              onClick={() => {
-                changeItemAmount.mutate({ mealId: id, amount: ++amount })
-              }}
-              className="plus-button"
-            >
-              <PlusIcon></PlusIcon>
-            </button>
-          </div>
+          <section className=" amount-editor-section">
+            <AmountEditor
+              handleDecrease={handleDecrease}
+              handleIncrease={handleIncrease}
+              amount={amount}
+            ></AmountEditor>
+          </section>
         </div>
         <button
           className="tray-card-remove-btn"
@@ -75,3 +68,18 @@ const TrayCard = ({
   )
 }
 export default TrayCard
+
+export const AmountEditor = ({ handleIncrease, handleDecrease, amount }) => {
+  return (
+    <div className="amount-editor">
+      <button onClick={handleDecrease} className="minus-button">
+        <MinusIcon></MinusIcon>
+      </button>
+      <p style={{ color: "var(--primary--300)" }}>{amount}</p>
+
+      <button onClick={handleIncrease} className="plus-button">
+        <PlusIcon></PlusIcon>
+      </button>
+    </div>
+  )
+}

@@ -1,10 +1,9 @@
-import "./TraySummary.css"
 import SubPage from "../subpage/SubPage"
 import TraySummary from "./TraySummary"
-const TraySummaryM = () => {
+const TraySummaryM = ({ totalItemCost }) => {
   return (
     <SubPage>
-      <TraySummary />
+      <TraySummary totalItemCost={totalItemCost} />
     </SubPage>
   )
 }

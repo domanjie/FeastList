@@ -13,6 +13,7 @@ import {
 } from "./pages"
 import { Routes, Route } from "react-router-dom"
 import Spinner from "./spinner/Spinner"
+import OrderSuccessIndicator from "./tray/OrderSuccessIndicator"
 function App() {
   return (
     <>
@@ -21,11 +22,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUP />} />
         <Route element={<AuthRequired />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/tray" element={<Tray />} />
-          <Route path="/vendors" element={<VendorPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/orders" element={<OrderPage />} />
+          <Route element={<OrderSuccessIndicator></OrderSuccessIndicator>}>
+            <Route path="/tray" element={<Tray />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/vendors" element={<VendorPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/orders" element={<OrderPage />} />
+          </Route>
         </Route>
         <Route path="/*" element={<NotFoundPage />}></Route>
       </Routes>

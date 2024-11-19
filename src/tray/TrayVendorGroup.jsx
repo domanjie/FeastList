@@ -19,20 +19,13 @@ const TVGFrame = ({ vendorName, vendorAvatar }) => {
   const { addDeliveryCost } = useDeliveryCostStore()
   const { address } = useAddressStore()
   const axios = useTokenizedAxios()
-  const queryFn = async () => {
-    const response = await axios.get("api/v1/delivery/cost", {
-      params: {
-        address: address,
-        vendorName: vendorName,
-      },
-    })
-    return response.data
-  }
+  const params = { address, vendorName }
   const deliveryFeeQuery = useQuery({
     queryKey: [address],
-    queryFn: queryFn,
+    queryFn: () => deliverCostQueryFn(axios, params),
   })
-  const deliveryCost = deliveryFeeQuery?.data
+
+  const deliveryCost = deliveryFeeQuery.data
   useEffect(() => {
     addDeliveryCost(vendorName, deliveryCost)
   }, [deliveryCost])
@@ -61,3 +54,10 @@ const TVGFrame = ({ vendorName, vendorAvatar }) => {
 }
 
 export default TrayVendorGroup
+
+export const deliverCostQueryFn = async (axios, params) => {
+  const response = await axios.get("api/v1/delivery/cost", {
+    params,
+  })
+  return response.data
+}

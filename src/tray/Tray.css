@@ -23,7 +23,11 @@
   flex-grow: 1;
   padding: 10px;
 }
-.amount-editor-div {
+.amount-editor-section {
+  margin-top: 16px;
+}
+
+.amount-editor {
   display: flex;
   align-items: center;
   column-gap: 16px;
@@ -88,7 +92,7 @@
 .tray-card-remove-btn:hover {
   background-color: #f6f6f6;
 }
-.tray-card-div div:first-child {
+.tray-card-div > div:first-child {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -131,9 +135,6 @@ section:has(.emptyTrayIco) h2 {
 .tray-body-summary {
   display: none;
 }
-.amount-editor-div {
-  margin-top: 16px;
-}
 .TVGFrame {
   display: flex;
   align-items: center;
@@ -148,7 +149,7 @@ section:has(.emptyTrayIco) h2 {
 }
 
 @media (min-width: 576px) {
-  .amount-editor-div {
+  .amount-editor-section {
     margin-top: 32px;
   }
 }

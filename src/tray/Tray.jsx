@@ -7,11 +7,10 @@ import emptyTrayIco from "./food-tray_5275832.png"
 import { Page } from "../page/Page"
 import TraySummary from "../traySummary/TraySummary"
 import Modal from "../modal/Modal"
-import Payment from "../traySummary/TraySummaryM"
+import TraySummaryM from "../traySummary/TraySummaryM"
 import { useState } from "react"
 import OrderSuccessIndicator from "./OrderSuccessIndicator"
 import VendorGroup from "./TrayVendorGroup"
-import Spinner from "../spinner/Spinner"
 const Tray = () => {
   const axios = useTokenizedAxios()
   const queryClient = useQueryClient()
@@ -48,7 +47,7 @@ const Tray = () => {
       <main id="tray">
         {isOpen && (
           <Modal setIsOpen={setIsOpen}>
-            <Payment></Payment>
+            <TraySummaryM totalItemCost={totalItemCost}></TraySummaryM>
           </Modal>
         )}
         <header className="tray-header">
@@ -87,7 +86,7 @@ const Tray = () => {
                 </div>
               </section>
               <div className="tray-body-summary">
-                <TraySummary totalItemCost={getTotalItemCost()}></TraySummary>
+                <TraySummary totalItemCost={totalItemCost}></TraySummary>
               </div>
             </>
           ) : (
@@ -98,7 +97,6 @@ const Tray = () => {
             </section>
           )}
         </body>
-        <OrderSuccessIndicator></OrderSuccessIndicator>
         <footer>
           <BottomTabBar trayInd={true}></BottomTabBar>
         </footer>
