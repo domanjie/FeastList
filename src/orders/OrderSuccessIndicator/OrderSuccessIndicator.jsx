@@ -1,6 +1,6 @@
 import "./OrderSuccessIndicator.css"
 import { create } from "zustand"
-import { Cancel } from "../infra/icons"
+import { Cancel } from "../../infra/icons"
 import { Link, Outlet } from "react-router-dom"
 import { useEffect, useRef } from "react"
 const OrderSuccessIndicator = () => {
@@ -41,7 +41,7 @@ const OrderSuccessIndicator = () => {
           </Link>
         </div>
         <button onClick={() => showIndicator(false)}>
-          <Cancel style={{ transform: "scale(1.3)" }}></Cancel>
+          <Cancel style={{ transform: "scale(1.3)", color: "white" }}></Cancel>
         </button>
       </div>
     </>

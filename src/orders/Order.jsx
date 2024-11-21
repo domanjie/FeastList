@@ -1,13 +1,11 @@
-import img1 from "../images/beans.jpg"
-import img2 from "../images/chicken.jpg"
-import img3 from "../images/meal2.jpg"
-import img4 from "../images/meal1.jpg"
 import { ChevronRight } from "../infra/icons"
 import ImageSlider from "./ImageSlider"
-import { useRef, useState } from "react"
+import { useState } from "react"
 const Order = ({ orderId, placedAt, orderVendorGroups }) => {
+  const [current, setCurrent] = useState(0)
+  const [intervalId, setIntervalId] = useState(0)
+  const [showDetails, setShowDetails] = useState(false)
   const datePlaced = new Date(placedAt)
-  console.log(datePlaced)
   const orderName = orderVendorGroups
     .flatMap((vendorGroup) =>
       vendorGroup.orderItems.map((item) => item.itemName)
@@ -22,10 +20,6 @@ const Order = ({ orderId, placedAt, orderVendorGroups }) => {
   const images = orderVendorGroups.flatMap((vendorGroup) =>
     vendorGroup.orderItems.map((item) => item.avatar_url)
   )
-  const [current, setCurrent] = useState(0)
-  const [intervalId, setIntervalId] = useState(0)
-  const [showDetails, setShowDetails] = useState(false)
-  const ref = useRef()
   const next = () => {
     setCurrent((current) => {
       if (current === images.length - 1) return 0
@@ -35,15 +29,19 @@ const Order = ({ orderId, placedAt, orderVendorGroups }) => {
   const handleMouseEnter = () => {
     clearInterval(intervalId)
     setIntervalId(setInterval(next, 2000))
-    ref.current.querySelector(".image-slider-btns").style.visibility = "visible"
   }
   const handleMouseLeave = () => {
     clearInterval(intervalId)
   }
+  const isSingleMeal = () => {
+    return (
+      orderVendorGroups.length === 1 &&
+      orderVendorGroups[0].orderItems.length === 1
+    )
+  }
   return (
     <div>
       <section
-        ref={ref}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className="order sub-font"
@@ -55,25 +53,44 @@ const Order = ({ orderId, placedAt, orderVendorGroups }) => {
         ></ImageSlider>
         <div className="order-div">
           <ul>
-            <li className="main-font-light">{orderName}</li>
+            <li className="main-font-light">
+              {orderName}{" "}
+              {isSingleMeal() && (
+                <span className="sub-font">
+                  {" "}
+                  {"x" + orderVendorGroups[0].orderItems[0].quantity}
+                </span>
+              )}
+            </li>
             <li className="main-font-heavy">{price}</li>
             <li>
               {datePlaced.getDate()}th{" "}
               {datePlaced.toLocaleString("default", { month: "short" })} . 4:30
               pm
             </li>
-            <li
-              className="order-h4"
-              onClick={() => {
-                setShowDetails(!showDetails)
-              }}
-            >
-              <ChevronRight className={showDetails && "rot-45"}></ChevronRight>
-              {showDetails ? "close details" : "view details"}
-            </li>
+
+            {isSingleMeal() ? (
+              <li>
+                {orderVendorGroups[0].vendorName} . deliveryFee: $
+                {orderVendorGroups[0].deliveryFee}
+              </li>
+            ) : (
+              <li
+                className="order-h4"
+                onClick={() => {
+                  setShowDetails(!showDetails)
+                }}
+              >
+                <ChevronRight
+                  className={showDetails && "rot-45"}
+                ></ChevronRight>
+                {showDetails ? "close details" : "view details"}
+              </li>
+            )}
           </ul>
         </div>
       </section>
+
       {showDetails && (
         <OrderDetail orderVendorGroups={orderVendorGroups}></OrderDetail>
       )}

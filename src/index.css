@@ -31,7 +31,6 @@
 .main-font-light,
 .main-font-heavy {
   color: var(--primary--400);
-  text-transform: capitalize;
 }
 .main-font-heavy {
   font-size: var(--large-text);

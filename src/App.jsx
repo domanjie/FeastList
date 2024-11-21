@@ -13,7 +13,7 @@ import {
 } from "./pages"
 import { Routes, Route } from "react-router-dom"
 import Spinner from "./spinner/Spinner"
-import OrderSuccessIndicator from "./tray/OrderSuccessIndicator"
+import OrderSuccessIndicator from "./orders/OrderSuccessIndicator/OrderSuccessIndicator"
 function App() {
   return (
     <>

@@ -9,7 +9,7 @@ import TraySummary from "../traySummary/TraySummary"
 import Modal from "../modal/Modal"
 import TraySummaryM from "../traySummary/TraySummaryM"
 import { useState } from "react"
-import OrderSuccessIndicator from "./OrderSuccessIndicator"
+import OrderSuccessIndicator from "../orders/OrderSuccessIndicator/OrderSuccessIndicator"
 import VendorGroup from "./TrayVendorGroup"
 const Tray = () => {
   const axios = useTokenizedAxios()

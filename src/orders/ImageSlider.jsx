@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Circle, CircleDot } from "../infra/icons"
-const AvatarSlider = ({ setCurrent, images, current }) => {
+const ImageSlider = ({ setCurrent, images, current }) => {
   return (
     <div className="image-slider">
       {images.map((src, index) => (
@@ -19,23 +19,24 @@ const AvatarSlider = ({ setCurrent, images, current }) => {
           alt=""
         />
       ))}
-
-      <div className="image-slider-btns">
-        {images.map((_, index) => (
-          <button
-            onClick={() => {
-              setCurrent(index)
-            }}
-            key={index}
-            style={{
-              padding: "1px",
-            }}
-          >
-            {index === current ? <CircleDot /> : <Circle />}
-          </button>
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="image-slider-btns">
+          {images.map((_, index) => (
+            <button
+              onClick={() => {
+                setCurrent(index)
+              }}
+              key={index}
+              style={{
+                padding: "1px",
+              }}
+            >
+              {index === current ? <CircleDot /> : <Circle />}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
-export default AvatarSlider
+export default ImageSlider

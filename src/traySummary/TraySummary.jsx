@@ -6,7 +6,7 @@ import {
 } from "../customHooks/store"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import useTokenizedAxios from "../customHooks/useTokenizedAxios"
-import { useOrderSuccessIndicator } from "../tray/OrderSuccessIndicator"
+import { useOrderSuccessIndicator } from "../orders/OrderSuccessIndicator/OrderSuccessIndicator"
 import AddressDetail from "./AddressDetail"
 import PaymentDetail from "./PaymentDetail"
 

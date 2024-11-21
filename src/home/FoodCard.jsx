@@ -10,7 +10,8 @@ import AddressDetail from "../traySummary/AddressDetail"
 import { AmountEditor } from "../tray/TrayCard"
 import { useAddressStore, usePaymentDetailStore } from "../customHooks/store"
 import { deliverCostQueryFn } from "../tray/TrayVendorGroup"
-import { useOrderSuccessIndicator } from "../tray/OrderSuccessIndicator"
+import { useOrderSuccessIndicator } from "../orders/OrderSuccessIndicator/OrderSuccessIndicator"
+import { Cancel } from "../infra/icons"
 const FoodCard = ({
   avatar_url,
   price,
@@ -141,9 +142,20 @@ const QuickPurchase = ({ meal_name, price, vendor_name, closeModal, id }) => {
     <section className="summary">
       <header
         className="summary-header"
-        style={{ display: "flex", alignItems: "baseline", columnGap: "4px" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
-        <h3>{meal_name}</h3> . <p className="sub-font">{vendor_name}</p>
+        <div
+          style={{ display: "flex", alignItems: "baseline", columnGap: "4px" }}
+        >
+          <h3>{meal_name}</h3> . <p className="sub-font">{vendor_name}</p>
+        </div>
+        <button onClick={closeModal}>
+          <Cancel style={{ color: "#000", transform: "scale(1.3)" }}></Cancel>
+        </button>
       </header>
       <body className="summary-body">
         <div className="summary-row summary-detail">
