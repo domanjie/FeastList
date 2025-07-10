@@ -26,10 +26,10 @@
   object-position: 50% 50%;
 }
 .food-card-section {
-  padding-top: 12px;
+  padding-top: 6px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 div:has(> .food-card-restaurant-name) {
@@ -134,7 +134,9 @@ div:has(> .food-card-restaurant-name) {
     display: none;
   }
   .home-header {
-    height: 40px;
+    height: 50px;
+    width: 80%;
+    border-bottom: 1px solid var(--primary--200);
   }
 }
 @media (min-width: 1300px) {

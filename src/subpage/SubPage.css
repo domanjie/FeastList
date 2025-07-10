@@ -19,10 +19,6 @@
     position: static;
     min-width: 425px;
   }
-  .sub-page .summary {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
   .modal:has(.sub-page) {
     display: flex;
     align-items: center;

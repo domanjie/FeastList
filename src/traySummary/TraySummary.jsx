@@ -50,7 +50,7 @@ const TraySummary = ({ totalItemCost }) => {
       <header className="summary-header">
         <h3>summary</h3>
       </header>
-      <body className="summary-body">
+      <section className="summary-body">
         <div className="summary-row summary-detail">
           <p className="summary-row-p">Delivery Address</p>
           <AddressDetail />
@@ -61,20 +61,20 @@ const TraySummary = ({ totalItemCost }) => {
         </div>
         <div className="summary-row">
           <p className="summary-row-p">Total Item Fee :</p>
-          <span>${totalItemCost}</span>
+          <span>₦{totalItemCost}</span>
         </div>
         <div className="summary-row">
           <p className="summary-row-p">Delivery Fee :</p>
-          <span>{totalDeliveryCost ? `$${totalDeliveryCost}` : "--"}</span>
+          <span>{totalDeliveryCost ? `₦${totalDeliveryCost}` : "--"}</span>
         </div>
-      </body>
+      </section>
 
       <footer className="summary-footer">
         <div className="summary-row">
           <p className="summary-row-p">Total :</p>
           <span>
             {totalDeliveryCost && totalItemCost ? (
-              <>${totalItemCost + totalDeliveryCost}</>
+              <>₦{totalItemCost + totalDeliveryCost}</>
             ) : (
               "--"
             )}

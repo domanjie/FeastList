@@ -53,7 +53,7 @@ const Tray = () => {
         <header className="tray-header">
           <h2>Tray</h2>
         </header>
-        <body className="tray-body">
+        <section className="tray-body">
           {trayQuery.isLoading ? (
             <PageSpinner></PageSpinner>
           ) : trayQuery?.data.length ? (
@@ -96,7 +96,7 @@ const Tray = () => {
               <p>Meals added to Tray will appear here</p>
             </section>
           )}
-        </body>
+        </section>
         <footer>
           <BottomTabBar trayInd={true}></BottomTabBar>
         </footer>

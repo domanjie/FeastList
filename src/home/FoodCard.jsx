@@ -89,7 +89,9 @@ const FoodCard = ({
         </div>
         <section className="food-card-section">
           <p className="main-font-light">{meal_name}</p>
-          <p className="main-font-heavy">${price}</p>
+          <p className="main-font-heavy" style={{ marginTop: "-4px" }}>
+            ₦{price}
+          </p>
           <div>
             <img className="profile-ico-small" src={vendor_avatar_url} alt="" />{" "}
             <p className="food-card-restaurant-name sub-font">{vendor_name}</p>

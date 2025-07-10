@@ -44,8 +44,8 @@
 }
 .clear-tray-btn,
 .checkout-btn {
-  width: 136px;
   height: 48px;
+  aspect-ratio: 14/5;
   border-radius: 10px;
   transition: all ease-in-out 0.2s;
 }
@@ -159,13 +159,16 @@ section:has(.emptyTrayIco) h2 {
   }
   .tray-body-section {
     width: 60%;
-    padding-top: 50px;
+    padding-top: 70px;
   }
   .tray-body-summary {
     display: block;
     width: 40%;
     border-left: 1px solid var(--primary--200);
     padding: 0px 15px;
+    padding-top: 70px;
+    position: sticky;
+    top: 0px;
     overflow-y: scroll;
     height: 100vh;
   }
@@ -177,10 +180,22 @@ section:has(.emptyTrayIco) h2 {
   }
   .clear-tray-btn {
     top: 4px;
+    right: 5%;
+    position: fixed;
+    height: 38px;
+    z-index: 1001;
   }
   .tray-body-section-div > .checkout-btn,
-  .tray-body-section-div > div,
-  .tray-header {
+  .tray-body-section-div > div {
     display: none;
+  }
+  .tray-header {
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    height: 50px;
+    width: 80%;
+    border-bottom: 1px solid var(--primary--200);
+    background-color: var(--primary--500);
   }
 }

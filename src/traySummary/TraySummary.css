@@ -4,7 +4,7 @@
   justify-content: space-between;
 }
 .summary-row-p {
-  color: var(--primary--300);
+  color: var(--primary--400);
 }
 .summary .checkout-btn {
   width: 100%;
@@ -12,7 +12,7 @@
 }
 .summary .checkout-btn:disabled {
   background: white;
-  color: gray;
+  color: var(--primary--300);
   cursor: default;
   opacity: 0.4;
   border-color: gray;
@@ -97,8 +97,6 @@
   .summary {
     height: fit-content;
     max-width: 405px;
-    margin-top: 44px;
-    margin-bottom: 52px;
   }
   .summary-header {
     border-bottom: 1px solid var(--primary--200);

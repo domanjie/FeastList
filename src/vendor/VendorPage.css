@@ -11,7 +11,8 @@
   min-width: 160px;
 }
 .profile-card-div {
-  padding-left: 5px;
+  padding-left: 7px;
+  padding-top: 6px;
 }
 .profile-card-section {
   display: flex;
@@ -77,7 +78,9 @@
 }
 @media (min-width: 992px) {
   .vendorPage-header {
-    height: 40px;
+    height: 50px;
+    width: 80%;
+    border-bottom: 1px solid var(--primary--200);
   }
   .profile-card {
     width: 230px;
@@ -87,7 +90,7 @@
     height: 300px;
   }
   .profile-card-section {
-    gap: 30px;
+    gap: 50px;
   }
 }
 @media (min-width: 1300px) {

@@ -46,7 +46,7 @@ const TrayCard = ({
       <div className="tray-card-div  ">
         <div>
           <p className="main-font-light">{mealName}</p>
-          <p className="main-font-heavy">${price}</p>
+          <p className="main-font-heavy">₦{price}</p>
           <section className=" amount-editor-section">
             <AmountEditor
               handleDecrease={handleDecrease}

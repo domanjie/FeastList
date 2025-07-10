@@ -54,29 +54,30 @@ const Order = ({ orderId, placedAt, orderVendorGroups }) => {
         <div className="order-div">
           <ul>
             <li className="main-font-light">
-              {orderName}{" "}
+              {orderName}
               {isSingleMeal() && (
-                <span className="sub-font">
-                  {" "}
+                <span style={{ marginLeft: "8px" }} className="sub-font">
                   {"x" + orderVendorGroups[0].orderItems[0].quantity}
                 </span>
               )}
             </li>
-            <li className="main-font-heavy">{price}</li>
-            <li>
+            <li className="main-font-heavy">₦{price}</li>
+
+            {isSingleMeal() && (
+              <li className="sub-d">
+                {orderVendorGroups[0].vendorName} . deliveryFee: $
+                {orderVendorGroups[0].deliveryFee}
+              </li>
+            )}
+            <li className="sub-d">
               {datePlaced.getDate()}th{" "}
               {datePlaced.toLocaleString("default", { month: "short" })} . 4:30
               pm
             </li>
 
-            {isSingleMeal() ? (
-              <li>
-                {orderVendorGroups[0].vendorName} . deliveryFee: $
-                {orderVendorGroups[0].deliveryFee}
-              </li>
-            ) : (
+            {!isSingleMeal() && (
               <li
-                className="order-h4"
+                className="more-btn"
                 onClick={() => {
                   setShowDetails(!showDetails)
                 }}

@@ -6,7 +6,7 @@ const ProfileCard = ({ vendor }) => {
     <div className="profile-card">
       <img src={avatar} alt="" />
       <div className="profile-card-div">
-        <p>{name}</p>
+        <p className="main-font-heavy">{name}</p>
         <button className={isFollowing ? "following" : "follow"}>
           {isFollowing ? (
             <>following</>

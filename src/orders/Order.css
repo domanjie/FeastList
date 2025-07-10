@@ -1,49 +1,58 @@
 .header {
+  position: fixed;
+  top: 0px;
   display: flex;
+  width: 100%;
   justify-content: space-between;
+  background-color: var(--primary--500);
   padding: 5px var(--padding-from-screen-width);
+  z-index: 100;
 }
 .order {
   display: flex;
   margin: 24px 10px;
   margin-right: 5px;
   column-gap: 3px;
-  align-items: center;
 }
 .order-div > ul {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  height: 100%;
+  gap: 4px;
 }
 .order-div {
+  justify-content: flex-start;
+  padding: 6px;
   padding-left: 10px;
 }
+:nth-child(1 of .sub-d) {
+  margin-top: 16px;
+}
 
-.order-h4 {
+.more-btn {
   display: flex;
   align-items: center;
   column-gap: 5px;
   cursor: pointer;
+  margin-top: auto;
 }
-.order-h4 svg {
+.more-btn svg {
   height: 12px;
   transition: all 0.2s ease-in-out;
 }
-.order-h4:hover {
+.more-btn:hover {
   text-decoration: underline;
 }
+
 .rot-45 {
   transform: rotate(90deg);
 }
 .green-text {
   color: green;
 }
-.order-page-btns {
-  padding-top: 15px;
-  padding-bottom: 5px;
-}
+
 .order-page-btns button {
-  height: 33px;
+  height: 30px;
   border: 1px solid #d9d9d9;
   color: #d9d9d9;
   font-size: 16px;
@@ -57,6 +66,7 @@
   border: none;
 }
 .order-page-body {
+  margin-top: 56px;
   max-width: 540px;
   padding: 0px var(--padding-from-screen-width);
   padding-bottom: 60px;
@@ -118,5 +128,17 @@
 @media (min-width: 576px) {
   .order-detail-item img {
     max-width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .order-page-body {
+    margin-top: 70px;
+  }
+  .header {
+    width: 80%;
+    height: 50px;
+    border-bottom: 1px solid var(--primary--200);
+    background-color: var(--primary--500);
+    align-items: center;
   }
 }

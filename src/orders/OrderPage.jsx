@@ -19,12 +19,12 @@ const OrderPage = () => {
       <main className="order-page">
         <header className="header">
           <h2>Orders</h2>
-        </header>
-        <section className="order-page-body">
           <div className="order-page-btns">
             <button className="order-page-btn-active">pending</button>
             <button>order history</button>
           </div>
+        </header>
+        <section className="order-page-body">
           {orderQuery.data?.map((order) => (
             <Order key={order.orderId} {...order}></Order>
           ))}
